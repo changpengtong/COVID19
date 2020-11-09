@@ -1,0 +1,22 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "vuejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "author": "wrf",
+  "license": "MIT",
+  "devDependencies": {
+    "npm-watch": "^0.1.8",
+    "react-scripts": "0.9.5"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "serve": "^11.3.2",
+    "vue": "^2.6.11"
+  }
+}
