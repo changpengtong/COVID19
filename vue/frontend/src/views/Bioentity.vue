@@ -16,7 +16,7 @@
                     <div class="display-visual">
                         <institution-list class="up" :institution="institution" v-loading="loading"></institution-list>
                     </div>
-                    <word-cloud :wordcloud="wordcloud" v-loading="loading"></word-cloud>
+<!--                    <word-cloud :wordcloud="wordcloud" v-loading="loading"></word-cloud>-->
                     <trend-linefold :linefold="linefold" v-loading="loading"></trend-linefold>
                     <br/>
                     <co-author :coauthor="coauthor" :flag="flag" v-loading="loading"></co-author>
@@ -32,7 +32,7 @@
     import CoAuthors from "../components/general/coauthor";
     import EntityLinefold from "../components/general/linefold";
     import institutionList from "../components/general/institutionList";
-    import wordcloud from "../components/general/wordcloud";
+    // import wordcloud from "../components/general/wordcloud";
     import $axios from "./../util/axios"
     export default {
         components: {
@@ -41,7 +41,7 @@
             "co-author": CoAuthors,
             "institution-list": institutionList,
             "trend-linefold":EntityLinefold,
-            "word-cloud": wordcloud,
+            // "word-cloud": wordcloud,
         },
         data() {
           return {
@@ -49,7 +49,7 @@
               linefold:[],
               coauthor:[],
               institution:[],
-              wordcloud:[],
+              // wordcloud:[],
               flag:"",
               name:"",
               loading:true
@@ -69,7 +69,7 @@
                     this.linefold = d["bar"]
                     this.coauthor = d["coauthor"]
                     this.institution = d["institution"]
-                    this.wordcloud = d["wordcloud"]
+                    // this.wordcloud = d["wordcloud"]
                   //  this.paper = d
                     this.flag = "bio"
                     this.loading = false
