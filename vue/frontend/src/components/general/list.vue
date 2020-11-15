@@ -113,19 +113,28 @@
             get_data() {
                     let i=1;
                     for(let key in this.d) {
-                        let temp=this.d[key]
-                        if (this.d[key]!=null){
-                            temp = this.d[key]
-                        }
+                      let temp = this.d[key]
+                      if (this.d[key] != null) {
+                        temp = this.d[key]
+                      }
 
-                        let mention = []
-                        for(let i=0;i<temp.length;i++) {
-             //               if (true){
-                                mention.push({'entity':{name:temp[i]['Mention'],
-                                            'url':"/#/bioentity/"+temp[i]['Mention']},
-                                    'num':temp[i]['occurences']})
+                      let mention = []
+
+                      if (temp!==null) {
+                        for (let i = 0; i < temp.length; i++) {
+                          //               if (true){
+                          mention.push({
+                            'entity': {
+                              name: temp[i]['Mention'],
+                              'url': "/#/bioentity/" + temp[i]['Mention']
+                            },
+                            'num': temp[i]['occurences']
+                          })
 //                            }
                         }
+                      }
+
+
                         console.log(mention)
                         if(i===1) {
                             this.tab1 = mention

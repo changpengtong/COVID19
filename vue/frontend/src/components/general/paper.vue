@@ -23,7 +23,7 @@
                         <template slot-scope="scope">
                             <div v-for="(item,index) in scope.row.article" :key="index"  style="margin-left: 1rem">
                                 <span v-if="index==='title'" style="font-size: large">
-                                    <a href="https://www.google.com/">
+                                    <a :href="scope.row.article.url">
                                     {{item}}
                                     </a>
                                 </span>
@@ -209,7 +209,7 @@
                     article["title"] = this.d[i]["ArticleTitle"]
                     article["author"] = this.d[i]["Authors"]
                     article["journal"] = this.d[i]["Journal_Title"]
-                    article["url"] = ""
+                    article["url"] = this.d[i]["url"]
                     t.push({"article":article,"year":this.d[i]["PubYear"]})
                 }
                 this.tableData = t

@@ -50,6 +50,7 @@ func BioentityArticles(keyword string) interface{} {
 	//	"WHERE MATCH(a4.AbstractText) AGAINST ('" + keyword + "') ORDER BY d2.PubYear DESC")
 	//return GenerateSQL("SELECT authors as Authors, title as ArticleTitle, journal as Journal_Title SUBSTRING(publish_time,1,4) as PubYear FROM KaggleAllPaperDetails WHERE pubmed_id IN (SELECT DISTINCT PMID FROM entities_revised_finalTSV WHERE entity LIKE '%" + keyword + "%' AND (title != '' OR title is not null) ORDER BY PubYear DESC")
 	return GenerateSQL("SELECT authors as Authors, title as ArticleTitle, journal as Journal_Title, SUBSTRING(publish_time,1,4) as PubYear FROM KaggleAllPaperDetails WHERE pubmed_id IN (SELECT DISTINCT PMID FROM entities_revised_finalTSV WHERE entity LIKE '%" + keyword + "%') AND (title != '' OR title is not null) ORDER BY PubYear DESC")
+
 }
 
 func BioentityInstitutions(keyword string) interface{} {
@@ -87,7 +88,7 @@ func InstitutionTotalData(keyword string) map[string]interface{} {
 	institution["bar"] = InstitutionBarGraphPapersByYear(keyword)
 	institution["articles"] = InstitutionPapers(keyword)
 	institution["coauthor"] = InstitutionAuthors(keyword)
-	institution["wordcloud"] = InstitutionWordCloud()
+	institution["wordcloud"] = InstitutionWordCloud(keyword)
 	return institution
 }
 
@@ -139,11 +140,14 @@ func InstitutionAuthors(keyword string) interface{} {
 	//	"LIKE '%" + keyword + "%' AND a2.AID is not null AND a2.AID !=0 ORDER BY NumberofPapers DESC")
 }
 
-func InstitutionWordCloud() map[string]interface{} {
+func InstitutionWordCloud(keyword string) map[string]interface{} {
 	res := make(map[string]interface{})
-	disease := GenerateSQL("SELECT Mention, occurences FROM Pubmed20_C04.MsuDiseaseCount ORDER BY occurences DESC;")
-	drug := GenerateSQL("SELECT Mention, occurences FROM Pubmed20_C04.MsuDrugCount ORDER BY occurences DESC;")
-	gene := GenerateSQL("SELECT Mention, occurences FROM Pubmed20_C04.MsuGeneCount ORDER BY occurences DESC;")
+	//disease := GenerateSQL("SELECT Mention, occurences FROM Pubmed20_C04.MsuDiseaseCount ORDER BY occurences DESC;")
+	disease := GenerateSQL("SELECT entity_list as Mention, count(DISTINCT pmid) as occurences FROM disease1TSV\n    WHERE pmid IN (SELECT pubmed_id FROM KaggleAllPaperDetails WHERE title IN (\n        SELECT paperTitle FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%" + keyword + "%' AND (title != '' OR title is not null)\n        ))\n    GROUP BY Mention ORDER BY occurences DESC;")
+	//drug := GenerateSQL("SELECT Mention, occurences FROM Pubmed20_C04.MsuDrugCount ORDER BY occurences DESC;")
+	drug := GenerateSQL("SELECT entity_list as Mention, count(DISTINCT pmid) as occurences FROM chemical_v2TSV\n    WHERE pmid IN (SELECT pubmed_id FROM KaggleAllPaperDetails WHERE title IN (\n        SELECT paperTitle FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%" + keyword + "%' AND (title != '' OR title is not null)\n        ))\n    GROUP BY Mention ORDER BY occurences DESC;")
+	//gene := GenerateSQL("SELECT Mention, occurences FROM Pubmed20_C04.MsuGeneCount ORDER BY occurences DESC;")
+	gene := GenerateSQL("SELECT entity_list as Mention, count(DISTINCT pmid) as occurences FROM gene1TSV\n    WHERE pmid IN (SELECT pubmed_id FROM KaggleAllPaperDetails WHERE title IN (\n        SELECT paperTitle FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%" + keyword + "%' AND (title != '' OR title is not null)\n        ))\n   GROUP BY Mention ORDER BY occurences DESC;")
 	res["disease"] = disease
 	res["drug"] = drug
 	res["gene"] = gene

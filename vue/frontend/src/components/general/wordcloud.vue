@@ -28,9 +28,11 @@
                 this.draw_wordcloud(id,this.k);
             },
             draw_wordcloud(id,data) {
-                let chart = document.getElementById(id);
+              let chart = document.getElementById(id);
                 let myChart = echarts.init(chart);
-                // let d=[]
+
+
+              // let d=[]
                // console.log(data)
                 let d = []
                 let index=0
@@ -46,7 +48,7 @@
                         for(let i=0;i<data.length;i++) {
                             var t={}
                             let j=Math.floor(Math.random()*10)
-                            console.log(data[i]['Mention']+","+data[i]['occurences'])
+                            // console.log(data[i]['Mention']+","+data[i]['occurences'])
                             t['name'] = data[i]['Mention']
                             t['value'] = data[i]['occurences'];
                             t['textStyle'] = {
@@ -64,21 +66,24 @@
                     }
                     else {
                         //type.push(key)
+                      if (tempData!=null){
                         for (let i = 0; i < tempData.length; i++) {
-                            var map = {}
-                            map['name'] = tempData[i]['Mention']
-                            map['value'] = tempData[i]['occurences']
-                            map['textStyle'] = {
-                                normal: {
-                                    color: color[index]
-                                },
-                                emphasis: {
-                                    shadowBlur: 10,
-                                    shadowColor: '#999'
-                                }
+                          var map = {}
+                          map['name'] = tempData[i]['Mention']
+                          map['value'] = tempData[i]['occurences']
+                          map['textStyle'] = {
+                            normal: {
+                              color: color[index]
+                            },
+                            emphasis: {
+                              shadowBlur: 10,
+                              shadowColor: '#999'
                             }
-                            d.push(map)
+                          }
+                          d.push(map)
                         }
+                      }
+
                         index++;
                     }
 
@@ -98,32 +103,33 @@
                     series: [{
                         left: 'center',
                         top: 'center',
-                        width: '70%',
-                        height: '80%',
+                        width: '90%',
+                        height: '90%',
                         right: null,
                         bottom: null,
                         name: 'wordcloud',
                         type: 'wordCloud',
                         // size: ['90%', '90%'],
+                      sizeRange: [15, 40],
                         textRotation : [-90, 90],
                         rotationStep: 30,
-                        gridSize: 12,
-                        shape: 'circle',
-                        //  drawOutOfBound:true,
+                        gridSize: 3,
+                        shape: 'square',
+                        drawOutOfBound: false,
                         textStyle: {
                             normal:{
                                 fontWeight: 'bold',
                             },
                             emphasis:{
                                 fontWeight:'bolder',
-                                fontSize:30,
+                                fontSize:40,
                                 shadowBlur:55,
                                 shadowColor:'#999'
                             }
                         },
                         autoSize: {
                             enable: true,
-                            minSize: 8
+                            minSize: 5
                         },
                         data: d
                     }],
