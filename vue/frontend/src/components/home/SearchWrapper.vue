@@ -28,6 +28,31 @@
       </span>
             </div>
           </el-tab-pane>
+<!--      Bioentity -->
+      <el-tab-pane label="BIOENTITY" name="third">
+        <search-box3 class="center search-box3" ></search-box3>
+        <div class="suggestion">
+          <span class="title">try:</span>
+          <span class="content">
+        <div v-for="(suggestion, index) in search_suggestion3" :key="index">
+          <router-link :to="{name:'bioentity', params: { id: suggestion }}" tag="a">{{suggestion}}</router-link>
+        </div>
+      </span>
+        </div>
+      </el-tab-pane>
+          <!--      Author -->
+          <el-tab-pane label="AUTHOR" name="fourth">
+            <search-box4 class="center search-box4" ></search-box4>
+            <div class="suggestion">
+              <span class="title">try:</span>
+              <span class="content">
+        <div v-for="(suggestion, index) in search_suggestion4" :key="index">
+          <router-link :to="{name:'author', params: { id: suggestion }}" tag="a">{{suggestion}}</router-link>
+        </div>
+      </span>
+            </div>
+          </el-tab-pane>
+
         </el-tabs>
 
     </div>
@@ -36,11 +61,17 @@
 <script>
     import SearchBox from "./../common/SearchBox.vue"
    import SearchBox2 from "./../common/SearchBox2.vue"
-  //  import SearchBox3 from "./../common/SearchBox3.vue"
+    import SearchBox3 from "./../common/SearchBox3.vue"
+    import SearchBox4 from "./../common/SearchBox4.vue"
+
+    //  import SearchBox3 from "./../common/SearchBox3.vue"
     export default {
         components: {
             "search-box": SearchBox,
-          "search-box2": SearchBox2
+          "search-box2": SearchBox2,
+          "search-box3": SearchBox3,
+          "search-box4": SearchBox4
+
           //  "search-box2": SearchBox2,
           //  "search-box3": SearchBox3
         },
@@ -48,7 +79,8 @@
             return {
                 search_suggestion1: ["CoronaVirus","2020","pneumonia"],
               search_suggestion2: ["The University of Texas at Austin", "Michigan State University"],
-
+              search_suggestion3: ["SARS-CoV-2", "ACE2"],
+              search_suggestion4: ["Jason S. McLellan"],
               activeName: 'first'
             }
         },

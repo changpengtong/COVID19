@@ -82,9 +82,16 @@
             get_data() {
                 let t=[]
                 for(let i=0;i<this.d.length;i++) {
-                    t.push({'name':this.d[i]["ForeName"]+" "+this.d[i]["LastName"],
-                        'work':this.d[i]["Affiliation"],
-                        'url':"/#/author/"+this.d[i]["AID"]})
+
+                    // Do stuff
+    if (typeof this.d[i]["Location"]!='undefined') {
+    t.push({
+    'name': this.d[i]["ForeName"] + " " + this.d[i]["LastName"],
+    'work': this.d[i]["Affiliation"] + " " + this.d[i]["Location"],
+    'url': "/#/author/" + this.d[i]["AID"]
+  })
+}
+
 
                 }
                 this.coauthors = t

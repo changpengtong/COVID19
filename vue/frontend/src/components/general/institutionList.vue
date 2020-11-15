@@ -63,10 +63,15 @@
                // let d=[]
                 let t=[]
                     for(let i=0;i<this.d.length;i++) {
-                        t.push({'ins':{'name':this.d[i]["Affiliation"],
-                            'url':"/#/institution/"+this.d[i]["Affiliation"]},
-                            'num': this.d[i]['NumberOfPapers'],
-                            })
+                      if (this.d[i]["Affiliation"]!=null) {
+                        t.push({
+                          'ins': {
+                            'name': this.d[i]["Affiliation"],
+                            'url': "/#/institution/" + this.d[i]["Affiliation"]
+                          },
+                          'num': this.d[i]['NumberOfPapers'],
+                        })
+                      }
                     }
                     this.tableData = t
                     console.log(this.tableData)

@@ -28,7 +28,7 @@
             return {
                 tableData: {
                     type:'Gene',
-                    bioentity: 'ACE2',
+                    bioentity: '',
                 }
             }
         },

@@ -15,25 +15,25 @@ export default {
   name: "SearchBox2",
   data() {
     return {
-      query: "",
+      query:"",
       placeholder: "Whatever comes to your mind"
     }
   },
   methods: {
     // 发送检索请求
     search() {
+
       this.$router.push("path").catch(error => {
         if (error.name != "NavigationDuplicated") {
           throw error;
         }
       });
-      this.$router.push(
-          { name: 'institution', params: { id: this.$route.params.id }}
-      //     {
-      //   // path: "/institution:id",
-      //   name:"institution",
-      //   params:this.$route.params.id,
-      //   // name : this.$route.params.id,
+      // window.location.href = `/institution/${this.params} `;
+      // this.$router.replace({
+      //   name: "institution", params: {id:this.$route.params.id }});
+      this.$router.replace(
+          { name: 'institution', params: { id: this.query}})
+
       //   //
       //   //   query: {
       //   //   // keyword: this.query
@@ -42,9 +42,10 @@ export default {
       //   // }
       //
       // }
-      );
+      // );
     }
-  }
+  },
+
 }
 </script>
 

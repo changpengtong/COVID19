@@ -66,7 +66,7 @@ func BioEntityAuthors(keyword string) interface{} {
 	//	"JOIN Pubmed20_C04.A02_AuthorList a2 ON a2.PMID = a4.PMID " +
 	//	"JOIN Pubmed20_C04.A13_AffiliationList a13 ON a2.PMID = a13.PMID " +
 	//	"WHERE MATCH(a4.AbstractText) AGAINST ('" + keyword + "') GROUP BY a2.PMID ORDER BY COUNT(a2.PMID) DESC ")
-	return GenerateSQL("SELECT DISTINCT     SUBSTRING_INDEX(SUBSTRING_INDEX(authorName, ' ', 1), ' ', -1) AS ForeName,   TRIM( SUBSTR(authorName, LOCATE(' ', authorName)) ) AS LastName,     authorAffiliation as Affiliation,   authorAffiliationLocation,       authorName as fullname FROM KaggleAllAuthors WHERE paperTitle IN   (SELECT title FROM KaggleAllPaperDetails WHERE pubmed_id IN       (SELECT DISTINCT PMID FROM entities_revised_finalTSV WHERE entity LIKE '%" + keyword + "%' )) ORDER BY LastName")
+	return GenerateSQL("SELECT DISTINCT SUBSTRING_INDEX(SUBSTRING_INDEX(authorName, ' ', 1), ' ', -1) AS ForeName,   TRIM( SUBSTR(authorName, LOCATE(' ', authorName)) ) AS LastName,     authorAffiliation as Affiliation,   authorAffiliationLocation as Location,       authorName as FullName FROM KaggleAllAuthors WHERE paperTitle IN   (SELECT title FROM KaggleAllPaperDetails WHERE pubmed_id IN       (SELECT DISTINCT PMID FROM entities_revised_finalTSV WHERE entity LIKE '%" + keyword + "%' ) ) ORDER BY LastName")
 }
 
 func BarGraphPapersByYear(keyword string) interface{} {
@@ -92,7 +92,8 @@ func InstitutionTotalData(keyword string) map[string]interface{} {
 }
 
 func InstitutionBarGraphPapersByYear(keyword string) interface{} {
-	return GenerateSQL("SELECT count(pubmed_id) as NumberOfPapers, SUBSTRING(publish_time,1,4) as PubYear FROM KaggleAllPaperDetails WHERE pubmed_id IN (SELECT DISTINCT PMID FROM entities_revised_finalTSV WHERE entity LIKE '%" + keyword + "%') AND (title != '' OR title is not null) GROUP BY PubYear DESC LIMIT 10")
+	//return GenerateSQL("SELECT count(pubmed_id) as NumberOfPapers, SUBSTRING(publish_time,1,4) as PubYear FROM KaggleAllPaperDetails WHERE pubmed_id IN (SELECT DISTINCT PMID FROM entities_revised_finalTSV WHERE entity LIKE '%" + keyword + "%') AND (title != '' OR title is not null) GROUP BY PubYear DESC LIMIT 10")
+	return GenerateSQL("SELECT count(id) as NumberOfPapers, SUBSTRING(publish_time,1,4) as PubYear FROM KaggleAllPaperDetails WHERE title IN (SELECT DISTINCT paperTitle FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%" + keyword + "%' AND (paperTitle != '' OR paperTitle is not null)) GROUP BY PubYear ORDER BY PubYear DESC LIMIT 10")
 	//return GenerateSQL("SELECT d2.PubYear,count(a13.PMID) as NumberOfPapers " +
 	//	"FROM Pubmed20_C04.A13_AffiliationList a13 " +
 	//	"JOIN Pubmed20_C04.A01_Articles a1 ON a13.PMID = a1.PMID " +
@@ -110,7 +111,8 @@ func InstitutionBarGraphPapersByYear(keyword string) interface{} {
 
 func InstitutionPapers(keyword string) interface{} {
 
-	return GenerateSQL("SELECT title as ArticleTitle, SUBSTRING(publish_time,1,4) as PubYear, authors as Authors, journal as Journal_Title, abstract as ArticalDate FROM KaggleAllPaperDetails WHERE (title is not null OR title != '' ) AND title IN (SELECT paperTitle FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%" + keyword + "%') ORDER BY PubYear DESC;")
+	//return GenerateSQL("SELECT count(id) as Number_of_Papers, SUBSTRING(publish_time,1,4) as PubYear\nFROM KaggleAllPaperDetails\nWHERE title IN (SELECT DISTINCT paperTitle FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%University of Texas%' AND (paperTitle != '' OR paperTitle is not null))\nGROUP BY PubYear")
+	return GenerateSQL("SELECT title as ArticleTitle, SUBSTRING(publish_time,1,4) as PubYear, authors as Authors, journal as Journal_Title, abstract, url FROM KaggleAllPaperDetails WHERE (title is not null OR title != '' ) AND title IN    (SELECT DISTINCT paperTitle FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%" + keyword + "%' AND (paperTitle != '' OR paperTitle is not null)) ORDER BY PubYear DESC;")
 
 	//return GenerateSQL("SELECT a1.ArticleTitle,a1.ArticalDate,a1.Journal_Title, d3.Authors, d2.PubYear " +
 	//	"FROM Pubmed20_C04.A13_AffiliationList a13 " +
@@ -126,7 +128,8 @@ func InstitutionPapers(keyword string) interface{} {
 //}
 
 func InstitutionAuthors(keyword string) interface{} {
-	return GenerateSQL("SELECT\n    SUBSTRING_INDEX(SUBSTRING_INDEX(authorName, ' ', 1), ' ', -1) AS ForeName,\n    TRIM( SUBSTR(authorName, LOCATE(' ', authorName)) ) AS LastName,\n       authorName,\n       authorEmail,\n       authorAffiliation as Affiliation,\n       authorAffiliationLocation\n    FROM KaggleAllAuthors\n    WHERE authorAffiliation LIKE '%" + keyword + "%'\n    ORDER BY LastName")
+	//return GenerateSQL("SELECT    SUBSTRING_INDEX(SUBSTRING_INDEX(authorName, ' ', 1), ' ', -1) AS ForeName,TRIM( SUBSTR(authorName, LOCATE(' ', authorName)) ) AS LastName, authorName  as FullName,   authorEmail,    authorAffiliation as Affiliation,   authorAffiliationLocation  FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%" + keyword + "%'ORDER BY LastName")
+	return GenerateSQL("SELECT    DISTINCT SUBSTRING_INDEX(SUBSTRING_INDEX(authorName, ' ', 1), ' ', -1) AS ForeName,\n     TRIM( SUBSTR(authorName, LOCATE(' ', authorName)) ) AS LastName,\n    authorName  as FullName,   authorAffiliation as Affiliation,\n       authorAffiliationLocation as Location\n   FROM KaggleAllAuthors\n    WHERE authorName is not null AND authorAffiliation LIKE '%" + keyword + "%'    ORDER BY LastName")
 	//return GenerateSQL("SELECT DISTINCT LastName, ForeName, Suffix, AID, Affiliation, " +
 	//	"(SELECT count(DISTINCT PMID) as NumberOfPapers FROM A02_AuthorList a1 " +
 	//	"WHERE Affiliation is not null AND Affiliation != '' AND Affiliation LIKE '%" + keyword + "%' " +
