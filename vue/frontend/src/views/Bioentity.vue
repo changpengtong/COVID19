@@ -52,6 +52,7 @@
               // wordcloud:[],
               flag:"",
               name:"",
+            type:[],
               loading:true
           }
         },
@@ -63,8 +64,9 @@
                 $axios.get("/displayBioentity/"+this.$route.params.id).then(response=>{
               //  $axios.get("/A01Paper/"+this.$route.params.id).then(response=>{
                     let d=response.data
-                    console.log(d)
+                    console.log("d is :", d)
                     this.name = this.$route.params.id
+                  this.type=d["type"]
                     this.paper = d["articles"]
                     this.linefold = d["bar"]
                     this.coauthor = d["coauthor"]
@@ -73,7 +75,8 @@
                   //  this.paper = d
                     this.flag = "bio"
                     this.loading = false
-                  //  console.log(this.paper)
+                  console.log("type is :")
+                   console.log(this.type)
                 })
             }
         }

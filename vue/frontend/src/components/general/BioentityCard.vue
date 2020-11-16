@@ -6,14 +6,15 @@
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTvQtNbrzI2mYCjOqaq5nBvzy6-FNDlNpWMYg&usqp=CAU">
                 </div>
             </el-col>
-            <el-col :md="24" :lg="16" class="title-center">
+            <el-col :md="24" :lg="16">
                 <div class="info-text">
                     <div class="info-item-title">
 <!--                        <span style="font-weight:normal">{{tableData.entity}}</span>-->
-                        <span class="info-item"></span><span>{{tableData.type}}</span>
+                        <span class="info-item"></span><span v-if="tableData.type">{{tableData.type}}</span>
                     </div>
-                    <div class="info-item-name">
-                      <span>Name: </span> <span>{{tableData.bioentity}}</span>
+                    <div id="name" class="info-item-title">
+                      <span>Name: </span>
+                      <span>{{tableData}}</span>
                     </div>
                 </div>
             </el-col>
@@ -22,22 +23,37 @@
 </template>
 
 <script>
+// import $search from "../../util/search"
+
     export default {
         props:['name'],
         data() {
             return {
+
                 tableData: {
-                    type:'Gene',
-                    bioentity: '',
+                    type:'',
+                    name: '',
                 }
+
             }
         },
         watch:{
             name:function (newData) {
+              console.log("bioentity card is: ")
                 console.log(newData)
-                this.tableData.bioentity = newData
+                this.tableData.type= newData[0]["type"]
+              this.tableData.name=newData[0]["name"]
             }
         }
+      // watch:{
+      //   card:function (newData) {
+      //     console.log("bio-card")
+      //     console.log(newData)
+      //     this.tableData.name = newData["bioentity"]
+      //     this.tableData.type = newData["type"]
+      //   }
+      // }
+
     }
 </script>
 
@@ -85,10 +101,9 @@
 
     }
     .info-item-title {
-        font-weight: 500;
-        text-transform: capitalize;
-        margin-right: .5em;
-        font-size: 1.5em;
+      font-weight: normal;
+      text-transform: capitalize;
+      margin-right: .5em;
     }
     #type {
         font-size: 1.5em;
@@ -97,6 +112,15 @@
         position: absolute;
         top: 50%;
 
+    }
+    #name {
+      font-size: 1.5em;
+      font-weight: 500;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
     }
 
 </style>

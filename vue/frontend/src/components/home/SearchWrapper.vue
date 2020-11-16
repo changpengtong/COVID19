@@ -78,8 +78,8 @@
         data() {
             return {
                 search_suggestion1: ["CoronaVirus","2020","pneumonia"],
-              search_suggestion2: ["The University of Texas at Austin", "Michigan State University"],
-              search_suggestion3: ["SARS-CoV-2", "ACE2"],
+              search_suggestion2: ["The University of Texas", "Michigan State University"],
+              search_suggestion3: ["COVID-19", "ACE2"],
               search_suggestion4: ["Jason S. McLellan"],
               activeName: 'first'
             }
