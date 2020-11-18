@@ -2,14 +2,18 @@
   <div class="topnav">
     <div class="_container">
       <div class="framework-width">
-        <div id="icon">
-          <router-link to="/" tag="div">
-            <a href="#">COVID-19 PORTAL</a>
-          </router-link>
-        </div>
-        
-        <search-wrapper></search-wrapper>
-        
+        <el-row :gutter="20">
+          <el-col :span="6">
+            <div id="icon">
+            <router-link to="/" tag="div">
+              <a href="#">COVID-19 PORTAL</a>
+            </router-link>
+          </div>
+          </el-col>
+          <el-col :span="8"><search-wrapper></search-wrapper></el-col>
+
+        </el-row>
+
         <transition name="el-zoom-in-top">
           <search-box class="search-box" v-if="ifSearchBox"></search-box>
         </transition>
@@ -97,9 +101,8 @@ export default {
 .topnav .search-box {
   float: right;
   display: inline-block;
-  margin: 10px 16px;
-  padding: 10px 0;
   /* height: 25px; */
   line-height: 40px;
+  width: 100%;
 }
 </style>
