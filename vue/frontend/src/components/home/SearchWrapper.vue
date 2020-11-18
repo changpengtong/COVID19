@@ -1,20 +1,20 @@
 <template>
     <div class="home-search-pane">
-        <div class="slogan">
-            <h1>search for knowledge</h1>
-            <h2>Technologies · Applications · Institutions</h2>
-        </div>
+<!--        <div class="slogan">-->
+<!--            <h1>search for knowledge</h1>-->
+<!--            <h2>Technologies · Applications · Institutions</h2>-->
+<!--        </div>-->
         <el-tabs v-model="activeName" @tab-click="handleClick">
             <el-tab-pane label="COVID-19" name="first">
               <search-box class="center search-box" ></search-box>
-                <div class="suggestion">
-                    <span class="title">try:</span>
-                  <span class="content">
-        <div v-for="(suggestion, index) in search_suggestion1" :key="index">
-          <router-link :to="{path: '/displayInfo', query:{query: suggestion}}" tag="a">{{suggestion}}</router-link>
-        </div>
-      </span>
-                </div>
+<!--                <div class="suggestion">-->
+<!--                    <span class="title">try:</span>-->
+<!--                  <span class="content">-->
+<!--        <div v-for="(suggestion, index) in search_suggestion1" :key="index">-->
+<!--          <router-link :to="{path: '/displayInfo', query:{query: suggestion}}" tag="a">{{suggestion}}</router-link>-->
+<!--        </div>-->
+<!--      </span>-->
+<!--                </div>-->
             </el-tab-pane>
 <!--          institution-->
           <el-tab-pane label="INSTITUTION" name="second">

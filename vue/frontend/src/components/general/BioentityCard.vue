@@ -10,11 +10,11 @@
                 <div class="info-text">
                     <div class="info-item-title">
 <!--                        <span style="font-weight:normal">{{tableData.entity}}</span>-->
-                        <span class="info-item"></span><span v-if="tableData.type">{{tableData.type}}</span>
+                        <span class="info-item"></span><span>{{tableData.type}}</span>
                     </div>
                     <div id="name" class="info-item-title">
-                      <span>Name: </span>
-                      <span>{{tableData}}</span>
+<!--                      <span>Name: </span>-->
+                      <span>{{tableData.name}}</span>
                     </div>
                 </div>
             </el-col>
@@ -41,8 +41,7 @@
             name:function (newData) {
               console.log("bioentity card is: ")
                 console.log(newData)
-                this.tableData.type= newData[0]["type"]
-              this.tableData.name=newData[0]["name"]
+              this.tableData.name=newData
             }
         }
       // watch:{

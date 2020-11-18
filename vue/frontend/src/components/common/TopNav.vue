@@ -7,9 +7,10 @@
                         <a href="#">COVID-19 PORTAL</a>
                     </router-link>
                 </div>
-                <router-link to="/author" tag="div">
-                    <a class="link" href="#">ABOUT</a>
-                </router-link>
+<!--                <router-link to="/author" tag="div">-->
+<!--                    <a class="link" href="#">ABOUT</a>-->
+<!--                </router-link>-->
+              <search-wrapper></search-wrapper>
                 <router-link to="/" tag="div">
                     <a class="link" href="#">HOME</a>
                 </router-link>
@@ -23,9 +24,12 @@
 
 <script>
     import SearchBox from "./../common/SearchBox.vue";
+    import SearchWrapper from "@/components/home/SearchWrapper";
     export default {
-        component: {
-            "search-box":SearchBox
+      components: {SearchWrapper},
+      component: {
+            "search-box":SearchBox,
+          "search-wrapper": SearchWrapper
         },
         computed: {
             ifSearchBox() {
