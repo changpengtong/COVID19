@@ -1,5 +1,6 @@
 <template>
     <div class="home-search-pane">
+      
 <!--        <div class="slogan">-->
 <!--            <h1>search for knowledge</h1>-->
 <!--            <h2>Technologies · Applications · Institutions</h2>-->
@@ -98,6 +99,8 @@
 <style scoped>
     .home-search-pane {
         display: block;
+        width: 86%;
+        padding-bottom: -100px;
     }
     .home-search-pane .slogan{
         padding: 1em;
