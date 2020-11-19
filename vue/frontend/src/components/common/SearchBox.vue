@@ -1,13 +1,15 @@
 <template>
     <!-- 检索框 -->
     <div class="search-box">
-        <el-input
-                v-model="query"
-                @keyup.enter.native="search"
-                :placeholder="placeholder">
-            <el-button slot="append" icon="el-icon-search" @click="search"></el-button>
-        </el-input>
-        <!-- <el-button type="primary" @click="search_query">submit</el-button> -->
+      <el-autocomplete
+          v-model="query"
+          @keyup.enter.native="search"
+          :placeholder="placeholder"
+          :fetch-suggestions="querySearchAsync"
+          @select="handleSelect"
+      >
+        <el-button slot="append" icon="el-icon-search" @click="search"></el-button>
+      </el-autocomplete>
     </div>
 </template>
 <script>

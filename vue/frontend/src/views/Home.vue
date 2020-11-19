@@ -297,7 +297,7 @@
     }
 
     .el-table__row {
-        font-size: 3px;
+        font-size: 0.5rem;
     }
 
     .el-table td, .el-table th {

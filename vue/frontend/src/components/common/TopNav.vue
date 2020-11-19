@@ -3,14 +3,14 @@
     <div class="_container">
       <div class="framework-width">
         <el-row :gutter="20">
-          <el-col :span="6">
+          <el-col :span="14">
             <div id="icon">
             <router-link to="/" tag="div">
               <a href="#">COVID-19 PORTAL</a>
             </router-link>
           </div>
           </el-col>
-          <el-col :span="8"><search-wrapper></search-wrapper></el-col>
+          <el-col :span="10" class="search"><search-wrapper></search-wrapper></el-col>
 
         </el-row>
 
@@ -59,8 +59,11 @@ export default {
   border-bottom: 1px solid #e1e1e1;
   top: 0;
   width: 100%;
+  height: 8rem;
 }
-
+.search{
+  padding-top: 1em;
+}
 /*
      * ---------------------------------------------
      *  暂时的网站标识
@@ -74,6 +77,7 @@ export default {
 #icon a {
   font-size: 1.7em;
   padding-left: 0.5em;
+  margin-top: 1.5rem;
 }
 /*
      * ---------------------------------------------
@@ -99,6 +103,13 @@ export default {
 }
 
 .topnav .search-box {
+  float: right;
+  display: inline-block;
+  /* height: 25px; */
+  line-height: 40px;
+  width: 100%;
+}
+.topnav .el-autocomplete{
   float: right;
   display: inline-block;
   /* height: 25px; */

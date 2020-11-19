@@ -31,7 +31,7 @@ func ConnectMySQL() *sql.DB {
 
 func BioentityTotalData(keyword string) map[string]interface{} {
 	bioentity := make(map[string]interface{})
-	bioentity["type"] = BioentityType(keyword)
+	//bioentity["type"] = BioentityType(keyword)
 	bioentity["articles"] = BioentityArticles(keyword)
 	bioentity["bar"] = BarGraphPapersByYear(keyword)
 	bioentity["coauthor"] = BioEntityAuthors(keyword)

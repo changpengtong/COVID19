@@ -27,16 +27,10 @@
                   throw error;
                 }
               });
-                this.$router.push({
-                    path: "/displayInfo",
-                    query: {
-                        // keyword: this.query
-                      query: this.query
-
-                    }
-
-                });
+              this.$router.replace(
+                  { name: 'institution', params: { id: this.query}})
             }
+
         }
     }
 </script>

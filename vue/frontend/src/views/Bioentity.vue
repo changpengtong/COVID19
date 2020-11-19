@@ -66,7 +66,7 @@
                     let d=response.data
                     console.log("d is :", d)
                     this.name = this.$route.params.id
-                  this.type=d["type"]
+                  // this.type=d["type"]
                     this.paper = d["articles"]
                     this.linefold = d["bar"]
                     this.coauthor = d["coauthor"]

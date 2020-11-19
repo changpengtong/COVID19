@@ -1,62 +1,23 @@
 <template>
     <div class="home-search-pane">
-      
-<!--        <div class="slogan">-->
-<!--            <h1>search for knowledge</h1>-->
-<!--            <h2>Technologies · Applications · Institutions</h2>-->
-<!--        </div>-->
         <el-tabs v-model="activeName" @tab-click="handleClick">
-            <el-tab-pane label="COVID-19" name="first">
+            <el-tab-pane label="PAPER" name="first">
               <search-box class="center search-box" ></search-box>
-<!--                <div class="suggestion">-->
-<!--                    <span class="title">try:</span>-->
-<!--                  <span class="content">-->
-<!--        <div v-for="(suggestion, index) in search_suggestion1" :key="index">-->
-<!--          <router-link :to="{path: '/displayInfo', query:{query: suggestion}}" tag="a">{{suggestion}}</router-link>-->
-<!--        </div>-->
-<!--      </span>-->
-<!--                </div>-->
             </el-tab-pane>
-<!--          institution-->
           <el-tab-pane label="INSTITUTION" name="second">
             <search-box2 class="center search-box2" ></search-box2>
-            <!-- <div class="suggestion">
-              <span class="title">try:</span>
-              <span class="content">
-        <div v-for="(suggestion, index) in search_suggestion2" :key="index">
-          <router-link :to="{name:'institution', params: { id: suggestion }}" tag="a">{{suggestion}}</router-link>
-        </div>
-      </span>
-            </div> -->
           </el-tab-pane>
-<!--      Bioentity -->
       <el-tab-pane label="BIOENTITY" name="third">
         <search-box3 class="center search-box3" ></search-box3>
-        <!-- <div class="suggestion">
-          <span class="title">try:</span>
-          <span class="content">
-        <div v-for="(suggestion, index) in search_suggestion3" :key="index">
-          <router-link :to="{name:'bioentity', params: { id: suggestion }}" tag="a">{{suggestion}}</router-link>
-        </div>
-      </span>
-        </div> -->
       </el-tab-pane>
-          <!--      Author -->
           <el-tab-pane label="AUTHOR" name="fourth">
             <search-box4 class="center search-box4" ></search-box4>
-            <!-- <div class="suggestion">
-              <span class="title">try:</span>
-              <span class="content">
-        <div v-for="(suggestion, index) in search_suggestion4" :key="index">
-          <router-link :to="{name:'author', params: { id: suggestion }}" tag="a">{{suggestion}}</router-link>
-        </div>
-      </span>
-            </div> -->
           </el-tab-pane>
 
         </el-tabs>
 
     </div>
+
 </template>
 
 <script>
@@ -99,7 +60,7 @@
 <style scoped>
     .home-search-pane {
         display: block;
-        width: 86%;
+        width: 85%;
         padding-bottom: -100px;
     }
     .home-search-pane .slogan{
@@ -120,7 +81,7 @@
         margin-bottom: 1.5em;
     }
 
-    .home-search-pane .search-box1 {
+    .home-search-pane .search-box {
         box-shadow: 2px 2px 10px #f5f5f5;
     }
 
