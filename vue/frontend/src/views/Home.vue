@@ -296,9 +296,9 @@
         font-size: 20px;
     }
 
-    .el-table__row {
-        font-size: 0.5rem;
-    }
+    /*.el-table__row {*/
+    /*    font-size: 0.5rem;*/
+    /*}*/
 
     .el-table td, .el-table th {
         padding: 0;
