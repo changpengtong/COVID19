@@ -74,67 +74,38 @@ func BioentityWordCloud() interface{} {
 //instition
 func InstitutionTotalData(keyword string) map[string]interface{} {
 	institution := make(map[string]interface{})
-	institution["bar"] = InstitutionBarGraphPapersByYear(keyword)
-	institution["articles"] = InstitutionPapers(keyword)
-	institution["coauthor"] = InstitutionAuthors(keyword)
-	institution["wordcloud"] = InstitutionWordCloud(keyword)
+	c := make(chan interface{})
+	go InstitutionBarGraphPapersByYear(c, keyword)
+	institution["bar"] = <-c
+	go InstitutionPapers(c, keyword)
+	institution["articles"] = <-c
+	go InstitutionAuthors(c, keyword)
+	institution["coauthor"] = <-c
+	go InstitutionWordCloud(c, keyword)
+	institution["wordcloud"] = <-c
+	close(c)
 	return institution
 }
-
-func InstitutionBarGraphPapersByYear(keyword string) interface{} {
-	//return GenerateSQL("SELECT count(id) as NumberOfPapers, SUBSTRING(publish_time,1,4) as PubYear FROM KaggleAllPaperDetails WHERE pubmed_id IN (SELECT DISTINCT pmid FROM KaggleAllBioentitiesCombined WHERE entity_list LIKE '%ACE-2%' ) GROUP BY PubYear")
-	return GenerateSQL("SELECT count(id) as NumberOfPapers, SUBSTRING(publish_time,1,4) as PubYear FROM KaggleAllPaperDetails WHERE title IN (SELECT DISTINCT paperTitle FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%" + keyword + "%' AND (paperTitle != '' OR paperTitle is not null)) GROUP BY PubYear ORDER BY PubYear DESC LIMIT 10")
-	//return GenerateSQL("SELECT d2.PubYear,count(a13.PMID) as NumberOfPapers " +
-	//	"FROM Pubmed20_C04.A13_AffiliationList a13 " +
-	//	"JOIN Pubmed20_C04.A01_Articles a1 ON a13.PMID = a1.PMID " +
-	//	"JOIN Pubmed20_C04.D02_PublishingYear d2 ON d2.PMID = a13.PMID " +
-	//	"WHERE a13.Affiliation LIKE '%"+keyword+"%' " +
-	//	"GROUP BY d2.PubYear ORDER BY d2.PubYear DESC LIMIT 10")
+func InstitutionBarGraphPapersByYear(c chan interface{}, keyword string) {
+	c <- GenerateSQL("SELECT count(id) as NumberOfPapers, SUBSTRING(publish_time,1,4) as PubYear FROM KaggleAllPaperDetails WHERE title IN (SELECT DISTINCT paperTitle FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%" + keyword + "%' AND (paperTitle != '' OR paperTitle is not null)) GROUP BY PubYear ORDER BY PubYear DESC LIMIT 10")
 }
 
-//func InstitutionArticles() interface{} {
-//	//return GenerateSQL()
-//	return GenerateSQL("SELECT ArticleTitle, PubYear,Authors,Journal_Title FROM Pubmed20_C04.MsuListOfPapers order by PubYear DESC")
-//	return GenerateSQL("SELECT ArticleTitle, PubYear,Authors,Journal_Title FROM Pubmed20_C04.MsuListOfPapers order by PubYear DESC")
-//
-//}
+func InstitutionPapers(c chan interface{}, keyword string) {
 
-func InstitutionPapers(keyword string) interface{} {
-
-	return GenerateSQL("SELECT DISTINCT title as ArticleTitle, abstract, authors as Authors, pmcid, pubmed_id, SUBSTRING(publish_time,1,4) as PubYear, url, journal as Journal_Title  FROM KaggleAllPaperDetails WHERE title IN(SELECT DISTINCT paperTitle FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%" + keyword + "%') AND title is not null AND title != '' ORDER BY PubYear DESC")
-	//return GenerateSQL("SELECT title as ArticleTitle, SUBSTRING(publish_time,1,4) as PubYear, authors as Authors, journal as Journal_Title, abstract, url FROM KaggleAllPaperDetails WHERE (title is not null OR title != '' ) AND title IN    (SELECT DISTINCT paperTitle FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%" + keyword + "%' AND (paperTitle != '' OR paperTitle is not null)) ORDER BY PubYear DESC;")
-
-	//return GenerateSQL("emeny-Young Scheme")
+	c <- GenerateSQL("SELECT DISTINCT title as ArticleTitle, abstract, authors as Authors, pmcid, pubmed_id, SUBSTRING(publish_time,1,4) as PubYear, url, journal as Journal_Title  FROM KaggleAllPaperDetails WHERE title IN(SELECT DISTINCT paperTitle FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%" + keyword + "%') AND title is not null AND title != '' ORDER BY PubYear DESC")
 }
-
-//func InstitutionAuthors() interface{} {
-//	return GenerateSQL("SELECT FullName,Affiliation, NumberofPapers FROM Pubmed20_C04.MsuAuthorDetailsRanked ORDER BY NumberofPapers DESC")
-//}
-
-func InstitutionAuthors(keyword string) interface{} {
-	//return GenerateSQL("SELECT    SUBSTRING_INDEX(SUBSTRING_INDEX(authorName, ' ', 1), ' ', -1) AS ForeName,TRIM( SUBSTR(authorName, LOCATE(' ', authorName)) ) AS LastName, authorName  as FullName,   authorEmail,    authorAffiliation as Affiliation,   authorAffiliationLocation  FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%" + keyword + "%'ORDER BY LastName")
-	return GenerateSQL("SELECT    DISTINCT SUBSTRING_INDEX(SUBSTRING_INDEX(authorName, ' ', 1), ' ', -1) AS ForeName,\n     TRIM( SUBSTR(authorName, LOCATE(' ', authorName)) ) AS LastName,\n    authorName  as FullName,   authorAffiliation as Affiliation,\n       authorAffiliationLocation as Location\n   FROM KaggleAllAuthors\n    WHERE authorName is not null AND authorAffiliation LIKE '%" + keyword + "%'    ORDER BY LastName")
-	//return GenerateSQL("SELECT DISTINCT LastName, ForeName, Suffix, AID, Affiliation, " +
-	//	"(SELECT count(DISTINCT PMID) as NumberOfPapers FROM A02_AuthorList a1 " +
-	//	"WHERE Affiliation is not null AND Affiliation != '' AND Affiliation LIKE '%" + keyword + "%' " +
-	//	"AND a1.AID=a2.AID AND AID is not null AND AID !=0 GROUP BY AID ) AS NumberOfPapers " +
-	//	"FROM A02_AuthorList a2 " +
-	//	"WHERE a2.Affiliation is not null AND a2.Affiliation != '' AND a2.Affiliation " +
-	//	"LIKE '%" + keyword + "%' AND a2.AID is not null AND a2.AID !=0 ORDER BY NumberofPapers DESC")
+func InstitutionAuthors(c chan interface{}, keyword string) {
+	c <- GenerateSQL("SELECT    DISTINCT SUBSTRING_INDEX(SUBSTRING_INDEX(authorName, ' ', 1), ' ', -1) AS ForeName,\n     TRIM( SUBSTR(authorName, LOCATE(' ', authorName)) ) AS LastName,\n    authorName  as FullName,   authorAffiliation as Affiliation,\n       authorAffiliationLocation as Location\n   FROM KaggleAllAuthors\n    WHERE authorName is not null AND authorAffiliation LIKE '%" + keyword + "%'    ORDER BY LastName")
 }
-
-func InstitutionWordCloud(keyword string) map[string]interface{} {
+func InstitutionWordCloud(c chan interface{}, keyword string) {
 	res := make(map[string]interface{})
 	disease := GenerateSQL("SELECT entity_list as Mention, count(DISTINCT pmid) as occurences FROM disease1TSV WHERE pmid IN (SELECT pubmed_id FROM KaggleAllPaperDetails WHERE title IN ( SELECT paperTitle FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%" + keyword + "%' AND (title != '' OR title is not null))) GROUP BY Mention ORDER BY occurences DESC;")
-	//disease := GenerateSQL("SELECT entity_list as Mention, count(DISTINCT pmid) as occurences FROM disease1TSV\n    WHERE pmid IN (SELECT pubmed_id FROM KaggleAllPaperDetails WHERE title IN (\n        SELECT paperTitle FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%" + keyword + "%' AND (title != '' OR title is not null)\n        ))\n    GROUP BY Mention ORDER BY occurences DESC;")
 	drug := GenerateSQL("SELECT entity_list as Mention, count(DISTINCT pmid) as occurences FROM chemical_v2TSV WHERE pmid IN (SELECT pubmed_id FROM KaggleAllPaperDetails WHERE title IN (SELECT paperTitle FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%" + keyword + "%' AND (title != '' OR title is not null)))  GROUP BY Mention ORDER BY occurences DESC;")
-	//drug := GenerateSQL("SELECT entity_list as Mention, count(DISTINCT pmid) as occurences FROM chemical_v2TSV\n    WHERE pmid IN (SELECT pubmed_id FROM KaggleAllPaperDetails WHERE title IN (\n        SELECT paperTitle FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%" + keyword + "%' AND (title != '' OR title is not null)\n        ))\n    GROUP BY Mention ORDER BY occurences DESC;")
 	gene := GenerateSQL("SELECT entity_list as Mention, count(DISTINCT pmid) as occurences FROM gene1TSV WHERE pmid IN (SELECT pubmed_id FROM KaggleAllPaperDetails WHERE title IN (SELECT paperTitle FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%" + keyword + "%' AND (title != '' OR title is not null))) GROUP BY Mention ORDER BY occurences DESC;")
-	//gene := GenerateSQL("SELECT entity_list as Mention, count(DISTINCT pmid) as occurences FROM gene1TSV\n    WHERE pmid IN (SELECT pubmed_id FROM KaggleAllPaperDetails WHERE title IN (\n        SELECT paperTitle FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%" + keyword + "%' AND (title != '' OR title is not null)\n        ))\n   GROUP BY Mention ORDER BY occurences DESC;")
 	res["disease"] = disease
 	res["drug"] = drug
 	res["gene"] = gene
-	return res
+	c <- res
 }
 
 //author
