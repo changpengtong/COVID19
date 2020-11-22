@@ -27,8 +27,8 @@
                   throw error;
                 }
               });
-              this.$router.replace(
-                  { name: 'institution', params: { id: this.query}})
+              this.$router.push(
+                  { name: 'author', params: { id: this.query}})
             }
 
         }

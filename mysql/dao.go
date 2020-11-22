@@ -87,12 +87,12 @@ func InstitutionTotalData(keyword string) map[string]interface{} {
 	return institution
 }
 func InstitutionBarGraphPapersByYear(c chan interface{}, keyword string) {
-	c <- GenerateSQL("SELECT count(id) as NumberOfPapers, SUBSTRING(publish_time,1,4) as PubYear FROM KaggleAllPaperDetails WHERE title IN (SELECT DISTINCT paperTitle FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%" + keyword + "%' AND (paperTitle != '' OR paperTitle is not null)) GROUP BY PubYear ORDER BY PubYear DESC LIMIT 10")
+	c <- GenerateSQL("SELECT count(DISTINCT pubmed_id) as NumberOfPapers, SUBSTRING(publish_time,1,4) as PubYear\nFROM KaggleAllPaperDetails\nWHERE title IN (SELECT DISTINCT paperTitle FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%" + keyword + "%' AND (paperTitle != '' OR paperTitle is not null))\nAND title is not null AND title != ' ' AND pubmed_id is not null AND pubmed_id!=' '\nGROUP BY PubYear ORDER BY PubYear DESC LIMIT 10")
 }
 
 func InstitutionPapers(c chan interface{}, keyword string) {
+	c <- GenerateSQL("SELECT DISTINCT title as ArticleTitle, abstract, authors as Authors, pmcid, pubmed_id, SUBSTRING(publish_time,1,4) as PubYear, url, journal as Journal_Title\nFROM KaggleAllPaperDetails WHERE title IN(\nSELECT DISTINCT paperTitle FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%" + keyword + "%')\nAND title is not null AND title != ' ' AND pubmed_id is not null AND pubmed_id !=' '\nORDER BY PubYear DESC;")
 
-	c <- GenerateSQL("SELECT DISTINCT title as ArticleTitle, abstract, authors as Authors, pmcid, pubmed_id, SUBSTRING(publish_time,1,4) as PubYear, url, journal as Journal_Title  FROM KaggleAllPaperDetails WHERE title IN(SELECT DISTINCT paperTitle FROM KaggleAllAuthors WHERE authorAffiliation LIKE '%" + keyword + "%') AND title is not null AND title != '' ORDER BY PubYear DESC")
 }
 func InstitutionAuthors(c chan interface{}, keyword string) {
 	c <- GenerateSQL("SELECT    DISTINCT SUBSTRING_INDEX(SUBSTRING_INDEX(authorName, ' ', 1), ' ', -1) AS ForeName,\n     TRIM( SUBSTR(authorName, LOCATE(' ', authorName)) ) AS LastName,\n    authorName  as FullName,   authorAffiliation as Affiliation,\n       authorAffiliationLocation as Location\n   FROM KaggleAllAuthors\n    WHERE authorName is not null AND authorAffiliation LIKE '%" + keyword + "%'    ORDER BY LastName")

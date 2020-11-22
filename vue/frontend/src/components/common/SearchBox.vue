@@ -1,7 +1,7 @@
 <template>
     <!-- 检索框 -->
     <div class="search-box">
-      <el-autocomplete
+      <el-input
           v-model="query"
           @keyup.enter.native="search"
           :placeholder="placeholder"
@@ -9,7 +9,7 @@
           @select="handleSelect"
       >
         <el-button slot="append" icon="el-icon-search" @click="search"></el-button>
-      </el-autocomplete>
+      </el-input>
     </div>
 </template>
 <script>

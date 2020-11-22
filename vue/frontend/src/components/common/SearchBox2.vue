@@ -31,7 +31,7 @@ export default {
       // window.location.href = `/institution/${this.params} `;
       // this.$router.replace({
       //   name: "institution", params: {id:this.$route.params.id }});
-      this.$router.replace(
+      this.$router.push(
           { name: 'institution', params: { id: this.query}})
 
       //   //

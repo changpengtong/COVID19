@@ -61,6 +61,29 @@
                 loading:true
             }
         },
+      // 解决刷新页面问题
+      created() {
+        if (this.$route.params.id) {
+          let query = this.$route.params.id;
+          this.$search.search_query(query);
+        }
+      },
+      watch: {
+        // deep: true,
+        $route() {
+          if(this.$route.query.query) {
+            let query = this.$route.query.query;
+            // console.log("路由变化发生!");
+            this.$search.search_query(query);
+          }
+        }
+      },
+      computed: {
+        query() {
+          // 返回路由中的query，注意用的是$route
+          return this.$route.query.query
+        }
+      },
         mounted() {
             this.get_data()
         },
