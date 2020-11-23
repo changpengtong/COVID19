@@ -4,7 +4,7 @@
         <el-row :gutter="24">
             <el-col :md="24" :lg="6">
                 <div class="info-image" >
-                    <img src="../../assets/img/institution.png">
+                    <img src="./../../assets/img/institution.png">
                 </div>
             </el-col>
             <el-col :md="24" :lg="16">

@@ -26,6 +26,7 @@
             </el-row>
         </div>
     </div>
+
 </template>
 
 <script>
@@ -62,28 +63,21 @@
             }
         },
       // 解决刷新页面问题
-      created() {
-        if (this.$route.params.id) {
-          let query = this.$route.params.id;
-          this.$search.search_query(query);
-        }
-      },
-      watch: {
-        // deep: true,
-        $route() {
-          if(this.$route.query.query) {
-            let query = this.$route.query.query;
-            // console.log("路由变化发生!");
-            this.$search.search_query(query);
-          }
-        }
-      },
-      computed: {
-        query() {
-          // 返回路由中的query，注意用的是$route
-          return this.$route.query.query
-        }
-      },
+      // created() {
+      //   if (this.$route.params.id) {
+      //     let query = this.$route.params.id;
+      //     this.$search.institution_query(query);
+      //   }
+      // },
+      // watch: {
+      //   // deep: true,
+      //
+      //     '$route' (to, from) {
+      //       // 路由发生变化页面刷新
+      //       this.$router.go(0);
+      //     }
+      //
+      // },
         mounted() {
             this.get_data()
         },
@@ -111,7 +105,16 @@
                 })
             }
 
-        }
+        },
+      created() {
+        this.loading = true;
+        var self = this;
+        self.get_data();
+
+      },
+      watch:{
+        '$route':'get_data'
+      },
 
     }
 

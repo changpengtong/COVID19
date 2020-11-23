@@ -39,7 +39,7 @@ export default {
         $bus.update_query_text(query);
         $bus.clean_last_result();
         $bus.$emit("changeLoading",true)
-        $axios.get("/institution/"+query)
+        $axios.get("/institution/"+this.$route.params.id)
             .then(res=> {
                 console.log(res.data)
                 $bus.receive_result(res.data)
