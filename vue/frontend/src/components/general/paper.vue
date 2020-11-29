@@ -42,8 +42,17 @@
                             label="YEAR"
                             sortable="custom"
                             align="center"
+                            width="100"
                     >
                     </el-table-column>
+                  <el-table-column
+                      prop="tweet"
+                      label="TWEETS"
+                      sortable="custom"
+                      align="center"
+                      width="120"
+                  >
+                  </el-table-column>
                 </el-table>
                 <el-pagination
                         @size-change="handleSizeChange"
@@ -210,7 +219,19 @@
                     article["author"] = this.d[i]["Authors"]
                     article["journal"] = this.d[i]["Journal_Title"]
                     article["url"] = this.d[i]["url"]
-                    t.push({"article":article,"year":this.d[i]["PubYear"]})
+                    // article["tweet"]=this.d[i]["tweet"]
+                  if (!this.d[i]["tweet"]) {
+                    // data attribute doesn't exist
+                    t.push({"article":article,"year":this.d[i]["PubYear"],"tweet":"0"})
+                  }
+                  else{
+                    t.push({"article":article,"year":this.d[i]["PubYear"],"tweet":this.d[i]["tweet"]})
+                  }
+                  // else{
+                  //   t.push({"article":article,"year":this.d[i]["PubYear"],"tweet":0})
+                  // }
+                  // console.log(t)
+
                 }
                 this.tableData = t
             },
@@ -226,6 +247,16 @@
                         this.currentChangePage(this.tableData,1)
                     }
                 }
+              if (column.prop === "tweet") {
+                this.proptype = column.prop; // 将键名prop赋值给变量proptype
+                if (column.order === "descending") {
+                  this.tableData.sort(this.my_desc_sort);
+                  this.currentChangePage(this.tableData,1)
+                } else if (column.order === "ascending") {
+                  this.tableData.sort(this.my_asc_sort);
+                  this.currentChangePage(this.tableData,1)
+                }
+              }
                 if(column.prop === "article") {
                     this.proptype = column.prop; //
                     if (column.order === "descending") {

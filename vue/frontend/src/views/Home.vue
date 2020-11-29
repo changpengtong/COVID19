@@ -233,7 +233,7 @@
     };
 </script>
 
-<style>
+<style scoped>
     
     .home {
         margin-top: 40px;

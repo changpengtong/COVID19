@@ -38,7 +38,6 @@ Vue.prototype.$echarts=echarts
 Vue.prototype.$bus=bus
 Vue.prototype.$axios=axios
 
-
 /* eslint-disable no-new */
 /**new Vue({
   el: 'app',

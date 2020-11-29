@@ -56,14 +56,23 @@
               loading:true
           }
         },
-        mounted() {
-            this.get_data()
-        },
+      created() {
+        this.get_data()
+
+      },
+      watch: {
+        '$route': 'get_data'
+      },
+        // mounted() {
+        //     this.get_data()
+        // },
         methods:{
             get_data() {
-                $axios.get("/displayBioentity/"+this.$route.params.id).then(response=>{
+              this.loading = true
+              $axios.get("/displayBioentity/"+this.$route.params.id).then(response=>{
               //  $axios.get("/A01Paper/"+this.$route.params.id).then(response=>{
-                    let d=response.data
+                this.loading = false
+                let d=response.data
                     console.log("d is :", d)
                     this.name = this.$route.params.id
                   // this.type=d["type"]
@@ -74,7 +83,7 @@
                     // this.wordcloud = d["wordcloud"]
                   //  this.paper = d
                     this.flag = "bio"
-                    this.loading = false
+                    // this.loading = false
                   console.log("type is :")
                    console.log(this.type)
                 })

@@ -113,7 +113,10 @@ func InitRouter() *gin.Engine {
 		instituion := mysql.InstitutionTotalData(name)
 		c.JSON(200, instituion)
 	})
-
+	router.GET("/institutionNames", func(c *gin.Context) {
+		institutionNames := mysql.AllInstitutionNames()
+		c.JSON(200, institutionNames)
+	})
 
 	return router
 }

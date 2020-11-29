@@ -44,8 +44,9 @@ export default new Router({
         {
             path:"/bioentity/:id",
             name:'bioentity',
-            component: ()=>import('../views/Bioentity')
+            component: ()=>import('../views/Bioentity'),
         }
+
 
 
         /////////////////////////?/////////////////////
@@ -55,4 +56,7 @@ export default new Router({
         //     component: () => import("./../views/transplant/DisplayMedic.vue")
         // }
     ]
+
+
 })
+

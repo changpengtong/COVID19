@@ -1,32 +1,32 @@
-<template>
-    <div class="display-view container">
-        <!-- 展示数据和可视化 -->
-        <div class="display-info ">
-            <el-row :gutter="24" >
-                <el-col :md="17" :sm="24" :xs="24">
-                    <institution-card class="display-author" :name="name" v-loading="loading"></institution-card>
-                    <div
-                            class="display-data"
-                            v-loading="isLoading"
-                            element-loading-text="loading……">
-                        <institution-paper :paper="paper" v-loading="loading"></institution-paper>
-                    </div>
-                </el-col>
-                <el-col :md="7" :sm="24" :xs="24" class="right">
-                    <div class="display-visual">
-                        <p class="up">Bio-entities<el-tooltip effect="dark" content="3 types of bio-entities ranked by frequency mentioned in papers published." placement="top-start">
-                            <i class="el-icon-question"></i>
-                        </el-tooltip></p>
-                        <entityList class="display-visual" :entity="entity" v-loading="loading"></entityList>
-                        <wordcloud :wordcloud="wordcloud" v-loading="loading"></wordcloud>
-                        <bar class="down" :bar="bar" v-loading="loading"></bar>
-                    </div>
-                    <co-author :coauthor="coauthor" :flag="flag" v-loading="loading"></co-author>
-                </el-col>
-            </el-row>
-        </div>
-    </div>
 
+<template>
+  <div class="display-view container">
+    <!-- 展示数据和可视化 -->
+    <div class="display-info ">
+      <el-row :gutter="24" >
+        <el-col :md="17" :sm="24" :xs="24">
+          <institution-card class="display-author" :name="name" v-loading="loading"></institution-card>
+          <div
+              class="display-data"
+              v-loading="isLoading"
+              element-loading-text="loading……">
+            <institution-paper :paper="paper" v-loading="loading"></institution-paper>
+          </div>
+        </el-col>
+        <el-col :md="7" :sm="24" :xs="24" class="right">
+          <div class="display-visual">
+            <p class="up">Bio-entities<el-tooltip effect="dark" content="3 types of bio-entities ranked by frequency mentioned in papers published." placement="top-start">
+              <i class="el-icon-question"></i>
+            </el-tooltip></p>
+            <entityList class="display-visual" :entity="entity" v-loading="loading"></entityList>
+            <wordcloud :wordcloud="wordcloud" v-loading="loading"></wordcloud>
+            <bar class="down" :bar="bar" v-loading="loading"></bar>
+          </div>
+          <co-author :coauthor="coauthor" :flag="flag" v-loading="loading"></co-author>
+        </el-col>
+      </el-row>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -40,82 +40,55 @@
     import $axios from "../util/axios";
 
     export default {
-        components: {
-            "institution-card":AuthorCard,
-            "institution-paper": AuthorPaper,
-            "co-author": CoAuthors,
-            "bar":Bar,
-            "entityList": entityList,
-            "wordcloud": wordcloud
-        },
-        data() {
-            return {
-                name:[],
-                d:[],
-                card:[],
-                paper:[],
-                coauthor:[],
-                bar:[],
-                wordcloud:[],
-                entity:[],
-                flag:"",
-                loading:true
-            }
-        },
-      // 解决刷新页面问题
-      // created() {
-      //   if (this.$route.params.id) {
-      //     let query = this.$route.params.id;
-      //     this.$search.institution_query(query);
-      //   }
-      // },
-      // watch: {
-      //   // deep: true,
-      //
-      //     '$route' (to, from) {
-      //       // 路由发生变化页面刷新
-      //       this.$router.go(0);
-      //     }
-      //
-      // },
-        mounted() {
-            this.get_data()
-        },
-      // computed: {
-      //   query() {
-      //     // 返回路由中的query，注意用的是$route
-      //     return this.$route.params.id
-      //   }
-      // },
-        methods:{
-            get_data() {
-                $axios.get("/displayInstitution/"+this.$route.params.id).then(response=>{
-                    let d=response.data
-                   // console.log(d)
-                    this.name = this.$route.params.id
-                    console.log(this.name)
-                    this.paper = d["articles"]
-                    this.bar = d["bar"]
-                    this.coauthor = d["coauthor"]
-                    this.entity = d["wordcloud"]
-                    this.wordcloud = d["wordcloud"]
-                    this.flag = "ins"
-                    this.loading = false
-                    console.log(this.paper)
-                })
-            }
-
-        },
+      components: {
+        "institution-card": AuthorCard,
+        "institution-paper": AuthorPaper,
+        "co-author": CoAuthors,
+        "bar": Bar,
+        "entityList": entityList,
+        "wordcloud": wordcloud
+      },
+      data() {
+        return {
+          name: [],
+          d: [],
+          card: [],
+          paper: [],
+          coauthor: [],
+          bar: [],
+          wordcloud: [],
+          entity: [],
+          flag: "",
+          loading: true,
+          // complete: false
+        }
+      },
       created() {
-        this.loading = true;
-        var self = this;
-        self.get_data();
+        this.get_data()
 
       },
-      watch:{
-        '$route':'get_data'
+      watch: {
+        '$route': 'get_data'
       },
-
+      methods: {
+        get_data() {
+          this.loading = true
+          $axios.get("/displayInstitution/" + this.$route.params.id).then(response => {
+            this.loading = false
+            let d = response.data
+            // console.log(d)
+            this.name = this.$route.params.id
+            console.log(this.name)
+            this.paper = d["articles"]
+            this.bar = d["bar"]
+            this.coauthor = d["coauthor"]
+            this.entity = d["wordcloud"]
+            this.wordcloud = d["wordcloud"]
+            this.flag = "ins"
+            console.log(this.paper)
+          })
+        }
+      }
     }
 
 </script>
