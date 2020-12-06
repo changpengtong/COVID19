@@ -126,7 +126,7 @@
                           mention.push({
                             'entity': {
                               name: temp[i]['Mention'],
-                              'url': "/#/bioentity/" + temp[i]['Mention']
+                              'url': "/COVID19/#/bioentity/" + temp[i]['Mention']
                             },
                             'num': temp[i]['occurences']
                           })

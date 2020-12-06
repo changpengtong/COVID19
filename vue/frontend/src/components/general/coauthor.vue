@@ -88,7 +88,7 @@
     t.push({
     'name': this.d[i]["ForeName"] + " " + this.d[i]["LastName"],
     'work': this.d[i]["Affiliation"] + " " + this.d[i]["Location"],
-    'url': "/#/author/" + this.d[i]["AID"]
+    'url': "/COVID19/#/author/" + this.d[i]["AID"]
   })
 }
 

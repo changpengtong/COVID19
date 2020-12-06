@@ -13,12 +13,14 @@
     </div>
 </template>
 <script>
+
     export default {
         name: "SearchBox",
         data() {
             return {
                 query: "",
-                placeholder: "Whatever comes to your mind"
+                placeholder: "Whatever comes to your mind",
+
             }
         },
         methods: {
@@ -32,12 +34,14 @@
                 this.$router.push({
                     path: "/displayInfo",
                     query: {
-                        // keyword: this.query
+                      // keyword: this.query
                       query: this.query
 
                     }
 
                 });
+
+
             }
         }
     }

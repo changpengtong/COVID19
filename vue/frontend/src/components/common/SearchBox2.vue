@@ -28,6 +28,7 @@ export default {
           throw error;
         }
       });
+
       // window.location.href = `/institution/${this.params} `;
       // this.$router.replace({
       //   name: "institution", params: {id:this.$route.params.id }});

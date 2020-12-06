@@ -68,7 +68,7 @@
                     t.push({
                       'ins': {
                         'name': this.d[i]["Affiliation"],
-                        'url': "/#/institution/" + this.d[i]["Affiliation"]
+                        'url': "/COVID19/#/institution/" + this.d[i]["Affiliation"]
                       },
                       'num': this.d[i]['NumberOfPapers'],
                     })

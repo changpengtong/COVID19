@@ -64,7 +64,7 @@ export default {
             this.profile.mail = ""
             this.profile.institution = newData[0]["Affiliation"]
             this.profile.lab=""
-            this.profile.url = "/#/institution/"+newData[0]["Affiliation"]
+            this.profile.url = "/COVID19/#/institution/"+newData[0]["Affiliation"]
         }
     }
 

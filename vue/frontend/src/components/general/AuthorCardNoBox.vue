@@ -53,8 +53,8 @@ export default {
             profile:{
                 name: 'bin chen',
                 // lab: 'COVID Lab',
-              institutionurl:'/#/institution/michigan%20state%20university',
-                url: '/#/author/12345',
+              institutionurl:'/COVID19/#/institution/michigan%20state%20university',
+                url: '/COVID19/#/author/12345',
                 institution: 'michigan state university',
                 mail: 'binchen@gmail.com',
               location:'Michigan, US'
@@ -70,8 +70,8 @@ export default {
             this.profile.mail = ""
             this.profile.institution = newData[0]["Affiliation"]
             this.profile.lab=""
-            this.profile.institutionurl = "/#/institution/"+newData[0]["Affiliation"]
-            this.profile.url="/#/author/"+this.profile.aid
+            this.profile.institutionurl = "/COVID19/#/institution/"+newData[0]["Affiliation"]
+            this.profile.url="/COVID19/#/author/"+this.profile.aid
         }
     }
 
@@ -82,7 +82,9 @@ export default {
     .show-developer {
         margin: 1.5em auto;
     }
-
+    .el-card{
+      max-height: 150px;
+    }
 
     .info-card {
         max-width: 50em;

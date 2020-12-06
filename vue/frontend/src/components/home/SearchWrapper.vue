@@ -1,21 +1,30 @@
 <template>
+  <div >
+
     <div class="home-search-pane">
-        <el-tabs v-model="activeName" @tab-click="handleClick">
-            <el-tab-pane label="PAPER" name="first">
-              <search-box class="center search-box" ></search-box>
-            </el-tab-pane>
-          <el-tab-pane label="INSTITUTION" name="second">
-            <search-box2 class="center search-box2" ></search-box2>
-          </el-tab-pane>
-      <el-tab-pane label="BIOENTITY" name="third">
-        <search-box3 class="center search-box3" ></search-box3>
-      </el-tab-pane>
-          <el-tab-pane label="AUTHOR" name="fourth">
-            <search-box4 class="center search-box4" ></search-box4>
-          </el-tab-pane>
+      <search-box   v-if="activeName=='1'" class="center search-box" ></search-box>
+      <search-box2   v-else-if="activeName=='2'" class="center search-box2" ></search-box2>
+      <search-box3   v-else-if="activeName=='3'" class="center search-box3" ></search-box3>
+      <search-box4  v-else-if="activeName=='4'" class="center search-box4" ></search-box4>
+      <div class="center search-box" v-else>
+        <el-input
+            v-model="query"
+            @keyup.enter.native="alert"
+            :placeholder="placeholder"
+        >
+          <el-button slot="append" icon="el-icon-search" @click="alert"></el-button>
+        </el-input>
+      </div>
+    </div>
+    <div class="radios">
+    <el-radio-group v-model="activeName" @change="handleClick">
+      <el-radio :label="1">PAPER</el-radio>
+      <el-radio :label="2">INSTITUTION</el-radio>
+      <el-radio :label="3">BIOENTITY</el-radio>
+      <el-radio :label="4">AUTHOR</el-radio>
 
-        </el-tabs>
-
+    </el-radio-group>
+    </div>
     </div>
 
 </template>
@@ -28,32 +37,35 @@
 
     //  import SearchBox3 from "./../common/SearchBox3.vue"
     export default {
-        components: {
-            "search-box": SearchBox,
-          "search-box2": SearchBox2,
-          "search-box3": SearchBox3,
-          "search-box4": SearchBox4
+      components: {
+        "search-box": SearchBox,
+        "search-box2": SearchBox2,
+        "search-box3": SearchBox3,
+        "search-box4": SearchBox4,
+      },
+      data() {
+        return {
+          search_suggestion1: ["CoronaVirus", "2020", "pneumonia"],
+          search_suggestion2: ["The University of Texas", "Michigan State University"],
+          search_suggestion3: ["COVID-19", "ACE2"],
+          search_suggestion4: ["Jason S. McLellan"],
+          // activeName: 'first'
+          query: "",
+          activeName:"",
 
-          //  "search-box2": SearchBox2,
-          //  "search-box3": SearchBox3
-        },
-        data() {
-            return {
-                search_suggestion1: ["CoronaVirus","2020","pneumonia"],
-              search_suggestion2: ["The University of Texas", "Michigan State University"],
-              search_suggestion3: ["COVID-19", "ACE2"],
-              search_suggestion4: ["Jason S. McLellan"],
-              activeName: 'first'
-            }
-        },
-        methods: {
-            handleClick(tab, event) {
-                console.log(tab, event);
-
-
-
-            }
+          placeholder: "Whatever comes to your mind"
         }
+      },
+      methods: {
+        handleClick(tab, event) {
+          console.log(tab, event);
+        },
+        alert() {
+          this.$alert('<strong>Please Select the Category Before Searching.</strong>',  {
+            dangerouslyUseHTMLString: true
+          });
+        },
+      }
     }
 </script>
 
@@ -61,7 +73,8 @@
     .home-search-pane {
         display: block;
         width: 85%;
-        padding-bottom: -100px;
+        /*padding-bottom: -100px;*/
+      margin-bottom: 1.2em;
     }
     .home-search-pane .slogan{
         padding: 1em;
@@ -93,28 +106,8 @@
         box-shadow: 2px 2px 10px #f5f5f5;
     }
 
-    .home-search-pane .suggestion {
-        font-size: 1.2em;
-        margin: 1em;
-    }
 
-    .home-search-pane .suggestion .title{
-        display: inline-block;
-        margin: 0 1em 0 .5em;
-    }
-
-    .home-search-pane .suggestion .content div{
-        display: inline;
-    }
-
-    .home-search-pane .suggestion a {
-        display: inline-block;
-        text-decoration: none;
-        text-transform: capitalize;
-        margin: 0 .5em;
-    }
-
-    .home-search-pane .suggestion a:hover {
-        text-decoration: underline;
+    .el-radio-group{
+      margin-top: 15px ;
     }
 </style>
