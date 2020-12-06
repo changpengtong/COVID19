@@ -15,7 +15,7 @@
         </el-col>
         <el-col :md="7" :sm="24" :xs="24" class="right">
           <div class="display-visual">
-            <p class="up">Bio-entities<el-tooltip effect="dark" content="3 types of bio-entities ranked by frequency mentioned in papers published." placement="top-start">
+            <p class="up">Bio-entities<el-tooltip effect="dark" content="3 types of bio-entities ranked by frequency mentioned in papers published. The second column is the number of papers." placement="top-start">
               <i class="el-icon-question"></i>
             </el-tooltip></p>
             <entityList class="display-visual" :entity="entity" v-loading="loading"></entityList>

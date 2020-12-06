@@ -3,7 +3,7 @@
         <!-- 展示数据和可视化 -->
         <div class="display-info container">
             <el-row :gutter="24">
-                <el-col :md="14" :sm="24" :xs="24">
+                <el-col :md="17" :sm="24" :xs="24">
                     <el-card
                             shadow="hover"
                             class="display-query">
@@ -19,7 +19,7 @@
                         <display-data></display-data>
                     </div>
                 </el-col>
-                <el-col :md="10" :sm="24" :xs="24">
+                <el-col :md="7" :sm="24" :xs="24" class="right">
                     <!-- 展示可视化图 -->
                     <div class="display-visual">
                         <p class="title _font-blue">visualization</p>
@@ -87,12 +87,18 @@
 
 <style>
     .container {
-        max-width: 2400px;
-        /* width: 100%; */
-        margin: 0 auto;
+        /*max-width: 2400px;*/
+        /*!* width: 100%; *!*/
+        /*margin: 0 auto;*/
         padding: .5em;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
     }
-
+    .right{
+      margin: 0 auto;
+      /*width: 100%;*/
+    }
     .display-view {
         width: 100%;
         /* max-width: 970px; */

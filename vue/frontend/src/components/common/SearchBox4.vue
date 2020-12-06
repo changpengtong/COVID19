@@ -28,7 +28,7 @@
                 }
               });
               this.$router.push(
-                  { name: 'author', params: { id: this.query}})
+                  { name: 'itemAuthor', params: { name: this.query}})
             }
 
         }

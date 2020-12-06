@@ -57,7 +57,7 @@
                 <el-pagination
                         @size-change="handleSizeChange"
                         @current-change="handleCurrentChange" :current-page="currentPage"
-                        :page-sizes="[5,10,20,50,100]"
+                        :page-sizes="[5,10,15,20,50,100]"
                         :page-size="pageSize" layout="total, sizes, prev, pager, next, jumper"
                         :total="tableData.length">
                 </el-pagination>
@@ -138,10 +138,10 @@
                 tabPostion: 'top',
                 total:0,
                 currentPage:1,
-                pageSize:10,
+                pageSize:15,
                 total1:0,
                 currentPage1:1,
-                pageSize1:10,
+                pageSize1:15,
                 tempList:[],
                 //    dataList:[],
                 tempClist:[],
