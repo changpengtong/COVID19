@@ -116,7 +116,7 @@
       font-size: 1.5em;
       font-weight: 500;
       margin: 0;
-      position: absolute;
+      /*position: absolute;*/
       top: 50%;
       -ms-transform: translateY(-50%);
       transform: translateY(-50%);

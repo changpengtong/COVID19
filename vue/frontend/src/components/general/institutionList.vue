@@ -64,10 +64,11 @@
                 let t=[]
               if (this.d!=null){
                 for(let i=0;i<this.d.length;i++) {
-                  if (this.d[i]["Affiliation"]!=null) {
+                  if (this.d[i]["Affiliation"]!=null && this.d[i]["Location"]!=null) {
+                    this.d[i]["Affiliation"]=this.d[i]["Affiliation"].replace(/^,+/,"").replace(/,+$/,"")
                     t.push({
                       'ins': {
-                        'name': this.d[i]["Affiliation"],
+                        'name': this.d[i]["Affiliation"]+", "+this.d[i]["Location"],
                         'url': "/COVID19/#/institution/" + this.d[i]["Affiliation"]
                       },
                       'num': this.d[i]['NumberOfPapers'],

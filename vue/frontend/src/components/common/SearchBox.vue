@@ -16,9 +16,9 @@
 
     export default {
         name: "SearchBox",
-        data() {
+        data: function (){
             return {
-                query: "",
+                query:'',
                 placeholder: "Whatever comes to your mind",
 
             }

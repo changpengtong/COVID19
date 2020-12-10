@@ -58,8 +58,9 @@ func BioentityArticles(c chan interface{}, keyword string) {
 }
 
 func BioentityInstitutions(c chan interface{}, keyword string) {
-	c <- GenerateSQL("SELECT DISTINCT concat(authorAffiliation, '', authorAffiliationLocation) as Affiliation, count(DISTINCT paperTitle) as NumberOfPapers FROM KaggleAllAuthors\n    WHERE concat(authorAffiliation, '', authorAffiliationLocation) is not null AND paperTitle IN\n     (SELECT title FROM KaggleAllPaperDetails WHERE pubmed_id IN\n        (SELECT DISTINCT PMID FROM KaggleAllBioentitiesCleaned WHERE entity LIKE '%" + keyword + "%'))\n    GROUP BY Affiliation ORDER BY NumberOfPapers DESC")
+	c <- GenerateSQL("SELECT DISTINCT authorAffiliation as Affiliation, authorAffiliationLocation as Location, count(DISTINCT paperTitle) as NumberOfPapers FROM KaggleAllAuthors\n    WHERE concat(authorAffiliation, '', authorAffiliationLocation) is not null AND paperTitle IN\n     (SELECT title FROM KaggleAllPaperDetails WHERE pubmed_id IN\n        (SELECT DISTINCT PMID FROM KaggleAllBioentitiesCleaned WHERE entity LIKE '%" + keyword + "%'))\n    GROUP BY authorAffiliation, authorAffiliationLocation ORDER BY NumberOfPapers DESC")
 }
+
 func BioEntityAuthors(c chan interface{}, keyword string) {
 	c <- GenerateSQL("SELECT DISTINCT KaggleAllAuthors.paperTitle, KaggleAllAuthors.paper_id,SUBSTRING_INDEX(KaggleAllAuthors.authorName, ' ', 2) AS ForeName, SUBSTRING_INDEX(KaggleAllAuthors.authorName, ' ', -2) AS LastName, KaggleAllAuthors.authorAffiliation as Affiliation, KaggleAllAuthors.authorName as FullName, KaggleAllAuthors.authorAffiliationLocation as Location FROM KaggleAllAuthors LEFT JOIN KaggleAllPaperDetails ON paperTitle=title INNER JOIN KaggleAllBioentitiesCleaned ON KaggleAllPaperDetails.pubmed_id=KaggleAllBioentitiesCleaned.pmid WHERE entity LIKE '%" + keyword + "%' ORDER BY LastName")
 }

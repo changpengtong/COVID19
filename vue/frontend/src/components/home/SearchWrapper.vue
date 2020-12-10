@@ -2,20 +2,13 @@
   <div >
 
     <div class="home-search-pane">
-      <search-box   v-if="activeName=='1'" class="center search-box" ></search-box>
-      <search-box2   v-else-if="activeName=='2'" class="center search-box2" ></search-box2>
+      <search-box    v-if="activeName=='1'" class="center search-box" ></search-box>
+      <search-box2   v-else-if="activeName=='2'"  class="center search-box2" ></search-box2>
       <search-box3   v-else-if="activeName=='3'" class="center search-box3" ></search-box3>
       <search-box4  v-else-if="activeName=='4'" class="center search-box4" ></search-box4>
-      <div class="center search-box" v-else>
-        <el-input
-            v-model="query"
-            @keyup.enter.native="alert"
-            :placeholder="placeholder"
-        >
-          <el-button slot="append" icon="el-icon-search" @click="alert"></el-button>
-        </el-input>
-      </div>
+      <default-search-box class="center search-box" v-else></default-search-box>
     </div>
+
     <div class="radios">
     <el-radio-group v-model="activeName" @change="handleClick">
       <el-radio :label="1">PAPER</el-radio>
@@ -30,6 +23,7 @@
 </template>
 
 <script>
+import defaultSearchBox from "./../common/defaultSearchBox";
     import SearchBox from "./../common/SearchBox.vue"
    import SearchBox2 from "./../common/SearchBox2.vue"
     import SearchBox3 from "./../common/SearchBox3.vue"
@@ -38,6 +32,7 @@
     //  import SearchBox3 from "./../common/SearchBox3.vue"
     export default {
       components: {
+        "default-search-box":defaultSearchBox,
         "search-box": SearchBox,
         "search-box2": SearchBox2,
         "search-box3": SearchBox3,
@@ -45,26 +40,15 @@
       },
       data() {
         return {
-          search_suggestion1: ["CoronaVirus", "2020", "pneumonia"],
-          search_suggestion2: ["The University of Texas", "Michigan State University"],
-          search_suggestion3: ["COVID-19", "ACE2"],
-          search_suggestion4: ["Jason S. McLellan"],
-          // activeName: 'first'
-          query: "",
           activeName:"",
-
-          placeholder: "Whatever comes to your mind"
         }
       },
       methods: {
         handleClick(tab, event) {
           console.log(tab, event);
+          // this.query=query;
         },
-        alert() {
-          this.$alert('<strong>Please Select the Category Before Searching.</strong>',  {
-            dangerouslyUseHTMLString: true
-          });
-        },
+
       }
     }
 </script>

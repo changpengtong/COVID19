@@ -4,7 +4,9 @@
     <el-input
         v-model="query"
         @keyup.enter.native="search"
-        :placeholder="placeholder">
+        :placeholder="placeholder"
+        prepend="query"
+        >
       <el-button slot="append" icon="el-icon-search" @click="search"></el-button>
     </el-input>
     <!-- <el-button type="primary" @click="search_query">submit</el-button> -->
@@ -13,10 +15,11 @@
 <script>
 export default {
   name: "SearchBox2",
+  props: ['input'],
   data() {
     return {
       query:"",
-      placeholder: "Whatever comes to your mind"
+      placeholder: "Whatever comes to your mind",
     }
   },
   methods: {
@@ -28,23 +31,10 @@ export default {
           throw error;
         }
       });
-
-      // window.location.href = `/institution/${this.params} `;
-      // this.$router.replace({
-      //   name: "institution", params: {id:this.$route.params.id }});
       this.$router.push(
           { name: 'institution', params: { id: this.query}})
 
-      //   //
-      //   //   query: {
-      //   //   // keyword: this.query
-      //   //   query: this.$route.params.id
-      //   //
-      //   // }
-      //
-      // }
-      // );
-    }
+    },
   },
 
 }
