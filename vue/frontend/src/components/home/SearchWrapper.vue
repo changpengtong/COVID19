@@ -1,6 +1,5 @@
 <template>
   <div >
-
     <div class="home-search-pane">
       <search-box    v-if="activeName=='1'" class="center search-box" ></search-box>
       <search-box2   v-else-if="activeName=='2'"  class="center search-box2" ></search-box2>
@@ -8,18 +7,15 @@
       <search-box4  v-else-if="activeName=='4'" class="center search-box4" ></search-box4>
       <default-search-box class="center search-box" v-else></default-search-box>
     </div>
-
     <div class="radios">
     <el-radio-group v-model="activeName" @change="handleClick">
       <el-radio :label="1">PAPER</el-radio>
       <el-radio :label="2">INSTITUTION</el-radio>
       <el-radio :label="3">BIOENTITY</el-radio>
       <el-radio :label="4">AUTHOR</el-radio>
-
     </el-radio-group>
     </div>
     </div>
-
 </template>
 
 <script>

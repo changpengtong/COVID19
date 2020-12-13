@@ -91,7 +91,13 @@ func InitRouter() *gin.Engine {
 			"message": "sss",
 		})
 	})
-
+	router.GET("/displayAuthorList/:id", func(c *gin.Context) {
+		name := c.Param("id")
+		//name = strings.Trim(name,)
+		fmt.Println(name)
+		authors := mysql.AuthorList(name)
+		c.JSON(200, authors)
+	})
 	router.GET("/displayAuthor/:id", func(c *gin.Context) {
 		name := c.Param("id")
 		//name = strings.Trim(name,)

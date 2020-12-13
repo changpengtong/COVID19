@@ -1,6 +1,8 @@
 <template xmlns:img="http://www.w3.org/1999/html">
     <!-- 开发者名片 -->
-    <el-card class="info-card" :body-style="{ padding: '0px' }" shadow="hover">
+  <div>
+      <div v-for="(author,index) in authors" :key="index">
+        <el-card class="info-card" :body-style="{ padding: '0px' }" shadow="hover">
         <el-row :gutter="24">
             <el-col :md="24" :lg="6">
                 <div class="info-image" >
@@ -10,33 +12,30 @@
             <el-col :md="24" :lg="16">
                 <div class="info-text">
                     <div class="info-item">
-                      <a :href="profile.url">
-                      <span id="name" class="info-item-title">{{profile.name}}</span>
+                      <a :href="author.url">
+                      <span id="name" class="info-item-title">{{author.name}}</span>
                       </a>
                     </div>
                     <!-- affilliation-->
-                    <div class="info-item" v-if="profile">
+                    <div class="info-item" v-if="author">
 <!--                        <router-link :to=affiliation.institution.url >-->
-                            <a :href="profile.institutionurl">
-                           <span class="institution" v-if="profile.institution">{{profile.institution}}</span>
+                            <a :href="author.affiliationUrl">
+                           <span class="institution" v-if="author.affiliation">{{author.affiliation}}</span>
 <!--                        </router-link>-->
                             </a>
-                      <span v-if="profile.location">{{profile.location}}, </span>
+                      <span v-if="author.location">{{author.location}}, </span>
 
                     </div>
                     <!-- mail -->
-                    <div class="info-item" v-if="profile.mail">
-                        <span class="info-item-title">Email:</span><span>{{profile.mail}}</span>
+                    <div class="info-item" v-if="author.email">
+                        <span class="info-item-title">Email:</span><span>{{author.email}}</span>
                     </div>
-                    <!-- key words -->
-<!--                    <div class="info-item" >-->
-<!--                    <span class="words" v-for="(key, index) of keywords"-->
-<!--                          :key="index"><a :href="key.word">{{key.word}}&nbsp;&nbsp;&nbsp;&nbsp;</a></span>-->
-<!--                    </div>-->
                 </div>
             </el-col>
         </el-row>
-    </el-card>
+        </el-card>
+      </div>
+  </div>
 </template>
 
 <script>
@@ -44,35 +43,53 @@
 
 
 export default {
-    props:['card'],
+    props:['author'],
     components: {
       // "info-card": CardHelper
     },
     data() {
       return {
-            profile:{
-                name: 'bin chen',
-                // lab: 'COVID Lab',
-              institutionurl:'/COVID19/#/institution/michigan%20state%20university',
-                url: '/COVID19/#/author/12345',
-                institution: 'michigan state university',
-                mail: 'binchen@gmail.com',
-              location:'Michigan, US'
-            }
+        authors:[],
+        d:[]
+            // profile:{
+            //     name: 'bin chen',
+            //     // lab: 'COVID Lab',
+            //   institutionurl:'/COVID19/#/institution/michigan%20state%20university',
+            //     url: '/COVID19/#/author/12345',
+            //     institution: 'michigan state university',
+            //     mail: 'binchen@gmail.com',
+            //   location:'Michigan, US'
+            // }
       }
     },
     watch:{
-        card:function (newData) {
-            console.log("1")
-            console.log(newData)
-            this.profile.name = newData[0]["ForeName"]+" "+newData[0]["LastName"]
-          this.profile.aid=newData[0]["Aid"]
-            this.profile.mail = ""
-            this.profile.institution = newData[0]["Affiliation"]
-            this.profile.lab=""
-            this.profile.institutionurl = "/COVID19/#/institution/"+newData[0]["Affiliation"]
-            this.profile.url="/COVID19/#/author/"+this.profile.aid
+      author:function (newData) {
+        console.log("card,newdata",newData)
+        this.d = newData
+        this.get_data()
+        // this.currentChangePage(this.tableData,1)
+      }
+    },
+    methods:{
+      get_data() {
+        console.log("get data")
+        let t=[]
+        for(let i=0;i<this.d.length;i++) {
+            t.push({
+              "email": this.d[i]["Email"],
+              "name" : this.d[i]["Name"],
+              "affiliation" : this.d[i]["Affiliation"],
+              "aid" :"",
+              "affiliationUrl":"/COVID19/#/institution/"+ this.d[i]["Affiliation"],
+              "url": "",
+              "location":this.d[i]["Location"]
+            })
         }
+        this.authors = t
+        console.log("authorcard"),
+          console.log(this.authors)
+      },
+
     }
 
   }

@@ -24,7 +24,7 @@ export default new Router({
             //component: () => import(/* webpackChunkName: "about" */ './views/Author.vue')
         },
         {
-            path:'/searchAuthor/:name',
+            path:'/authorList/:name',
             name: 'itemAuthor',
             component: ()=>import("../views/ItemAuthor")
         },

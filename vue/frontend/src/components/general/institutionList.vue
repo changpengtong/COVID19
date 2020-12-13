@@ -36,17 +36,6 @@
                 tableData:[],
                 d:[],
             }
-            // return {
-            //     tableData: [{
-            //         name: 'The University of Texas at Austin',
-            //     }, {
-            //         name: 'The University of Texas at Dallas'
-            //     }, {
-            //         name: 'The University of California, Los Angeles'
-            //     }, {
-            //         name: 'Massachusetts Institute of Technology'
-            //     }]
-            // }
         },
         mounted() {
            // this.get_data()

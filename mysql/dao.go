@@ -73,6 +73,8 @@ func BioentityWordCloud() interface{} {
 	return GenerateSQL("SELECT Mention, occurences FROM Pubmed20_C04.Ace2MeshWords ORDER BY occurences DESC;")
 }
 
+///institution
+
 func InstitutionTotalData(keyword string) map[string]interface{} {
 	institution := make(map[string]interface{})
 	c1 := make(chan interface{})
@@ -137,6 +139,9 @@ func InstitutionWordCloud(c chan map[string]interface{}, keyword string) {
 }
 
 //author
+func AuthorList(keyword string) interface{} {
+	return GenerateSQL("SELECT DISTINCT authorEmail as Email, authorName as Name, authorAffiliationLocation as Location, authorAffiliation as Affiliation FROM KaggleAllAuthors WHERE authorName LIKE '%" + keyword + "%' AND authorAffiliation is not null AND authorAffiliationLocation is not null AND authorEmail is not null AND authorEmail!=' '")
+}
 func AuthorTotalData(aid string) map[string]interface{} {
 	author := make(map[string]interface{})
 	c := make(chan interface{})

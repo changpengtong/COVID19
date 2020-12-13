@@ -12,9 +12,9 @@
         <p>what you search:</p>
         <p id="query">{{ query }}</p>
       </el-card>
-        <div v-for="(card,index) in authors" :key="index" is="author-card" v-bind:card="card">
-<!--            <author-card :card="card"></author-card>-->
-        </div>
+<!--        <div v-for="(author,index) in authors" :key="index" is="author-card" v-bind:authors="authors">-->
+            <author-card :author="author"></author-card>
+<!--        </div>-->
         </el-col>
         <div class="display-visual">
         <el-col :md="9" :sm="24" :xs="24" class="right">
@@ -29,7 +29,7 @@
         <el-pagination
             @current-change="handleCurrentChange" :current-page="currentPage"
             :page-size="pageSize" layout="prev, pager, next"
-            :total="authors.length">
+            :total="author.length">
         </el-pagination>
       </div>
       </div>
@@ -40,6 +40,7 @@
 <script>
     import AuthorCard from "../components/general/AuthorCardNoBox";
     import topAuthors from "@/components/general/topAuthors";
+    import $axios from "@/util/axios";
     export default {
         name: "ItemAuthor",
       components: {
@@ -52,19 +53,12 @@
               currentPage:1,
               pageSize:10,
               tempList:[],
-                authors:[{},{},{},{},{},{},{},{},{},{},{
-                    'ForeName':'a',
-                    'LastName':'b',
-                    'lab':'COVID Lab',
-                    'url':'google.com',
-                    'institution':'msu',
-                    'mail':'12345@qq.com',
-                    'paper':123,
-                    'quotes':14,
-                }],
+                author:[],
+              d:[]
             }
         },
       mounted() {
+        this.get_data()
       },
       watch: {
         paper:function (newData) {
@@ -72,7 +66,6 @@
           this.d = newData
           this.get_data()
           this.currentChangePage(this.tableData,1)
-          this.currentChangePage1(this.cList,1)
         }
       },
       methods:{
@@ -93,28 +86,26 @@
         },
         get_data() {
           // console.log(this.d)
-          let t=[]
-          for(let i=0;i<this.d.length;i++) {
-            let article = {}
-            article["title"] = this.d[i]["ArticleTitle"]
-            article["author"] = this.d[i]["Authors"]
-            article["journal"] = this.d[i]["Journal_Title"]
-            article["url"] = this.d[i]["url"]
-            // article["tweet"]=this.d[i]["tweet"]
-            if (!this.d[i]["tweet"]) {
-              // data attribute doesn't exist
-              t.push({"article":article,"year":this.d[i]["PubYear"],"tweet":"0"})
-            }
-            else{
-              t.push({"article":article,"year":this.d[i]["PubYear"],"tweet":this.d[i]["tweet"]})
-            }
-            // else{
-            //   t.push({"article":article,"year":this.d[i]["PubYear"],"tweet":0})
-            // }
-            // console.log(t)
-
-          }
-          this.tableData = t
+          $axios.get("/displayAuthorList/"+ this.$route.params.name).then(response=>{
+            let d=response.data
+            this.author=d
+            // this.loading = false
+            console.log("id is:",  this.$route.params.name)
+            console.log("itemauthors", this.author)
+          })
+          // let t=[]
+          // for(let i=0;i<this.d.length;i++) {
+          //   let authors = {}
+          //   authors["email"] = this.d[i]["Email"]
+          //   authors["name"] = this.d[i]["Name"]
+          //   authors["affiliation"] = this.d[i]["Affiliation"]
+          //   authors["aid"]=""
+          //   authors["affiliationUrl"]=""
+          //   authors["url"] = ""
+          //   authors["location"]=this.d[i]["Location"]
+          //
+          // }
+          // this.tableData = t
         },
         },
 
