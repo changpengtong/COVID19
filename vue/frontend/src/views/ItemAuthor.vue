@@ -13,7 +13,7 @@
         <p id="query">{{ query }}</p>
       </el-card>
 <!--        <div v-for="(author,index) in authors" :key="index" is="author-card" v-bind:authors="authors">-->
-            <author-card :author="author"></author-card>
+            <author-card :author="author" v-loading="loading"></author-card>
 <!--        </div>-->
         </el-col>
         <div class="display-visual">
@@ -25,13 +25,7 @@
         </el-col>
         </div>
       </el-row>
-      <div class="pager">
-        <el-pagination
-            @current-change="handleCurrentChange" :current-page="currentPage"
-            :page-size="pageSize" layout="prev, pager, next"
-            :total="author.length">
-        </el-pagination>
-      </div>
+
       </div>
     </div>
     
@@ -50,62 +44,33 @@
       },
         data() {
             return {
-              currentPage:1,
-              pageSize:10,
-              tempList:[],
-                author:[],
+              loading:true,
+              author:[],
               d:[]
             }
         },
-      mounted() {
+      created() {
         this.get_data()
+
       },
       watch: {
-        paper:function (newData) {
-          //console.log(newData)
-          this.d = newData
-          this.get_data()
-          this.currentChangePage(this.tableData,1)
-        }
+        '$route': 'get_data'
       },
-      methods:{
-          handleCurrentChange:function (currentPage) {
-          this.currentPage = currentPage
-          this.currentChangePage(this.tableData,currentPage)
 
-        },
-        currentChangePage(list,currentPage) {
-          let from = (currentPage-1)*this.pageSize
-          let to = currentPage*this.pageSize
-          this.tempList = []
-          for(;from<to;from++) {
-            if(list[from]) {
-              this.tempList.push(list[from]);
-            }
-          }
-        },
+      methods:{
+
+
         get_data() {
           // console.log(this.d)
+          this.loading = true
           $axios.get("/displayAuthorList/"+ this.$route.params.name).then(response=>{
+            this.loading = false
             let d=response.data
             this.author=d
             // this.loading = false
             console.log("id is:",  this.$route.params.name)
             console.log("itemauthors", this.author)
           })
-          // let t=[]
-          // for(let i=0;i<this.d.length;i++) {
-          //   let authors = {}
-          //   authors["email"] = this.d[i]["Email"]
-          //   authors["name"] = this.d[i]["Name"]
-          //   authors["affiliation"] = this.d[i]["Affiliation"]
-          //   authors["aid"]=""
-          //   authors["affiliationUrl"]=""
-          //   authors["url"] = ""
-          //   authors["location"]=this.d[i]["Location"]
-          //
-          // }
-          // this.tableData = t
         },
         },
 

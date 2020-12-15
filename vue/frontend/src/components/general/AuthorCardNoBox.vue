@@ -1,7 +1,7 @@
 <template xmlns:img="http://www.w3.org/1999/html">
     <!-- 开发者名片 -->
   <div>
-      <div v-for="(author,index) in authors" :key="index">
+      <div v-for="(author,index) in tempList" :key="index">
         <el-card class="info-card" :body-style="{ padding: '0px' }" shadow="hover">
         <el-row :gutter="24">
             <el-col :md="24" :lg="6">
@@ -35,6 +35,15 @@
         </el-row>
         </el-card>
       </div>
+    <div class="pager">
+      <el-pagination
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange" :current-page="currentPage"
+          :page-sizes="[5,10,15,20,50,100]"
+          :page-size="pageSize" layout="total, sizes, prev, pager, next, jumper"
+          :total="authors.length">
+      </el-pagination>
+    </div>
   </div>
 </template>
 
@@ -49,17 +58,11 @@ export default {
     },
     data() {
       return {
+        currentPage:1,
+        pageSize:10,
+        tempList:[],
         authors:[],
         d:[]
-            // profile:{
-            //     name: 'bin chen',
-            //     // lab: 'COVID Lab',
-            //   institutionurl:'/COVID19/#/institution/michigan%20state%20university',
-            //     url: '/COVID19/#/author/12345',
-            //     institution: 'michigan state university',
-            //     mail: 'binchen@gmail.com',
-            //   location:'Michigan, US'
-            // }
       }
     },
     watch:{
@@ -67,10 +70,31 @@ export default {
         console.log("card,newdata",newData)
         this.d = newData
         this.get_data()
+        this.currentChangePage(this.tableData,1)
+
         // this.currentChangePage(this.tableData,1)
       }
     },
     methods:{
+      handleSizeChange: function (pageSize) {
+        this.pageSize = pageSize
+        this.handleCurrentChange(this.currentPage)
+      },
+      handleCurrentChange:function (currentPage) {
+        this.currentPage = currentPage
+        this.currentChangePage(this.tableData,currentPage)
+
+      },
+      currentChangePage(list,currentPage) {
+        let from = (currentPage-1)*this.pageSize
+        let to = currentPage*this.pageSize
+        this.tempList = []
+        for(;from<to;from++) {
+          if(list[from]) {
+            this.tempList.push(list[from]);
+          }
+        }
+      },
       get_data() {
         console.log("get data")
         let t=[]
@@ -86,6 +110,7 @@ export default {
             })
         }
         this.authors = t
+        this.tableData=t
         console.log("authorcard"),
           console.log(this.authors)
       },
@@ -100,7 +125,7 @@ export default {
         margin: 1.5em auto;
     }
     .el-card{
-      max-height: 150px;
+      max-height: 200px;
     }
 
     .info-card {
@@ -162,5 +187,9 @@ export default {
     .info-descript {
         color: rgba(0,0,0,.5);
         margin-bottom: .5em;
+    }
+    .el-pagination{
+      text-align: center;
+      padding: 3rem 5rem;
     }
 </style>
