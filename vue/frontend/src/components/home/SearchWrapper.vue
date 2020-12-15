@@ -35,7 +35,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .home-search-pane {
   display: block;
   width: 100%;

@@ -166,7 +166,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
 .search-box .search-box-auto {
   width: 110%;
 }

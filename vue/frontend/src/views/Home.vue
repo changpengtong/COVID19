@@ -197,7 +197,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .home {
   margin-top: 40px;
   margin-left: 5%;

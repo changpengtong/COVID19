@@ -46,7 +46,7 @@ export default {
         }
       });
       this.$router.push({
-        path: "COVID19/bioentity/" + row.name,
+        path: "/COVID19/#/bioentity/" + row.name,
 
       });
     }
@@ -54,7 +54,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
 
 .small-table-card{
   text-align: center;
