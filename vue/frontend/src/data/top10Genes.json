@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Ace2",
+        "paper": 1708
+    },
+    {
+        "name": "IL-6",
+        "paper": 1067
+    },
+    {
+        "name": "C-reactive protein",
+        "paper": 768
+    },
+    {
+        "name": "angiotensin-converting enzyme 2",
+        "paper": 755
+    },
+    {
+        "name": "CD4",
+        "paper": 753
+    },
+    {
+        "name": "CD8",
+        "paper": 515
+    },
+    {
+        "name": "TNF-alpha",
+        "paper": 501
+    },
+    {
+        "name": "CRP",
+        "paper": 500
+    },
+    {
+        "name": "IL-10",
+        "paper": 443
+    },
+    {
+        "name": "IFN-gamma",
+        "paper": 430
+    }
+]

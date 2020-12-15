@@ -1,313 +1,331 @@
 <template>
-    <div class="home">
-        <!------------------------------- layout ------------------------------->
-        <el-row :gutter="20">
-            <!------------------------------- 1st col ------------------------------->
-            <el-col :span="8" class="first-col">
+  <div class="home">
+    <el-row :gutter="20" type="flex" justify="center">
+      <el-col :span="20">
+        <el-row :gutter="20" class="first-row">
+          <el-col :span="12" class="first-col">
+            <!------------------------------- total paper card ------------------------------->
+            <el-row>
+              <el-card class="total-paper-card">
+                <div class="word">Total Paper</div>
+                <div class="number">301,667</div>
+              </el-card>
+            </el-row>
 
-                <!------------------------------- total paper card ------------------------------->
-                <el-row :span="8">
-                    <el-card class="total-paper-card">
-                        <div class="word">Total Paper</div>
-                        <div class="number">301,667</div>
-                    </el-card>    
-                </el-row>
-
-                <!------------------------------- welcome word card ------------------------------->
-                <el-row :span="8">
-                    <el-card class="welcome-card">
-                        <img src="../image/welcome.png" class="welcome-image">
-                    </el-card>
-                </el-row>
-
-                <div class="left-table">
-                    <el-row :gutter="20">
-                <!------------------------------- Table entity ------------------------------->
-                
-                    <el-col :span="12">
-                    <el-card class="small-table-card">
-                        <div class="entities-table" >
-                            <div class="title">Top 10 Entities</div>
-                            <el-table ref="singleTable" :data="dataList"
-                            stripe height highlight-current-row fit
-                            @current-change="handleCurrentChange"
-                            style="width: 100%">
-                                <el-table-column
-                                type="index"
-                                width="34">
-                                </el-table-column>
-                                    
-                                <el-table-column
-                                property="name"
-                                label="Name">
-                                </el-table-column>
-                                
-                                <el-table-column
-                                property="paper"
-                                label="Paper"
-                                width="60">
-                                </el-table-column>
-                            </el-table>
-                        </div>
-                    </el-card>
-                    </el-col>
-                <!------------------------------- Table genes ------------------------------->
-                    <el-col :span="12">
-                    <el-card class="small-table-card">
-                        <div class="genes-table">
-                            <div class="title">Top 10 Genes</div>
-                            <el-table ref="singleTable" :data="dataList"
-                            stripe height highlight-current-row fit
-                            @current-change="handleCurrentChange"
-                            style="width: 100%">
-                                <el-table-column
-                                type="index"
-                                width="34">
-                                </el-table-column>
-                                    
-                                <el-table-column
-                                property="name"
-                                label="Name">
-                                </el-table-column>
-                                
-                                <el-table-column
-                                property="paper"
-                                label="Paper"
-                                width="60">
-                                </el-table-column>
-                            </el-table>
-                        </div>
-                    </el-card>
-                    </el-col>
-                    </el-row>
+            <!------------------------------- welcome word card ------------------------------->
+            <el-row>
+              <el-card class="welcome-card">
+                <!-- <img src="../image/bg.png" class="welcome-image"> -->
+                <div class="word">
+                  <h3>Welcome!</h3>
+                  <p class="first">
+                    COVID-19 Portal is a dense trove of coronavirus research
+                    trends. Updated regularly, this website is an atlas to help
+                    researchers and people who are interested in cutting-edge
+                    research on COVID-19 find influential researchers, papers,
+                    and institutions.
+                  </p>
+                  <p class="second">
+                    Our datasets include over 2,200,000 research paper, covering
+                    Kaggle, PubMed, PubTator center.
+                  </p>
                 </div>
-            </el-col>
-            <!------------------------------- 2nd col ------------------------------->
-            
-            <el-col :span="8" class="second-col">
-                <!------------------------------- Table authors ------------------------------->
-                <el-row :span="8">
-                <el-card class="authors-table-card">
-                    <div class="authors-table">
-                        <div class="title">Top 10 Authors</div>
-                        <el-table ref="singleTable" :data="tableData"
-                        stripe height highlight-current-row fit
-                        @current-change="handleCurrentChange"
-                        style="width: 100%">
-                            <el-table-column
-                            type="index"
-                            width="60">
-                            </el-table-column>
-                                
-                            <el-table-column
-                            property="name"
-                            label="Name"
-                            width="135">
-                            </el-table-column>
+              </el-card>
+            </el-row>
+          </el-col>
 
-                            <el-table-column
-                            property="institution"
-                            label="Institution">
-                            </el-table-column>
-                            
-                            <el-table-column
-                            property="paper"
-                            label="Paper"
-                            width="60">
-                            </el-table-column>
-                        </el-table>
-                    </div>
-                </el-card>
-                </el-row>
+          <el-col :span="12" class="second-col">
+            <!------------------------------- Table authors ------------------------------->
 
-                <el-row :gutter="20">
-                <!------------------------------- Table drug ------------------------------->
-                <el-col :span="12">
-                <el-card class="small-table-card">
-                    <div class="drugs-table">
-                        <div class="title">Top 10 Drugs</div>
-                        <el-table ref="singleTable" :data="dataList"
-                        stripe height highlight-current-row fit
-                        @current-change="handleCurrentChange"
-                        style="width: 100%">
-                            <el-table-column
-                            type="index"
-                            width="34">
-                            </el-table-column>
-                                
-                            <el-table-column
-                            property="name"
-                            label="Name">
-                            </el-table-column>
-                            
-                            <el-table-column
-                            property="paper"
-                            label="Paper"
-                            width="60">
-                            </el-table-column>
-                        </el-table>
-                    </div>
-                </el-card>
-                </el-col>
-                <!------------------------------- Table diseases ------------------------------->
-                <el-col :span="12">
-                <el-card class="small-table-card">
-                    <div class="diseases-table">
-                        <div class="title">Top 10 Diseases</div>
-                        <el-table ref="singleTable" :data="dataList"
-                        stripe height highlight-current-row fit
-                        @current-change="handleCurrentChange"
-                        style="width: 100%">
-                            <el-table-column
-                            type="index"
-                            width="34">
-                            </el-table-column>
-                                
-                            <el-table-column
-                            property="name"
-                            label="Name">
-                            </el-table-column>
-                            
-                            <el-table-column
-                            property="paper"
-                            label="Paper"
-                            width="60">
-                            </el-table-column>
-                        </el-table>
-                    </div>
-                </el-card>
-                </el-col>
-                </el-row>
-            </el-col>
-            <!------------------------------- 3rd col ------------------------------->
-            <!------------------------------- Table paper ------------------------------->
-            <el-col :span="8" class="third-col">
-            <el-card class="papers-table-card">
-                <div class="papers-table">
-                    <div class="title">Top 10 Papers about covid-19</div>
-                    <el-table ref="singleTable" :data="tableData"
-                    stripe height highlight-current-row fit
+            <el-card class="authors-table-card">
+              <div class="authors-table">
+                <div class="title">Top 10 Authors</div>
+                <el-table
+                    ref="singleTable"
+                    :data="dataAuthors"
+                    stripe
+                    height
+                    highlight-current-row
+                    fit
                     @current-change="handleCurrentChange"
-                    style="width: 100%">
-                        <el-table-column
-                            type="index"
-                            width="60">
-                            </el-table-column>
-                                
-                            <el-table-column
-                            property="title"
-                            label="Title">
-                            </el-table-column>
+                    @row-click="getInstitutionDetailPage"
+                    style="width: 100%"
+                >
+                  <el-table-column type="index" width="34"> </el-table-column>
 
-                            
-                            <el-table-column
-                            property="count"
-                            label="Tweet_count"
-                            width="110">
-                            </el-table-column>
-                    </el-table>
-                </div>
+                  <el-table-column property="name" label="Name" width="135">
+                  </el-table-column>
+
+                  <el-table-column property="institution" label="Institution">
+                  </el-table-column>
+
+                  <el-table-column property="paper" label="Paper" width="60">
+                  </el-table-column>
+                </el-table>
+              </div>
             </el-card>
-            </el-col>
+
+          </el-col>
         </el-row>
-    </div>
+
+        <el-row :gutter="20">
+          <div class="second-row">
+            <!------------------------------- Table genes ------------------------------->
+            <el-col :span="8">
+              <small-table
+                  :tableName="tableName[1]"
+                  :dataList="dataGenes"
+              ></small-table>
+            </el-col>
+            <!------------------------------- Table drug ------------------------------->
+            <el-col :span="8">
+              <small-table
+                  :tableName="tableName[2]"
+                  :dataList="dataDrugs"
+              ></small-table>
+            </el-col>
+            <!------------------------------- Table diseases ------------------------------->
+            <el-col :span="8">
+              <small-table
+                  :tableName="tableName[3]"
+                  :dataList="dataDiseases"
+              ></small-table>
+            </el-col>
+          </div>
+        </el-row>
+      </el-col>
+
+      <el-col :span="12" class="third-col">
+        <!------------------------------- Table paper ------------------------------->
+        <el-card class="papers-table-card">
+          <div class="papers-table">
+            <div class="title">Top 10 Papers about covid-19</div>
+            <el-table
+                ref="singleTable"
+                :data="dataPapers"
+                stripe
+                height
+                highlight-current-row
+                fit
+                @current-change="handleCurrentChange"
+                @row-click="getPaperDetailPage"
+                style="width: 100%"
+            >
+              <el-table-column type="index" width="36"> </el-table-column>
+
+              <el-table-column property="name" label="Title"> </el-table-column>
+
+              <el-table-column property="tweet" label="Tweet" width="60">
+              </el-table-column>
+            </el-table>
+          </div>
+        </el-card>
+      </el-col>
+    </el-row>
+  </div>
 </template>
 
 <script>
-    import data from "../data/sample.json"
+import dataEntities from "../data/top10Entities.json";
+import dataDiseases from "../data/top10Diseases.json";
+import dataDrugs from "../data/top10Drugs.json";
+import dataGenes from "../data/top10Genes.json";
+import dataPapers from "../data/top10Papers.json";
+import dataAuthors from "../data/top10Authors.json";
+import SmallTable from "../components/home/SmallTable.vue";
 
-    export default {
-        name: 'home',
-        data() {
-            return {
-                dataList: data
-            };
-        },
-        methods: {
-            getData() {
-                fetch("../data/sample.json")
-                    .then(response => response.json())
-                    .then(data => (this.dataList = data));
-            }
-        }
+export default {
+  name: "home",
+
+  data() {
+    return {
+      dataEntities: dataEntities,
+      dataDiseases: dataDiseases,
+      dataDrugs: dataDrugs,
+      dataGenes: dataGenes,
+      dataPapers: dataPapers,
+      dataAuthors: dataAuthors,
+
+      tableName: [
+        "Entities",
+        "Genes",
+        "Drugs",
+        "Diseases",
+        "Papers",
+        "Authors",
+      ],
     };
+  },
+  components: {
+    "small-table": SmallTable,
+  },
+  methods: {
+    getData() {
+      fetch("../data/sample.json")
+          .then((response) => response.json())
+          .then((data) => (this.dataList = data));
+    },
+    getInstitutionDetailPage(row) {
+      this.$router.push("path").catch((error) => {
+        if (error.name != "NavigationDuplicated") {
+          throw error;
+        }
+      });
+      this.$router.push({
+        path: "/institution/" + row.name,
+      });
+    },
+    getAuthorDetailPage(row) {
+      this.$router.push("path").catch((error) => {
+        if (error.name != "NavigationDuplicated") {
+          throw error;
+        }
+      });
+      this.$router.push({
+        path: "/author/" + row.name,
+      });
+    },
+    getPaperDetailPage(row) {
+      this.$router.push({
+        path: "/displayInfo",
+        query: {
+          query: row.name,
+        },
+      });
+    },
+  },
+};
 </script>
 
 <style scoped>
-    
-    .home {
-        margin-top: 40px;
-        margin-left: 6%;
-        margin-right: 4%;
-    }
-
-    .first-col {
-        width: 30%;
-    }
-
-    /*------------------------------- total paper card -------------------------------*/
-    .total-paper-card {
-        height: 130px;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .total-paper-card .word {
-        font-size: 20px;
-    }
-
-    .total-paper-card .number {
-        font-size: 45px;
-    }
-
-    /*------------------------------- welcome word card -------------------------------*/
-    .welcome-card {
-        height: 205px;
-        margin-bottom: 20px;
-    }
-
-    .welcome-card .el-card__body {
-        padding: 0px;
-    }
-
-    .welcome-card .welcome-image {
-        width: 100%;
-        display: block;
-    }
-
-    /*------------------------------- Table entity -------------------------------*/
+.home {
+  margin-top: 40px;
+  margin-left: 5%;
+  margin-right: 4%;
+}
 
 
-    .small-table-card{
-        text-align: center;
-        font-size: 20px;
-        
-        height: 360px;
-    }
+/*------------------------------- total paper card -------------------------------*/
+.home .total-paper-card {
+  height: 130px;
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-    .title {
-        font-weight: bold;
-    }
+.home .total-paper-card .word {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'Slabo 27px', serif;
+}
 
-    .second-col .authors-table-card {
-        margin-bottom: 20px;
-        height: 355px;
-        text-align: center;
-        font-size: 20px;
-    }
+.home .total-paper-card .number {
+  margin-top:-10px;
+  font-size: 47px;
+  color: #409eff;
+  font-weight: 600;
+  font-family: 'Playfair Display', serif;
+}
 
-    /*.el-table__row {*/
-    /*    font-size: 0.5rem;*/
-    /*}*/
+/*------------------------------- welcome word card -------------------------------*/
+.home .welcome-card {
+  height: 230px;
+  margin-bottom: 20px;
+  background-color: #EDF4FF;
 
-    .el-table td, .el-table th {
-        padding: 0;
-    }
+}
 
-    .third-col .papers-table-card {
-        height: 735px;
-        text-align: center;
-        font-size: 25px;
-    }
+.home .welcome-card .el-card__body {
+  padding: 0px;
+}
 
+.home .welcome-card .welcome-image {
+  width: 100%;
+  display: block;
+}
+
+.home .first-col .welcome-card {
+  background-image: url("../image/welcome.png");
+  background-repeat: no-repeat, repeat;
+  background-size: 350px 150px;
+
+}
+
+.home .first-col .welcome-card .word h3 {
+  padding-top: 18px;
+  text-align: center;
+  font-family: 'Merienda', cursive;
+  font-weight: 250;
+
+}
+
+.home .first-col .welcome-card .word .first {
+  padding-top: 10px;
+  padding-left: 50px;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+  color: #102443;
+  font-family: 'Piazzolla', serif;
+}
+.home .first-col .welcome-card .word .second {
+  padding-top: 15px;
+  padding-left: 30px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 500;
+  color: #4876bf;
+  font-family: 'Satisfy', cursive;
+}
+
+/*------------------------------- Tables -------------------------------*/
+
+.home .el-table {
+  padding-top: 10px;
+}
+
+.home .el-table__row {
+  font-size: 13px;
+}
+.home .authors-table-card .el-table__row {
+  font-size: 12px;
+}
+
+.home .el-table--striped .el-table__body tr.el-table__row--striped td {
+  background-color: #edf4ff;
+}
+
+.home .el-table td,
+.el-table th {
+  padding: 0;
+}
+
+.home .title {
+  font-weight: bold;
+  font-family: 'Slabo 27px', serif;
+}
+
+.second-col .authors-table-card {
+  margin-bottom: 20px;
+  height: 380px;
+  text-align: center;
+  font-size: 20px;
+}
+.second-col .authors-table-card .title{
+  font-size: 21px;
+}
+
+.third-col .papers-table-card {
+  height: 745px;
+  text-align: center;
+  font-size: 25px;
+}
+
+.home .third-col .papers-table-card .el-table__row {
+  font-size: 14px;
+  height: 20px;
+}
+
+.home .third-col .papers-table-card .el-table .cell {
+  height: 47px;
+}
 </style>

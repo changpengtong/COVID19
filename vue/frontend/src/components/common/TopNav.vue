@@ -3,15 +3,14 @@
     <div class="_container">
       <div class="framework-width">
         <el-row :gutter="20">
-          <el-col :span="14">
+          <el-col :span="15">
             <div id="icon">
-            <router-link to="/" tag="div">
-              <a href="#">COVID-19 PORTAL</a>
-            </router-link>
-          </div>
+              <router-link to="/" tag="div">
+                <a href="#">COVID-19 PORTAL</a>
+              </router-link>
+            </div>
           </el-col>
-          <el-col :span="10" class="search"><search-wrapper></search-wrapper></el-col>
-
+          <el-col :span="8"><search-wrapper></search-wrapper></el-col>
         </el-row>
 
         <transition name="el-zoom-in-top">
@@ -22,7 +21,7 @@
   </div>
 </template>
 
-<script>
+<script >
 import SearchBox from "./../common/SearchBox.vue";
 import SearchWrapper from "@/components/home/SearchWrapper";
 export default {
@@ -42,7 +41,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 * {
   box-sizing: border-box;
 }
@@ -58,12 +57,12 @@ export default {
   /* position: fixed; */
   border-bottom: 1px solid #e1e1e1;
   top: 0;
+  height: 120px;
   width: 100%;
-  height: 8rem;
+  padding-top: 15px;
+
 }
-.search{
-  padding-top: 1em;
-}
+
 /*
      * ---------------------------------------------
      *  暂时的网站标识
@@ -75,9 +74,8 @@ export default {
   font-weight: bold;
 }
 #icon a {
-  font-size: 1.7em;
-  padding-left: 0.5em;
-  margin-top: 1.5rem;
+  font-size: 40px;
+
 }
 /*
      * ---------------------------------------------
@@ -103,13 +101,6 @@ export default {
 }
 
 .topnav .search-box {
-  float: right;
-  display: inline-block;
-  /* height: 25px; */
-  line-height: 40px;
-  width: 100%;
-}
-.topnav .el-autocomplete{
   float: right;
   display: inline-block;
   /* height: 25px; */

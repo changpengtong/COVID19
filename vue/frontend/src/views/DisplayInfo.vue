@@ -85,7 +85,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     .container {
         /*max-width: 2400px;*/
         /*!* width: 100%; *!*/
