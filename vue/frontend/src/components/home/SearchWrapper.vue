@@ -48,6 +48,6 @@ export default {
 }
 
 .home-search-pane .radios .el-radio-group{
-  padding-left: 30px;
+  padding-left: 10px;
 }
 </style>
