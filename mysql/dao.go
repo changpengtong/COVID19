@@ -26,6 +26,20 @@ func ConnectMySQL() *sql.DB {
 	return db
 }
 
+//auto-complete api
+func AllInstitutionNames() interface{} {
+	return GenerateSQL("SELECT DISTINCT authorAffiliation as name, authorAffiliationLocation\nFROM KaggleAllAuthors\nWHERE authorAffiliation is not null AND authorAffiliation != ''")
+}
+func AllTitleNames() interface{} {
+	return GenerateSQL("SELECT DISTINCT title\n as name FROM KaggleAllPaperDetails\nWHERE title is not null  AND title!=''")
+}
+func AllAuthorNames() interface{} {
+	return GenerateSQL("SELECT DISTINCT authorName\n as name FROM KaggleAllAuthors\nWHERE authorName is not null AND authorName!=''\nAND authorName REGEXP '^[A-Za-z0-9]'")
+}
+func AllBiontityNames() interface{} {
+	return GenerateSQL("SELECT DISTINCT entity\nas name FROM KaggleAllBioentitiesCleaned\nWHERE entity is not null AND entity!=''")
+}
+
 // bioentity
 
 func BioentityTotalData(keyword string) map[string]interface{} {
@@ -95,9 +109,7 @@ func InstitutionTotalData(keyword string) map[string]interface{} {
 	close(c4)
 	return institution
 }
-func AllInstitutionNames() interface{} {
-	return GenerateSQL("SELECT DISTINCT authorAffiliation, authorAffiliationLocation\nFROM KaggleAllAuthors\nWHERE authorAffiliation is not null AND authorAffiliation != ''")
-}
+
 func InstitutionBarGraphPapersByYear(c chan interface{}, keyword string) {
 	c <- GenerateSQL("SELECT count(DISTINCT pubmed_id) as NumberOfPapers, SUBSTRING(publish_time,1,4) as PubYear\nFROM KaggleAllPaperDetails\nWHERE EXISTS\n      (SELECT DISTINCT paperTitle FROM KaggleAllAuthors\n      WHERE title=KaggleAllAuthors.paperTitle AND\n        authorAffiliation LIKE '%" + keyword + "%'\n  AND (paperTitle != '' OR paperTitle is not null))\n  AND pubmed_id is not null AND pubmed_id!=' '\n    GROUP BY PubYear ORDER BY PubYear DESC LIMIT 10")
 }

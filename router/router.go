@@ -123,6 +123,17 @@ func InitRouter() *gin.Engine {
 		institutionNames := mysql.AllInstitutionNames()
 		c.JSON(200, institutionNames)
 	})
-
+	router.GET("/authorNames", func(c *gin.Context) {
+		authorNames := mysql.AllAuthorNames()
+		c.JSON(200, authorNames)
+	})
+	router.GET("/bioentityNames", func(c *gin.Context) {
+		bioentityNames := mysql.AllBiontityNames()
+		c.JSON(200, bioentityNames)
+	})
+	router.GET("/paperTitles", func(c *gin.Context) {
+		titleNames := mysql.AllTitleNames()
+		c.JSON(200, titleNames)
+	})
 	return router
 }
