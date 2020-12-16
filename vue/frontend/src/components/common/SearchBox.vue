@@ -5,6 +5,7 @@
         class="search-box-auto"
         v-model="input"
         clearable
+        @keyup.enter.native="search"
         :fetch-suggestions="querySearch"
         :placeholder="placeholder"
         @select="handleSelect"
