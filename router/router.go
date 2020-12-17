@@ -98,11 +98,13 @@ func InitRouter() *gin.Engine {
 		authors := mysql.AuthorList(name)
 		c.JSON(200, authors)
 	})
-	router.GET("/displayAuthor/:id", func(c *gin.Context) {
-		name := c.Param("id")
+	router.GET("/displayAuthor/:id1/:id2", func(c *gin.Context) {
+		name := c.Param("id1")
+		affi := c.Param("id2")
 		//name = strings.Trim(name,)
 		fmt.Println(name)
-		author := mysql.AuthorTotalData(name)
+		fmt.Println(affi)
+		author := mysql.AuthorTotalData(name, affi)
 		c.JSON(200, author)
 	})
 

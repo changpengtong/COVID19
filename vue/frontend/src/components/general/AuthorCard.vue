@@ -10,26 +10,21 @@
             <el-col :md="24" :lg="16">
                 <div class="info-text">
                     <div class="info-item">
-                        <span id="name" class="info-item-title">{{profile.name}}</span>
+                        <span id="name" class="info-item-title">{{this.$route.params.name}}</span>
                     </div>
                     <!-- affilliation-->
                     <div class="info-item" v-if="profile">
-                        <span v-if="profile.lab">{{profile.lab}}, </span>
+                        <span v-if="profile.lab">{{this.profile.lab}} </span>
 <!--                        <router-link :to=affiliation.institution.url >-->
                             <a :href="profile.url">
-                           <span class="institution" v-if="profile.institution">{{profile.institution}}</span>
+                           <span class="institution" v-if="this.$route.params.affi">{{this.$route.params.affi}}</span>
 <!--                        </router-link>-->
                             </a>
                     </div>
                     <!-- mail -->
                     <div class="info-item" v-if="profile.mail">
-                        <span class="info-item-title">Email:</span><span>{{profile.mail}}</span>
+                        <span class="info-item-title">Email:</span><span>{{this.profile.mail}}</span>
                     </div>
-                    <!-- key words -->
-<!--                    <div class="info-item" >-->
-<!--                    <span class="words" v-for="(key, index) of keywords"-->
-<!--                          :key="index"><a :href="key.word">{{key.word}}&nbsp;&nbsp;&nbsp;&nbsp;</a></span>-->
-<!--                    </div>-->
                 </div>
             </el-col>
         </el-row>
@@ -42,30 +37,46 @@
 
 export default {
     props:['card'],
-    components: {
-      // "info-card": CardHelper
-    },
     data() {
       return {
             profile:{
-                name: 'bin chen',
-                lab: 'COVID Lab',
-                url: 'google.com',
-                institution: 'msu',
-                mail: '12345@qq.com',
-            }
+                name: '',
+                lab: '',
+                url: '',
+                institution: '',
+                mail: '',
+            },
+        d:{
+          name: '',
+          lab: '',
+          url: '',
+          institution: '',
+          mail: '',
+        }
       }
     },
     watch:{
-        card:function (newData) {
-            console.log("1")
+      card:function (newData) {
+            console.log("authorcard")
             console.log(newData)
-            this.profile.name = newData[0]["ForeName"]+" "+newData[0]["LastName"]
-            this.profile.mail = ""
-            this.profile.institution = newData[0]["Affiliation"]
-            this.profile.lab=""
-            this.profile.url = "/COVID19/#/institution/"+newData[0]["Affiliation"]
-        }
+        this.d = newData
+        this.get_data()
+
+
+      },
+    },
+  created() {
+    this.get_data()
+  },
+  methods:{
+     get_data() {
+        console.log("fetch card data")
+        this.profile.mail=this.d.mail
+        this.profile.institution=this.d.institution
+       this.profile.name=this.d.name
+       this.profile.lab=this.d.lab
+       this.profile.url=this.d.url
+      }
     }
 
   }

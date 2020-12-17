@@ -70,7 +70,6 @@
             get_data() {
               this.loading = true
               $axios.get("/displayBioentity/"+this.$route.params.id).then(response=>{
-              //  $axios.get("/A01Paper/"+this.$route.params.id).then(response=>{
                 this.loading = false
                 let d=response.data
                     console.log("d is :", d)

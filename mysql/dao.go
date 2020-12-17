@@ -150,61 +150,43 @@ func InstitutionWordCloud(c chan map[string]interface{}, keyword string) {
 	c <- res
 }
 
-//author
+//authorlist
 func AuthorList(keyword string) interface{} {
 	return GenerateSQL("SELECT DISTINCT authorEmail as Email, authorName as Name, authorAffiliationLocation as Location, authorAffiliation as Affiliation FROM KaggleAllAuthors WHERE authorName LIKE '%" + keyword + "%' AND authorAffiliation is not null AND authorAffiliationLocation is not null AND authorEmail is not null AND authorEmail!=' '")
 }
-func AuthorTotalData(aid string) map[string]interface{} {
+
+//author
+func AuthorTotalData(key1 string, key2 string) map[string]interface{} {
 	author := make(map[string]interface{})
-	c := make(chan interface{})
-	go AuthorArticles(c, aid)
-	author["articles"] = <-c
-	go AuthorcoAuthors(c, aid)
-	author["coauthor"] = <-c
-	go AuthorWordCloudType(c)
-	author["wordcloud"] = <-c
-	go AuthorBarGraphPapersByYear(c, aid)
-	author["bar"] = <-c
-	go AuthorCard(c, aid)
-	author["card"] = <-c
-	close(c)
-	//	author["articles"] = AuthorArticles()
-	//	author["coauthor"] = AuthorcoAuthors()
-	//	author["wordcloud"] = AuthorWordCloudType()
-	////	author["institution"] = AuthorInstitutions()
-	//	author["bar"] = AuthorBarGraphPapersByYear()
-	//	fmt.Println(author)
+	c1 := make(chan interface{})
+	c2 := make(chan interface{})
+	c3 := make(chan interface{})
+	c4 := make(chan map[string]interface{})
+	go AuthorArticles(c1, key1, key2)
+	go AuthorcoAuthors(c2, key1, key2)
+	go AuthorBarGraphPapersByYear(c3, key1, key2)
+	go AuthorWordCloudType(c4, key1, key2)
+	author["articles"] = <-c1
+	author["coauthor"] = <-c2
+	author["bar"] = <-c3
+	author["wordcloud"] = <-c4
+	close(c1)
+	close(c2)
+	close(c3)
+	close(c4)
 	return author
 }
 
-func AuthorArticles(c chan interface{}, aid string) {
-	//return GenerateSQL("SELECT DISTINCT b.LastName,a.PMID,a.ArticleTitle,a.PubYear,b.PMID " +
-	//	"FROM Pubmed20_C04.GeneEntityArticleDetails a,Pubmed20_C04.GeneEntityAuthors b WHERE a.PMID=b.PMID LIMIT 20")
-	//c <- GenerateSQL("SELECT ArticleTitle, PubYear,Authors,Journal_Title FROM Pubmed20_C04.BinChenListOfPapers ORDER BY PubYear DESC")
-	c <- GenerateSQL("SELECT a1.ArticleTitle,a1.Journal_Title,d3.Authors,d2.PubYear FROM Pubmed20_C04.A02_AuthorList a2 " +
-		"JOIN Pubmed20_C04.A01_Articles a1 ON a2.PMID = a1.PMID " +
-		"JOIN Pubmed20_C04.D02_PublishingYear d2 ON d2.PMID = a2.PMID " +
-		"JOIN Pubmed20_C04.D03_PaperAuthors d3 ON d3.PMID = a2.PMID " +
-		"WHERE a2.AID = " + aid)
+func AuthorArticles(c chan interface{}, name string, affi string) {
+	c <- GenerateSQL("SELECT DISTINCT title as ArticleTitle, abstract, authors as Authors, pmcid, pubmed_id,\n SUBSTRING(publish_time,1,4) as PubYear, journal as Journal_Title, Tweets as tweet,\n                (case when (url LIKE '%; %')\n THEN concat('https://www.ncbi.nlm.nih.gov/pubmed/',pubmed_id)\n                    ELSE url END)as url\nFROM KaggleAllPaperDetails WHERE title IN(\nSELECT DISTINCT paperTitle FROM KaggleAllAuthors WHERE\n    authorName LIKE'%" + name + "%'\n    AND authorAffiliation LIKE '%" + affi + "%'\n    )\nAND pubmed_id is not null AND pubmed_id !=' '\nORDER BY PubYear DESC;")
 }
 
-func AuthorcoAuthors(c chan interface{}, aid string) {
-	//c <- GenerateSQL("SELECT FullName,ForeName, LastName, Affiliation, NumberofPapers FROM Pubmed20_C04.BinChenCoauthorsFinal ORDER BY NumberofPapers DESC")
-	c <- GenerateSQL("SELECT DISTINCT c4.AID, c4.LastName, c4.ForeName, c4.Affiliation, count(a22.PMID) as rank " +
-		"FROM (SELECT a2.PMID FROM Pubmed20_C04.A02_AuthorList a2 " +
-		"JOIN Pubmed20_C04.D03_PaperAuthors d3 ON d3.PMID = a2.PMID WHERE a2.AID = " + aid + ") a22 " +
-		"JOIN Pubmed20_C04.A02_AuthorList c4 ON c4.PMID = a22.PMID " +
-		"WHERE c4.AID is not null and c4.AID != " + aid + " " +
-		"GROUP BY c4.AID ORDER BY rank DESC")
+func AuthorcoAuthors(c chan interface{}, name string, affi string) {
+	c <- GenerateSQL("SELECT DISTINCT SUBSTRING_INDEX(authorName, ' ', 2) AS ForeName, SUBSTRING_INDEX(authorName, ' ', -2) AS LastName,\n    authorAffiliation as Affiliation, authorName as FullName, authorAffiliationLocation as Location\nFROM KaggleAllAuthors\nWHERE paperTitle IN (\nSELECT DISTINCT paperTitle FROM KaggleAllAuthors WHERE authorName LIKE'%" + name + "%'\n    AND authorAffiliation LIKE '%" + affi + "%')\nAND authorName is not null  and authorName!='%" + name + "%' AND authorName REGEXP '^[A-Za-z0-9]'\nORDER BY LastName")
 
 }
-func AuthorBarGraphPapersByYear(c chan interface{}, aid string) {
-	//c <- GenerateSQL("SELECT PubYear, Number_of_Papers FROM Pubmed20_C04.BinChenBarGraphPapersByYear")
-	c <- GenerateSQL("SELECT d2.PubYear,count(a2.PMID) as NumberOfPapers FROM Pubmed20_C04.A02_AuthorList a2 " +
-		"JOIN Pubmed20_C04.A01_Articles a1 ON a2.PMID = a1.PMID " +
-		"JOIN Pubmed20_C04.D02_PublishingYear d2 ON d2.PMID = a2.PMID " +
-		"JOIN Pubmed20_C04.D03_PaperAuthors d3 ON d3.PMID = a2.PMID " +
-		"WHERE a2.AID = " + aid + " GROUP BY d2.PubYear DESC LIMIT 10")
+func AuthorBarGraphPapersByYear(c chan interface{}, name string, affi string) {
+	c <- GenerateSQL("SELECT count(title) as NumberOfPapers,\n                SUBSTRING(publish_time,1,4) as PubYear\nFROM KaggleAllPaperDetails WHERE title IN(\nSELECT DISTINCT paperTitle FROM KaggleAllAuthors WHERE authorName LIKE'%" + name + "%'\n    AND authorAffiliation LIKE '%" + affi + "%')\nAND pubmed_id is not null AND pubmed_id !=' '\nGROUP BY PubYear ORDER BY PubYear DESC LIMIT 10;")
 }
 func AuthorCard(c chan interface{}, aid string) {
 	c <- GenerateSQL("SELECT a2.LastName, a2.ForeName, a13.Affiliation " +
@@ -213,22 +195,29 @@ func AuthorCard(c chan interface{}, aid string) {
 		"WHERE a2.AID = " + aid + " LIMIT 1")
 }
 
-func AuthorWordCloud() interface{} {
-	return GenerateSQL("SELECT Short_Keywords, frequency FROM Pubmed20_C04.BinChenAbstractKeywordsShort ORDER BY frequency DESC;")
+func AuthorDisease(c chan interface{}, name string, affi string) {
+	c <- GenerateSQL("SELECT entity as Mention, count(DISTINCT pmid) as occurences FROM KaggleAllBioentitiesCleaned\n    WHERE type='disease' AND pmid IN (SELECT pubmed_id FROM KaggleAllPaperDetails WHERE title IN\n    (SELECT paperTitle FROM KaggleAllAuthors WHERE authorName LIKE'%" + name + "%'\n    AND authorAffiliation LIKE '%" + affi + "%'))\n     GROUP BY Mention ORDER BY occurences DESC")
 }
-
-func AuthorWordCloudType(c chan interface{}) { //map[string]interface{} {
+func AuthorDrug(c chan interface{}, name string, affi string) {
+	c <- GenerateSQL("SELECT entity as Mention, count(DISTINCT pmid) as occurences FROM KaggleAllBioentitiesCleaned WHERE type='chemical' AND pmid IN (SELECT pubmed_id FROM KaggleAllPaperDetails WHERE title IN (SELECT paperTitle FROM KaggleAllAuthors WHERE authorName LIKE'%" + name + "%' AND authorAffiliation LIKE '%" + affi + "%')) GROUP BY Mention")
+}
+func AuthorGene(c chan interface{}, name string, affi string) {
+	c <- GenerateSQL("SELECT entity as Mention, count(DISTINCT pmid) as occurences FROM KaggleAllBioentitiesCleaned WHERE type='gene' AND pmid IN (SELECT pubmed_id FROM KaggleAllPaperDetails WHERE title IN (SELECT paperTitle FROM KaggleAllAuthors WHERE authorName LIKE'%" + name + "%' AND authorAffiliation LIKE '%" + affi + "%')) GROUP BY Mention")
+}
+func AuthorWordCloudType(c chan map[string]interface{}, name string, affi string) {
 	res := make(map[string]interface{})
-	disease := GenerateSQL("SELECT Mention, occurences FROM Pubmed20_C04.BinChenDiseaseCount ORDER BY occurences DESC;")
-	drug := GenerateSQL("SELECT Mention, occurences FROM Pubmed20_C04.BinChenDrugCount ORDER BY occurences DESC;")
-	gene := GenerateSQL("SELECT Mention, occurences FROM Pubmed20_C04.BinChenGeneCount ORDER BY occurences DESC;")
-	//mutation := GenerateSQL("SELECT Mention, occurences FROM Pubmed20_C04.BinChenMutationcount ORDER BY occurences DESC;")
-	//species := GenerateSQL("SELECT Mention, occurences FROM Pubmed20_C04.BinChenSpeciesCount ORDER BY occurences DESC;")
-	res["disease"] = disease
-	res["drug"] = drug
-	res["gene"] = gene
-	//res["mutation"] = mutation
-	//res["species"] = species
+	c1 := make(chan interface{})
+	c2 := make(chan interface{})
+	c3 := make(chan interface{})
+	go AuthorDisease(c1, name, affi)
+	go AuthorDrug(c2, name, affi)
+	go AuthorGene(c3, name, affi)
+	res["disease"] = <-c1
+	res["drug"] = <-c2
+	res["gene"] = <-c3
+	close(c1)
+	close(c2)
+	close(c3)
 	c <- res
 }
 

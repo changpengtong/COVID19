@@ -99,13 +99,14 @@ export default {
         console.log("get data")
         let t=[]
         for(let i=0;i<this.d.length;i++) {
+          this.d[i]["Affiliation"]=this.d[i]["Affiliation"].replace(/^,+/,"").replace(/,+$/,"")
             t.push({
               "email": this.d[i]["Email"],
               "name" : this.d[i]["Name"],
-              "affiliation" : this.d[i]["Affiliation"],
+              "affiliation" : this.d[i]["Affiliation"]+",",
               "aid" :"",
               "affiliationUrl":"/COVID19/#/institution/"+ this.d[i]["Affiliation"],
-              "url": "",
+              "url": "/#/author/"+this.d[i]["Name"]+"/institution/"+ this.d[i]["Affiliation"],
               "location":this.d[i]["Location"]
             })
         }

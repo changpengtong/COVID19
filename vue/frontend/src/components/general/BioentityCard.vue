@@ -44,14 +44,6 @@
               this.tableData.name=newData
             }
         }
-      // watch:{
-      //   card:function (newData) {
-      //     console.log("bio-card")
-      //     console.log(newData)
-      //     this.tableData.name = newData["bioentity"]
-      //     this.tableData.type = newData["type"]
-      //   }
-      // }
 
     }
 </script>
