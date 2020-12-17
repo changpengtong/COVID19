@@ -19,11 +19,7 @@
                 <div class="word">
                   <h3>Welcome!</h3>
                   <p class="first">
-                    COVID-19 Portal is a dense trove of coronavirus research
-                    trends. Updated regularly, this website is an atlas to help
-                    researchers and people who are interested in cutting-edge
-                    research on COVID-19 find influential researchers, papers,
-                    and institutions.
+                    This COVID-19 Portal is a google scholar style portal for COVID-19 publications. It allows users to navigate the maze of COVID-19 researches through authors, institutions and biological entities.
                   </p>
                   <p class="second">
                     Our datasets include over 2,200,000 research paper, covering

@@ -106,7 +106,7 @@ export default {
               "affiliation" : this.d[i]["Affiliation"]+",",
               "aid" :"",
               "affiliationUrl":"/COVID19/#/institution/"+ this.d[i]["Affiliation"],
-              "url": "/#/author/"+this.d[i]["Name"]+"/institution/"+ this.d[i]["Affiliation"],
+              "url": "/COVID19/#/author/"+this.d[i]["Name"]+"/institution/"+ this.d[i]["Affiliation"],
               "location":this.d[i]["Location"]
             })
         }
