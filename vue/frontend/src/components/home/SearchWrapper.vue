@@ -4,7 +4,7 @@
 
     <div class="radios">
       <el-radio-group v-model="type" @change="handleClick">
-        <el-radio :label=1>PAPER</el-radio>
+<!--        <el-radio :label=1>PAPER</el-radio>-->
         <el-radio :label=2>INSTITUTION</el-radio>
         <el-radio :label=3>BIOENTITY</el-radio>
         <el-radio :label=4>AUTHOR</el-radio>
