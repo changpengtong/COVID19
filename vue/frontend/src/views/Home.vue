@@ -44,7 +44,6 @@
                     highlight-current-row
                     fit
                     @current-change="handleCurrentChange"
-                    @row-click="getInstitutionDetailPage"
                     style="width: 100%"
                 >
                   <el-table-column type="index" width="34"> </el-table-column>

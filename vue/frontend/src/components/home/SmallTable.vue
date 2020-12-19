@@ -46,7 +46,7 @@ export default {
         }
       });
       this.$router.push({
-        path: "/COVID19/#/bioentity/" + row.name,
+        path: "/bioentity/" + row.name,
 
       });
     }
