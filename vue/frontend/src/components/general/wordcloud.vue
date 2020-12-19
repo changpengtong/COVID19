@@ -30,8 +30,6 @@
             draw_wordcloud(id,data) {
               let chart = document.getElementById(id);
                 let myChart = echarts.init(chart);
-
-
               // let d=[]
                // console.log(data)
                 let d = []
@@ -145,7 +143,7 @@
                     //     query:{query:params['data']['name'].toLowerCase()}
                     // })
                     let query = params['data']['name'].toLowerCase()
-                    $search.to_display(query)
+                    $search.display_bioentity(query)
                 })
             }
         }
@@ -153,6 +151,7 @@
 </script>
 <style>
     .wordcloud {
+      min-height: 300px;
         max-width:450px;
         max-height:450px;
         padding: 0px ;

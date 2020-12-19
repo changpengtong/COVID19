@@ -1,7 +1,7 @@
 <template>
   <!-- 检索框 -->
   <div class="search-box">
-    <el-autocomplete
+    <el-input
         class="search-box-auto"
         v-model="input"
         clearable
@@ -30,7 +30,7 @@
       <template slot-scope="{ item }">
         <div class="name">{{ item.name }}</div>
       </template>
-    </el-autocomplete>
+    </el-input>
   </div>
 </template>
 

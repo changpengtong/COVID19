@@ -28,7 +28,7 @@ func ConnectMySQL() *sql.DB {
 
 //auto-complete api
 func AllInstitutionNames() interface{} {
-	return GenerateSQL("SELECT DISTINCT authorAffiliation as name, authorAffiliationLocation\nFROM KaggleAllAuthors\nWHERE authorAffiliation is not null AND authorAffiliation != ''")
+	return GenerateSQL("SELECT DISTINCT authorAffiliation as name \nFROM KaggleAllAuthors\nWHERE authorAffiliation is not null AND authorAffiliation != ''")
 }
 func AllTitleNames() interface{} {
 	return GenerateSQL("SELECT DISTINCT title\n as name FROM KaggleAllPaperDetails\nWHERE title is not null  AND title!=''")

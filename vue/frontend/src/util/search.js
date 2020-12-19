@@ -48,7 +48,13 @@ export default {
             $bus.$emit("changeLoading",false)
         })
     },
-
+display_bioentity:(query)=>{
+        $router.push({
+            name: "bioentity",
+            params: {
+                id: query }
+        })
+},
     to_display: (query) => {
         $router.push({
             path: "/displayInfo",

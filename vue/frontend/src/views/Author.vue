@@ -20,7 +20,7 @@
                             <i class="el-icon-question"></i>
                         </el-tooltip></p>
                         <entityList class="display-visual" :entity="entity" v-loading="loading"></entityList>
-                        <wordcloud :wordcloud="wordcloud" v-loading="loading"></wordcloud>
+<!--                        <wordcloud :wordcloud="wordcloud" v-loading="loading"></wordcloud>-->
                     <bar class="down" :bar="bar" v-loading="loading"></bar>
                     </div>
                     <co-author :coauthor="coauthor" :flag="flag" v-loading="loading"></co-author>
@@ -36,7 +36,7 @@
     import entityList from "../components/general/list";
     // import wordcloud from "../components/Author/AuthorWordcloud";
     import bar from "../components/general/bar";
-    import wordcloud from "../components/general/wordcloud";
+    // import wordcloud from "../components/general/wordcloud";
     import $axios from "../util/axios";
  //   import $route from "../util/router"
     //import DisplayProfile from "../components/display_info/DisplayProfile";
@@ -48,7 +48,7 @@
             "co-author": CoAuthors,
             "bar":bar,
             'entityList' : entityList,
-            'wordcloud':wordcloud
+            // 'wordcloud':wordcloud
         },
         data() {
             return {
@@ -63,7 +63,7 @@
                 coauthor:[],
                 entity:[],
                 bar:[],
-                wordcloud:[],
+                // wordcloud:[],
                 flag:"",
                 loading:true
             }
@@ -89,7 +89,7 @@
               this.bar = d["bar"]
               this.coauthor = d["coauthor"]
               this.entity = d["wordcloud"]
-              this.wordcloud = d["wordcloud"]
+              // this.wordcloud = d["wordcloud"]
               this.card.name = this.$route.params.name
               this.card.mail= ""
               this.card.institution= this.$route.params.affi
