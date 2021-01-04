@@ -104,9 +104,9 @@ export default {
               "email": this.d[i]["Email"],
               "name" : this.d[i]["Name"],
               "affiliation" : this.d[i]["Affiliation"]+",",
-              "aid" :"",
+              "aid" :this.d[i]["aid"],
               "affiliationUrl":"/COVID19/#/institution/"+ this.d[i]["Affiliation"],
-              "url": "/COVID19/#/author/"+this.d[i]["Name"]+"/institution/"+ this.d[i]["Affiliation"],
+              "url": "/#/author/"+this.d[i]["aid"],
               "location":this.d[i]["Location"]
             })
         }

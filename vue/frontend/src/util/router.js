@@ -29,7 +29,7 @@ export default new Router({
             component: ()=>import("../views/ItemAuthor")
         },
         {
-            path: "/author/:name/institution/:affi",
+            path: "/author/:id",
             name: "author",
             // component: About
             component: () => import('./../views/Author.vue')

@@ -53,13 +53,7 @@
         data() {
             return {
                 paper:[],
-              card:{
-                name: '',
-                lab: '',
-                url: '',
-                institution: '',
-                mail: '',
-              },
+              card:[],
                 coauthor:[],
                 entity:[],
                 bar:[],
@@ -81,7 +75,7 @@
         methods: {
           get_data() {
             this.loading = true
-            $axios.get("/displayAuthor/" + this.$route.params.name +"/"+ this.$route.params.affi).then(response => {
+            $axios.get("/displayAuthor/" + this.$route.params.id).then(response => {
               this.loading = false
               let d = response.data
               // console.log(d)
@@ -89,12 +83,13 @@
               this.bar = d["bar"]
               this.coauthor = d["coauthor"]
               this.entity = d["wordcloud"]
+              this.card=d["card"]
               // this.wordcloud = d["wordcloud"]
-              this.card.name = this.$route.params.name
-              this.card.mail= ""
-              this.card.institution= this.$route.params.affi
-              this.card.lab=""
-              this.card.url= "/COVID19/#/institution/"+this.$route.params.affi
+              // this.card.name = this.$route.params.name
+              // this.card.mail= ""
+              // this.card.institution= this.$route.params.affi
+              // this.card.lab=""
+              // this.card.url= "/COVID19/#/institution/"+this.$route.params.affi
               //  this.paper = d
               this.flag = "aut"
               console.log("card is", this.card)

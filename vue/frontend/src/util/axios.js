@@ -9,10 +9,10 @@ let http = axios.create({
 // 环境的切换
 // 开发环境
 if (process.env.NODE_ENV == 'development') {
-    http.defaults.baseURL = 'localhost:9999/COVID19/';}
+    http.defaults.baseURL = 'localhost:9999/';}
 // 生产环境
 else if (process.env.NODE_ENV == 'production') {
-    http.defaults.baseURL = '/COVID19/';
+    http.defaults.baseURL = '/';
 }
 
 export default http;
