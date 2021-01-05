@@ -120,8 +120,7 @@ func InstitutionPapers(c chan interface{}, keyword string) {
 
 }
 func InstitutionAuthors(c chan interface{}, keyword string) {
-	c <- GenerateSQL("SELECT\n    DISTINCT SUBSTRING_INDEX(authorName, ' ', 2) AS ForeName,\n     SUBSTRING_INDEX(authorName, ' ', -2) AS LastName,\n       authorAffiliation as Affiliation, authorName  as FullName,\n       authorAffiliationLocation as Location\n   FROM KaggleAllAuthors\n    WHERE authorName is not null AND authorAffiliation LIKE '%" + keyword + "%' \n    AND authorName REGEXP '^[A-Za-z0-9]'\n    ORDER BY LastName")
-	//c<-GenerateSQL("SELECT SLEEP(2);")
+	c <- GenerateSQL("SELECT DISTINCT min(SUBSTRING_INDEX(authorName, ' ', 2)) AS ForeName, min(SUBSTRING_INDEX(authorName, ' ', -2)) AS LastName,       min(authorAffiliation) as Affiliation, min(authorName) as FullName, min(authorAffiliationLocation) as Location, min(aid) as aid FROM MyTableTemp\nWHERE authorName is not null AND authorAffiliation LIKE '%" + keyword + "%' and aid is not null\n  AND authorName REGEXP '^[A-Za-z0-9]'\nGROUP BY aid ORDER BY LastName")
 
 }
 func InstitutionDisease(c chan interface{}, keyword string) {

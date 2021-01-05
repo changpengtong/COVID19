@@ -7,17 +7,17 @@
     <el-table-column
         prop="name"
         label="Name"
-        width="150">
+        width="180">
     </el-table-column>
     <el-table-column
         prop="affiliation"
         label="Affiliation"
-        width="190">
+        >
     </el-table-column>
-    <el-table-column
-        prop="paper"
-        label="Paper">
-    </el-table-column>
+<!--    <el-table-column-->
+<!--        prop="paper"-->
+<!--        label="Paper">-->
+<!--    </el-table-column>-->
   </el-table>
 </template>
 

@@ -65,7 +65,6 @@
                   }
                 }
               }
-
                     this.tableData = t
                     console.log(this.tableData)
             }

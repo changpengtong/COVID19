@@ -1,11 +1,10 @@
 <template>
   <!-- 检索框 -->
   <div class="search-box">
-    <el-input
+    <el-autocomplete
         class="search-box-auto"
         v-model="input"
         clearable
-        @keyup.enter.native="search"
         :fetch-suggestions="querySearch"
         :placeholder="placeholder"
         @select="handleSelect"
@@ -30,7 +29,7 @@
       <template slot-scope="{ item }">
         <div class="name">{{ item.name }}</div>
       </template>
-    </el-input>
+    </el-autocomplete>
   </div>
 </template>
 
@@ -115,7 +114,13 @@ export default {
           this.$router.push({ name: "bioentity", params: { id: this.input } });
           break;
         case 4:
-          this.$router.push({ name: 'itemAuthor', params: { name:this.input }});
+          this.$router.push({
+            path: "/displayInfo",
+            query: {
+              // keyword: this.query
+              query: this.input,
+            },
+          });
           break;
       }
     },
@@ -167,7 +172,7 @@ export default {
 };
 </script>
 
-<style >
+<style>
 .search-box .search-box-auto {
   width: 110%;
 }
