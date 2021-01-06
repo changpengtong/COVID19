@@ -18,7 +18,7 @@
         </el-col>
         <div class="display-visual">
         <el-col :md="9" :sm="24" :xs="24" class="right">
-          <p class="title">Top 10 Authors
+          <p class="title">Popular Authors
           </p>
           <topAuthors></topAuthors>
 

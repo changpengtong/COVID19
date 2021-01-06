@@ -3,7 +3,6 @@
       :data="tableData"
       :stripe="true"
   border
-      @row-click="getDetailPage"
       style="width: 100%">
     <el-table-column
         prop="name"

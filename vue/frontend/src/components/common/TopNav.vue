@@ -6,7 +6,7 @@
         <el-row :gutter="20">
           <el-col :span="15">
         <div id="icon">
-          <a href=" ">COVID-19 PORTAL</a >
+          <a href="/COVID19/">COVID-19 PORTAL</a >
         </div>
           </el-col>
           <el-col :span="9">

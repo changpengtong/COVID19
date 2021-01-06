@@ -11,7 +11,8 @@
             </el-col>
             <el-col :md="24" :lg="16">
                 <div class="info-text">
-                    <div class="info-item">
+                  <el-scrollbar wrap-style="max-height:200px">
+                  <div class="info-item">
                       <a :href="author.url">
                       <span id="name" class="info-item-title">{{author.name}}</span>
                       </a>
@@ -30,6 +31,7 @@
                     <div class="info-item" v-if="author.email">
                         <span class="info-item-title">Email:</span><span>{{author.email}}</span>
                     </div>
+                 </el-scrollbar>
                 </div>
             </el-col>
         </el-row>
@@ -126,7 +128,7 @@ export default {
         margin: 1.5em auto;
     }
     .el-card{
-      max-height: 300px;
+      max-height: 250px;
     }
 
     .info-card {
