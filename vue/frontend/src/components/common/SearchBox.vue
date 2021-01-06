@@ -147,49 +147,28 @@ export default {
     // },
   },
 
-  // mounted: function () {
-  //   console.log(this.type);
-
-  //   switch (this.type) {
-  //     case 0:
-  //       break;
-  //     case 1:
-  //       break;
-  //     case 2:
-  //       this.fetchAPI("institutionNames");
-  //       break;
-
-  //     case 3:
-  //       this.fetchAPI("bioentityNames");
-  //       break;
-
-  //     case 4:
-  //       this.fetchAPI("authorNames");
-  //       break;
-  //   }
-  // },
 };
 </script>
 
 <style >
-.search-box .search-box-auto {
-  position: center;
-  width: 770px;
-}
+/*.search-box .search-box-auto {*/
+/*  position: center;*/
+/*  width: 770px;*/
+/*}*/
 
-.search-box .el-col-6 {
-  min-width: 100px;
-  padding-right: 100px;
-}
+/*.search-box .el-col-6 {*/
+/*  min-width: 100px;*/
+/*  padding-right: 100px;*/
+/*}*/
 
-.search-box .el-input__inner {
-  border-radius: 20px 20px;
-}
+/*.search-box .el-input__inner {*/
+/*  border-radius: 20px 20px;*/
+/*}*/
 
-.search-box .el-icon-search {
-  margin-top: 4px;
-  font-size: 17px;
-  margin-right: 10px;
-  border: 0px;
-}
+/*.search-box .el-icon-search {*/
+/*  margin-top: 4px;*/
+/*  font-size: 17px;*/
+/*  margin-right: 10px;*/
+/*  border: 0px;*/
+/*}*/
 </style>

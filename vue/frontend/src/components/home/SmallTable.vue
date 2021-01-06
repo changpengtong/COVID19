@@ -15,7 +15,6 @@
         :show-header="false"
       >
         <el-table-column type="index" width="35"> </el-table-column>
-
         <el-table-column property="name" label="Name"> </el-table-column>
       </el-table>
     </div>

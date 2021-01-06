@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<script>
+<script scoped>
 import SearchBox from "../common/SearchBox.vue";
 import $axios from "../../util/axios";
 import sample from "../../data/a.json";
@@ -92,19 +92,19 @@ export default {
 </script>
 
 <style>
-.home-search-pane {
-  display: block;
-  width: 100%;
-  padding-bottom: -100px;
-  padding-top: 15px;
-}
+/*.home-search-pane {*/
+/*  display: block;*/
+/*  width: 100%;*/
+/*  padding-bottom: -100px;*/
+/*  padding-top: 15px;*/
+/*}*/
 
-.home-search-pane .search-box {
-  padding-bottom: 10px;
-}
+/*.home-search-pane .search-box {*/
+/*  padding-bottom: 10px;*/
+/*}*/
 
-.home-search-pane .radios .el-radio-group {
-  padding-top: 13px;
-  padding-left: 15%;
-}
+/*.home-search-pane .radios .el-radio-group {*/
+/*  padding-top: 13px;*/
+/*  padding-left: 15%;*/
+/*}*/
 </style>

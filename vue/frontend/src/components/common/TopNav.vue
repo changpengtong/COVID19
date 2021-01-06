@@ -1,41 +1,37 @@
-<!--<template>-->
-<!--  <div class="topnav">-->
-<!--    <div class="_container">-->
-<!--      <div class="framework-width">-->
-<!--        <div id="icon">-->
-<!--          <router-link to="/" tag="div">-->
-<!--            <a href="#">COVID-19 PORTAL</a>-->
-<!--          </router-link>-->
-<!--        </div>-->
 
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</template>-->
 <template>
   <div class="topnav">
     <div class="_container">
       <div class="framework-width">
+        <el-row :gutter="20">
+          <el-col :span="15">
         <div id="icon">
           <a href=" ">COVID-19 PORTAL</a >
         </div>
+          </el-col>
+          <el-col :span="9">
+        <transition name="el-zoom-in-top">
+          <search-wrapper id="search-wrapper" v-if="ifSearchBox"></search-wrapper>
+        </transition>
+          </el-col>
+        </el-row>
       </div>
     </div>
   </div>
 </template>
 
-<script >
+<script scoped>
 // import SearchBox from "./../common/SearchBox.vue";
-// import SearchWrapper from "../components/home/SearchWrapper";
+import SearchWrapper from "../home/SearchWrapper";
 export default {
-  components: { },
-  component: {
+  components: {
     // "search-box": SearchBox,
-    // "search-wrapper": SearchWrapper,
+    "search-wrapper": SearchWrapper,
   },
   computed: {
     ifSearchBox() {
-      return this.$route.name == "displayInfo";
+      console.log("page: "+this.$route.name);
+      return this.$route.name !== 'home';
     },
     routeName() {
       return this.$route.name;
@@ -45,6 +41,43 @@ export default {
 </script>
 
 <style>
+/*<!--search box wrapper-->*/
+.home-search-pane {
+  display: block;
+  width: 80%;
+  padding-bottom: -100px;
+  padding-top: 15px;
+}
+
+.home-search-pane .search-box {
+  padding-bottom: 10px;
+}
+
+.home-search-pane .radios .el-radio-group {
+  padding-top: 13px;
+  padding-left: 15%;
+}
+.search-box .search-box-auto {
+  position: center;
+  width: 30em;
+}
+/*serach box*/
+.search-box .el-col-6 {
+  min-width: 100px;
+  padding-right: 15px;
+}
+
+.search-box .el-input__inner {
+  border-radius: 20px 20px;
+}
+
+.search-box .el-icon-search {
+  margin-top: 4px;
+  font-size: 17px;
+  margin-right: 10px;
+  border: 0px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -60,7 +93,7 @@ export default {
   /* position: fixed; */
   border-bottom: 1px solid #e1e1e1;
   top: 0;
-  height: 80px;
+  height: 150px;
   width: 100%;
   padding-top: 15px;
 }
@@ -74,7 +107,8 @@ export default {
   display: block;
   line-height: 80px;
   font-weight: bold;
-  margin-top:-15px;
+  margin-top:15px;
+  margin-left: 15px;
 }
 #icon a {
   font-size: 35px;
@@ -99,11 +133,12 @@ export default {
   border-bottom-color: #409eff;
 }
 
-.topnav .search-box {
-  float: right;
-  display: inline-block;
-  /* height: 25px; */
-  line-height: 40px;
-  width: 85%;
-}
+/*.topnav .search-wrapperr{*/
+/*  float: right;*/
+/*  display: inline-block;*/
+/*  !* height: 25px; *!*/
+/*  line-height: 40px;*/
+/*  width: 55%;*/
+/*  border: #503C0E;*/
+/*}*/
 </style>

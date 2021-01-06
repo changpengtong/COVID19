@@ -129,4 +129,39 @@ export default {
 .home .el-col-6 {
   margin-right: 50px;
 }
+.home .home-search-pane {
+  display: block;
+  width: 100%;
+  padding-bottom: -100px;
+  padding-top: 15px;
+}
+
+.home .home-search-pane .search-box {
+  padding-bottom: 10px;
+}
+
+.home .home-search-pane .radios .el-radio-group {
+  padding-top: 13px;
+  padding-left: 15%;
+}
+.home .search-box .search-box-auto {
+  position: center;
+  width: 770px;
+}
+
+.home .search-box .el-col-6 {
+  min-width: 100px;
+  padding-right: 100px;
+}
+
+.home .search-box .el-input__inner {
+  border-radius: 20px 20px;
+}
+
+.home .search-box .el-icon-search {
+  margin-top: 4px;
+  font-size: 17px;
+  margin-right: 10px;
+  border: 0px;
+}
 </style>

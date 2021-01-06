@@ -3,11 +3,12 @@
       :data="tableData"
       :stripe="true"
   border
+      @row-click="getDetailPage"
       style="width: 100%">
     <el-table-column
         prop="name"
         label="Name"
-        width="180">
+        width="138">
       <template slot-scope="scope">
         <a :href="scope.row.authorUrl" style="color:#000000">{{scope.row.name}}</a>
       </template>
@@ -20,10 +21,6 @@
         <a :href="scope.row.affiliationUrl" style="color:#000000">{{scope.row.affiliation}}</a>
       </template>
     </el-table-column>
-<!--    <el-table-column-->
-<!--        prop="paper"-->
-<!--        label="Paper">-->
-<!--    </el-table-column>-->
   </el-table>
 </template>
 
@@ -36,19 +33,14 @@ export default {
       tableData:data,
     }
   },
+  methods: {
+    // 发送检索请求
+    getDetailPage(row) {
+      row.authorUrl="/COVID19/"+row.authorUrl,
+          row.affiliationUrl="/COVID19/"+row.affiliationUrl
+
+    },
+  },
 
 }
 </script>
-
-<!--<style scoped>-->
-<!--/*/deep/ .el-table .gray-background {*/-->
-<!--/*  background: #f2f2f2;*/-->
-<!--/*}*/-->
-<!--/*/deep/ .el-table .white-background {*/-->
-<!--/*  background: #ffffff;*/-->
-<!--/*}*/-->
-<!--/*.entity-name {*/-->
-<!--/*  !*text-decoration:underline;*!*/-->
-<!--/*  color: black;*/-->
-<!--/*}*/-->
-<!--</style>-->
