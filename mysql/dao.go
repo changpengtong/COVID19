@@ -76,7 +76,7 @@ func BioentityInstitutions(c chan interface{}, keyword string) {
 }
 
 func BioEntityAuthors(c chan interface{}, keyword string) {
-	c <- GenerateSQL("SELECT DISTINCT KaggleAllAuthors.paperTitle, KaggleAllAuthors.paper_id,SUBSTRING_INDEX(KaggleAllAuthors.authorName, ' ', 2) AS ForeName, SUBSTRING_INDEX(KaggleAllAuthors.authorName, ' ', -2) AS LastName, KaggleAllAuthors.authorAffiliation as Affiliation, KaggleAllAuthors.authorName as FullName, KaggleAllAuthors.authorAffiliationLocation as Location FROM KaggleAllAuthors LEFT JOIN KaggleAllPaperDetails ON paperTitle=title INNER JOIN KaggleAllBioentitiesCleaned ON KaggleAllPaperDetails.pubmed_id=KaggleAllBioentitiesCleaned.pmid WHERE entity LIKE '%" + keyword + "%' ORDER BY LastName")
+	c <- GenerateSQL("SELECT min(SUBSTRING_INDEX(authorName, ' ', 2)) AS ForeName, min(SUBSTRING_INDEX(authorName, ' ', -2)) AS LastName,       min(authorAffiliation) as Affiliation, min(authorName) as FullName, min(authorAffiliationLocation) as Location, max(aid) as aid FROM MyTableTemp WHERE paperTitle IN ( SELECT KP.title FROM KaggleAllBioentitiesCleaned KB FORCE INDEX (`entity_pmid_index`) LEFT JOIN KaggleAllPaperDetails KP FORCE INDEX (`pubmedid_index`) ON KB.pmid=KP.pubmed_id WHERE entity like '%" + keyword + "%' AND title is not null)  GROUP BY aid ORDER BY LastName")
 }
 
 func BarGraphPapersByYear(c chan interface{}, keyword string) {
@@ -192,7 +192,7 @@ func AuthorBarGraphPapersByYear(c chan interface{}, aid string) {
 	c <- GenerateSQL("SELECT count(title) as NumberOfPapers, SUBSTRING(publish_time,1,4) as PubYear FROM KaggleAllPaperDetails WHERE title IN      (SELECT DISTINCT paperTitle FROM MyTableTemp   WHERE aid=" + aid + ") GROUP BY PubYear ORDER BY PubYear DESC LIMIT 10;")
 }
 func AuthorCard(c chan interface{}, aid string) {
-	c <- GenerateSQL("SELECT DISTINCT SUBSTRING_INDEX(authorName, ' ', 2) AS ForeName, SUBSTRING_INDEX(authorName, ' ', -2) AS LastName, authorAffiliation as Affiliation, authorName as FullName, authorAffiliationLocation as Location, aid, authorEmail FROM MyTableTemp WHERE aid=" + aid + " LIMIT 1")
+	c <- GenerateSQL("SELECT min(SUBSTRING_INDEX(authorName, ' ', 2)) AS ForeName, min(SUBSTRING_INDEX(authorName, ' ', -2)) AS LastName, min(authorAffiliation) as Affiliation, min(authorName) as FullName, min(authorAffiliationLocation) as Location, aid, min(authorEmail) as Email FROM MyTableTemp WHERE aid=" + aid + " AND authorAffiliation is not null AND authorAffiliationLocation is not null\n GROUP BY aid")
 }
 
 func AuthorDisease(c chan interface{}, aid string) {

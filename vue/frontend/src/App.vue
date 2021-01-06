@@ -75,14 +75,6 @@
     min-height: 600px;
   }
 
-
-  .footer {
-    width: 100%;
-    margin: 0;
-    margin-top: .5em;
-    padding: 0;
-    min-height: 200px;
-  }
   /* 修改局部样式 不影响其他的组件 */
   .override-el-main.el-main {
     padding:0px;

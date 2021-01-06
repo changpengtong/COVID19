@@ -126,7 +126,7 @@ export default {
         margin: 1.5em auto;
     }
     .el-card{
-      max-height: 200px;
+      max-height: 300px;
     }
 
     .info-card {

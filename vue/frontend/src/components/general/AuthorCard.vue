@@ -15,7 +15,7 @@
           <!-- affilliation-->
           <div class="info-item" v-if="profile">
             <a :href="profile.url">
-            <span v-if="profile.lab">{{profile.lab}}, </span>
+<!--            <span v-if="profile.lab">{{profile.lab}}, </span>-->
             <!--                        <router-link :to=affiliation.institution.url >-->
 
               <span class="institution" v-if="profile.institution">{{profile.institution}}</span>
@@ -59,11 +59,11 @@ export default {
     card:function (newData) {
       console.log("1")
       console.log(newData)
-      this.profile.name = newData[0]["ForeName"]+" "+newData[0]["LastName"]
-      this.profile.mail = newData[0]["authorEmail"]
+      this.profile.name = newData[0]["FullName"]
+      this.profile.mail = newData[0]["Email"]
       newData[0]["Affiliation"]=newData[0]["Affiliation"].replace(/^,+/,"").replace(/,+$/,"")
       this.profile.institution = newData[0]["Affiliation"]+", "+newData[0]["Location"]
-      this.profile.lab=""
+      // this.profile.lab=""
       this.profile.url = "/COVID19/#/institution/"+newData[0]["Affiliation"]
     }
   }

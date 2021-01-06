@@ -21,13 +21,14 @@
                 align="center"
                 width="70"
         >
+
         </el-table-column>
     </el-table>
 </template>
 
 <script>
 
-   // import $axios from "../../util/axios";
+ // import $axios from "../../util/axios";
 
     export default {
         props:['institution'],
@@ -65,6 +66,7 @@
                   }
                 }
               }
+
                     this.tableData = t
                     console.log(this.tableData)
             }

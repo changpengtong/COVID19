@@ -8,11 +8,17 @@
         prop="name"
         label="Name"
         width="180">
+      <template slot-scope="scope">
+        <a :href="scope.row.authorUrl" style="color:#000000">{{scope.row.name}}</a>
+      </template>
     </el-table-column>
     <el-table-column
         prop="affiliation"
         label="Affiliation"
         >
+      <template slot-scope="scope">
+        <a :href="scope.row.affiliationUrl" style="color:#000000">{{scope.row.affiliation}}</a>
+      </template>
     </el-table-column>
 <!--    <el-table-column-->
 <!--        prop="paper"-->
@@ -22,44 +28,15 @@
 </template>
 
 <script>
+import data from "../../data/top10Authors.json"
 export default {
+  props:['author'],
   data() {
     return {
-      tableData: [{
-        name: 'Bin Chen',
-        affiliation:'Michigan State University',
-        paper: '99'
-      }, {
-        name: 'Bin Chen',
-        affiliation:'Michigan State University',
-        paper: '99'
-      }, {
-        name: 'Bin Chen',
-        affiliation:'Michigan State University',
-        paper: '99'
-      }, {
-        name: 'Bin Chen',
-        affiliation:'Michigan State University',
-        paper: '99'
-      }, {
-        name: 'Bin Chen',
-        affiliation:'Michigan State University',
-        paper: '99'
-      }, {
-        name: 'Bin Chen',
-        affiliation:'Michigan State University',
-        paper: '99'
-      }, {
-        name: 'Bin Chen',
-        affiliation:'Michigan State University',
-        paper: '99'
-      }, {
-        name: 'Bin Chen',
-        affiliation:'Michigan State University',
-        paper: '99'
-      }, ]
+      tableData:data,
     }
-  }
+  },
+
 }
 </script>
 

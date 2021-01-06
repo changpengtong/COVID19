@@ -1,27 +1,30 @@
 <template>
   <!-- 检索框 -->
   <div class="search-box">
+
     <el-autocomplete
-        class="search-box-auto"
-        v-model="input"
-        clearable
-        :fetch-suggestions="querySearch"
-        :placeholder="placeholder"
-        @select="handleSelect"
+      class="search-box-auto"
+      v-model="input"
+      clearable
+      @keyup.enter.native="handleButtonSearch"
+      :fetch-suggestions="querySearch"
+      :placeholder="placeholder"
+      @select="handleSelect"
+      @change="handleInputChange"
     >
       <el-tooltip
-          class="item"
-          effect="dark"
-          slot="suffix"
-          content="Search"
-          placement="top-start"
+        class="item"
+        effect="dark"
+        slot="suffix"
+        content="Search"
+        placement="top-start"
       >
         <el-button
-            class="el-icon-search"
-            @click="search"
-            circle
-            size="mini"
-            plain
+          class="el-icon-search"
+          @click="handleButtonSearch"
+          circle
+          size="mini"
+          plain
         >
         </el-button>
       </el-tooltip>
@@ -34,35 +37,35 @@
 </template>
 
 <script>
-import dataEntities from "../../data/top10Entities.json";
-import dataAuthors from "../../data/top10Authors.json";
-import dataPapers from "../../data/top10Papers.json";
-import $axios from "../../util/axios";
+// import $axios from "../../util/axios";
 
 export default {
   name: "SearchBox",
   props: {
     type: Number,
+    data: Array,
+    // method: {setInput: Function},
   },
   data() {
     return {
       input: "",
-      query: "",
       placeholder: "Whatever comes to your mind",
-      dataEntities,
-      dataAuthors,
-      dataPapers,
-      data: [],
       timeout: null,
     };
   },
   methods: {
     createFilter() {
       let filterList = [];
+      let names = new Set();
       this.data.forEach((row) => {
         let same = row.name.toLowerCase().startsWith(this.input.toLowerCase());
         if (same) {
-          filterList.push(row);
+          row.name = row.name.replace(/^,+/, "").replace(/,+$/, "");
+          if(!names.has(row.name)) {
+            filterList.push(row);
+            names.add(row.name);
+          }
+
         }
       });
       return filterList;
@@ -70,111 +73,113 @@ export default {
     querySearch(queryString, callback) {
       console.log(this.data);
       if (this.type === 0) {
-        callback([]);
+        this.$notify({
+          type: 'warning',
+          title: 'Please select a type (Institution/Bioentity/Author).',
+          message: 'Type selector is under search box.',
+          offset: 100,
+          position: 'top-left',
+        });
       }
-      let list = this.data;
+
+      let list = [];
       let results = queryString ? this.createFilter() : list;
 
+      callback(results);
+
       //调用 callback 返回建议列表的数据
-      clearTimeout(this.timeout);
-      this.timeout = setTimeout(() => {
-        callback(results);
-      }, 3000 * Math.random());
+      // clearTimeout(this.timeout);
+      // this.timeout = setTimeout(() => {
+      //   callback(results);
+      // }, 3000 * Math.random());
     },
 
     // 发送检索请求
-    search() {
+    search(name) {
       switch (this.type) {
         case 0:
-          console.log("in switch 0");
           this.$alert(
-              "<strong>Please select the category before searching.</strong>",
-              {
-                dangerouslyUseHTMLString: true,
-              }
+            "<strong>Please select the category before searching.</strong>",
+            {
+              dangerouslyUseHTMLString: true,
+            }
           );
           break;
 
-        case 1:
-          this.$router.push({
-            path: "/displayInfo",
-            query: {
-              // keyword: this.query
-              query: this.input,
-            },
-          });
-          break;
-        case 2:
-          this.$router.replace({
-            name: "institution",
-            params: { id: this.input },
-          });
-          break;
-        case 3:
-          this.$router.push({ name: "bioentity", params: { id: this.input } });
-          break;
-        case 4:
-          this.$router.push({
-            path: "/displayInfo",
-            query: {
-              // keyword: this.query
-              query: this.input,
-            },
-          });
-          break;
-      }
+    case 1:
+      this.$router.push({
+        path: "/displayInfo/" + name,
+      });
+      break;
+    case 2:
+      this.$router.push({
+        path: "/institution/" + name,
+      });
+      break;
+    case 3:
+      this.$router.push({
+        path: "/bioentity/" + name,
+      });
+      break;
+    case 4:
+      this.$router.push({
+        path: "/authorList/" + name,
+      });
+      break;
+    }
     },
     handleSelect(item) {
-      let name = item.name;
-      this.search(name);
+      this.search(item.name);
     },
-    fetchAPI() {
-      console.log("in fetch");
-      $axios
-          .get("/institutionNames")
-          .then((response) => {
-            let temp = response.data;
-            this.data = temp;
-            console.log(this.data);
-          })
-          .catch((error) => console.log(error));
-
+    handleButtonSearch() {
+      this.search(this.input);
     },
+    // fetchAPI(api) {
+    //   console.log("in fetch");
+    //   $axios
+    //     .get("/" + api)
+    //     .then((response) => {
+    //       let temp = response.data;
+    //       this.data = temp;
+    //       console.log(this.data);
+    //     })
+    //     .catch((error) => console.log(error));
+    // },
   },
 
-  mounted: function () {
-    console.log(this.type);
+  // mounted: function () {
+  //   console.log(this.type);
 
-    // let api = "";
-    switch (this.type) {
-      case 0:
-        break;
-      case 1:
-        // api = "paper";
-        this.data = this.dataPapers;
-        break;
-      case 2:
-        // api = "institutionNames";
+  //   switch (this.type) {
+  //     case 0:
+  //       break;
+  //     case 1:
+  //       break;
+  //     case 2:
+  //       this.fetchAPI("institutionNames");
+  //       break;
 
-        this.fetchAPI();
+  //     case 3:
+  //       this.fetchAPI("bioentityNames");
+  //       break;
 
-        break;
-      case 3:
-        // api = "bioentity";
-        this.data = this.dataEntities;
-        break;
-      case 4:
-        // api = "author";
-        this.data = this.dataAuthors;
-        break;
-    }
-  },
+  //     case 4:
+  //       this.fetchAPI("authorNames");
+  //       break;
+  //   }
+  // },
 };
 </script>
 
-<style>
+<style >
 .search-box .search-box-auto {
-  width: 110%;
+  position: center;
+  width: 770px;
+}
+
+.search-box .el-col-6 {
+  min-width: 100px;
+  padding-right: 100px;
 }
 
 .search-box .el-input__inner {
@@ -182,6 +187,7 @@ export default {
 }
 
 .search-box .el-icon-search {
+  margin-top: 4px;
   font-size: 17px;
   margin-right: 10px;
   border: 0px;

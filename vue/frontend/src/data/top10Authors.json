@@ -1,42 +1,71 @@
 [
+
     {
-        "name": "Ralph S Baric",
-        "paper": 70
+        "name": "Edward C Holmes",
+        "aid": "7006609",
+        "affiliation": "The University Of Sydney, Sydney, Australia",
+        "authorUrl": "#/author/7006609",
+        "affiliationUrl": "#/institution/The University Of Sydney"
     },
     {
-        "name": "Ziad A Memish",
-        "paper": 70
-    },
-    {
-        "name": "George F Gao",
-        "paper": 48
-    },
-    {
-        "name": "Jaffar A Al-Tawfiq",
-        "paper": 37
-    },
-    {
-        "name": "Benjamin J Cowling",
-        "paper": 36
+        "name": "Jason S. McLellan",
+        "aid": "3222527",
+        "affiliation": "The University Of Texas At Austin, Austin, United States",
+        "authorUrl": "#/author/3222527",
+        "affiliationUrl": "#/institution/The University Of Texas At Austin"
     },
     {
         "name": "Linda J Saif",
-        "paper": 36
+        "aid": "6494749",
+        "affiliation": "The Ohio State University, Wooster, United States",
+        "authorUrl": "#/author/6494749",
+        "affiliationUrl": "#/institution/The Ohio State University"
     },
     {
-        "name": "Albert D M E Osterhaus",
-        "paper": 36
+        "name": "Barney S Graham",
+        "aid": "3352799",
+        "affiliation": "National Institutes Of Health, Bethesda, United States",
+        "authorUrl": "#/author/3352799",
+        "affiliationUrl": "#/institution/National Institutes Of Health"
     },
     {
-        "name": "Bart L Haagmans",
-        "paper": 34
+        "name": "Janet A Englund",
+        "aid": "5247744",
+        "affiliation": "University Of Washington, Seattle, United States",
+        "authorUrl": "#/author/5247744",
+        "affiliationUrl": "#/institution/University Of Washington"
+    },
+    {    "name": "Susan R Weiss",
+        "aid": "144068257",
+    "affiliation": "University Of Pennsylvania, Philadelphia, United States",
+        "authorUrl": "#/author/144068257",
+        "affiliationUrl": "#/institution/University Of Pennsylvania"
     },
     {
-        "name": "Eric J Snijder",
-        "paper": 34
+        "name": "Gary R Whittaker",
+        "aid": "2779993",
+        "affiliation": "Cornell University, Ithaca, United States",
+        "authorUrl": "#/author/2779993",
+        "affiliationUrl": "#/institution/Cornell University"
     },
     {
-        "name": "Stephen A Stohlman",
-        "paper": 32
+        "name": "Oliver G Pybus",
+        "aid":"2305815",
+        "affiliation": "University Of Oxford, Oxford, United Kingdom",
+        "authorUrl": "#/author/2305815",
+        "affiliationUrl": "#/institution/University Of Oxford"
+    },
+    {
+        "name": "Jens H Kuhn",
+        "aid": "1905145",
+        "affiliation": "National Institutes Of Health, Frederick, United States",
+        "authorUrl": "#/author/1905145",
+        "affiliationUrl": "#/institution/National Institutes Of Health"},
+    {
+        "name": "Keith R Jerome",
+        "aid": "116169237",
+        "affiliation": "University Of Washington, Seattle, United States",
+        "authorUrl": "#/author/116169237",
+        "affiliationUrl": "#/institution/University Of Washington"
     }
 ]

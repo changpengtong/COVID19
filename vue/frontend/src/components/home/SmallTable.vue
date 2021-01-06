@@ -1,64 +1,67 @@
 <template>
   <el-card class="small-table-card">
-    <div class="small-table" >
-      <div class="title">Top 10 {{tableName}}</div>
-      <el-table ref="singleTable" :data="dataList"
-                stripe height="370" highlight-current-row fit
-                @current-change="handleCurrentChange"
-                @row-click="getDetailPage"
-                style="width: 100%"
-                max-height="325">
-        <el-table-column
-            type="index"
-            width="35">
-        </el-table-column>
+    <div class="small-table">
+      <div class="title">Popular {{ tableName }}</div>
+      <el-table
+        ref="singleTable"
+        :data="dataList"
+        stripe
+        height="200"
+        highlight-current-row
+        fit
+        @current-change="handleCurrentChange"
+        @row-click="getDetailPage"
+        max-height="325"
+        :show-header="false"
+      >
+        <el-table-column type="index" width="35"> </el-table-column>
 
-        <el-table-column
-            property="name"
-            label="Name"
-        >
-        </el-table-column>
-
-        <el-table-column
-            property="paper"
-            label="Paper"
-            width="60">
-        </el-table-column>
+        <el-table-column property="name" label="Name"> </el-table-column>
       </el-table>
     </div>
   </el-card>
-
 </template>
 
 <script>
 export default {
   name: "SmallTable",
   props: {
-    tableName : String,
-    dataList : Array
+    tableName: String,
+    dataList: Array,
+    type: Number,
   },
   methods: {
     // 发送检索请求
     getDetailPage(row) {
-      this.$router.push("path").catch(error => {
-        if (error.name != "NavigationDuplicated") {
-          throw error;
-        }
-      });
-      this.$router.push({
-        path: "/bioentity/" + row.name,
-
-      });
-    }
-  }
+      switch (this.type) {
+        case 1:
+          this.$router.push({
+            path: "/institution/" + row.name,
+          });
+          break;
+        case 2:
+          this.$router.push({
+            path: "/bioentity/" + row.name,
+          });
+          break;
+        case 3:
+          this.$router.push({
+            path: "/author/" + row.aid,
+          });
+          break;
+      }
+    },
+  },
 };
 </script>
 
 <style >
-
-.small-table-card{
+.small-table-card {
   text-align: center;
-  height: 345px;
+  height: 220px;
+  width: 265px;
+  border: hidden;
+  margin-right: 0px;
 }
 
 .small-table .title {
@@ -67,8 +70,38 @@ export default {
   font-weight: bold;
 }
 
-
-.small-table-card .el-table td, .el-table th.is-leaf {
+.small-table-card .el-table td,
+.el-table th.is-leaf {
   border-bottom: 0;
 }
+.small-table-card .small-table .el-table {
+  padding-top: 10px;
+}
+
+.small-table-card .small-table .el-table__row {
+  font-size: 13px;
+  height: 30px;
+}
+
+.small-table-card
+  .small-table
+  .el-table--striped
+  .el-table__body
+  tr.el-table__row--striped
+  td {
+  background-color: #edf4ff;
+}
+
+.small-table-card .small-table .el-table td,
+.el-table th {
+  padding: 0;
+  border: 0;
+}
+
+.small-table-card .small-table .title {
+  font-weight: bold;
+  font-family: "Slabo 27px", serif;
+}
+
+
 </style>

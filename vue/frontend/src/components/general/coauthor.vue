@@ -15,7 +15,7 @@
                 <el-table :data="coauthors">
                     <!--                <el-table-column  width="150" class="table-img"> <el-avatar :size="small" src="../../../../../../frontend/src/assets/img/user.png"></el-avatar></el-table-column>-->
                     <el-table-column property="name" label="Name" width="200"></el-table-column>
-                    <el-table-column property="work" label="Affiliation"></el-table-column>
+                    <el-table-column property="institution" label="Affiliation"></el-table-column>
                 </el-table>
             </div>
         </el-dialog>
@@ -39,7 +39,7 @@
                             </span>
                                 </div>
                                 <div class="info-work">
-                                    <span style="color: dimgray;font-size: smaller">{{author.work}}</span>
+                                    <span style="color: dimgray;font-size: smaller">{{author.institution}}</span>
                                 </div>
                             </div>
                         </el-col>
@@ -84,10 +84,10 @@
                 for(let i=0;i<this.d.length;i++) {
 
                     // Do stuff
-    if (typeof this.d[i]["Location"]!='undefined') {
+    if (typeof this.d[i]["Location"]!='undefined' && typeof this.d[i]["aid"]!='undefined' && typeof this.d[i]["ForeName"]!='undefined' && typeof this.d[i]["LastName"]!='undefined' && typeof this.d[i]["Affiliation"]!='undefined' ) {
     t.push({
     'name': this.d[i]["ForeName"] + " " + this.d[i]["LastName"],
-    'work': this.d[i]["Affiliation"] + " " + this.d[i]["Location"],
+    'institution': this.d[i]["Affiliation"] + " " + this.d[i]["Location"],
     'url': "/#/author/" + this.d[i]["aid"]
   })
 }
