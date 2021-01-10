@@ -117,15 +117,18 @@
         height: 2.5em;
         position: relative;
         overflow: hidden;
+      object-fit: cover;
+      border-radius: 50%;
     }
     .info-icon {
         /*margin-left: 27em;*/
         margin-top: 1.5em;
     }
     .custom-icon {
-        font-size: 1.2em;
+        font-size: 17px;
     }
     img {
+
         display: inline;
         margin: 0 auto;
         height: 100%;
@@ -133,7 +136,7 @@
         /*border-radius: 50%;*/
     }
     .info-text{
-        margin: .5em 0;
+        margin: .7em 0;
     }
     .info-item {
         /*margin: .5em 0;*/
@@ -149,10 +152,19 @@
         text-transform: capitalize;
     }
     #name {
-        font-size: 2em;
+        font-size: 20px;
         margin-bottom: .5em;
     }
     div.link:hover{
         background-color:#e9e9e9;
     }
+    .head{
+      white-space: nowrap;
+
+    }
+    .head *{
+      display: inline;
+
+    }
+
 </style>

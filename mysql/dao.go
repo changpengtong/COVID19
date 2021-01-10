@@ -67,7 +67,7 @@ func BioentityType(keyword string) interface{} {
 }
 
 func BioentityArticles(c chan interface{}, keyword string) {
-	c <- GenerateSQL("SELECT DISTINCT pubmed_id, TRIM(BOTH '['  FROM title) as ArticleTitle, SUBSTRING(publish_time,1,4) as PubYear, authors as Authors, journal as Journal_Title, abstract, Tweets as tweet,(case when (url LIKE '%; %') THEN concat('https://www.ncbi.nlm.nih.gov/pubmed/',pubmed_id) ELSE url END)as url FROM KaggleAllPaperDetails FORCE INDEX (`title_pubmedid_index`) WHERE EXISTS (SELECT DISTINCT pmid FROM KaggleAllBioentitiesCleaned FORCE INDEX (`entity_pmid_index`) WHERE pmid=KaggleAllPaperDetails.pubmed_id AND  entity LIKE '%" + keyword + "%') ORDER BY PubYear DESC")
+	c <- GenerateSQL("SELECT DISTINCT pubmed_id, TRIM(BOTH '['  FROM title) as ArticleTitle, SUBSTRING(publish_time,1,4) as PubYear, authors as Authors, journal as Journal_Title, abstract, Tweets as tweet,(case when (url LIKE '%; %') THEN concat('https://www.ncbi.nlm.nih.gov/pubmed/',pubmed_id) ELSE url END)as url FROM KaggleAllPaperDetails FORCE INDEX (`title_pubmedid_index`) WHERE EXISTS (SELECT DISTINCT pmid FROM KaggleAllBioentitiesCleaned FORCE INDEX (`entity_pmid_index`) WHERE pmid=KaggleAllPaperDetails.pubmed_id AND  entity LIKE '%" + keyword + "%') ORDER BY PubYear DESC LIMIT 5000")
 
 }
 
@@ -76,15 +76,11 @@ func BioentityInstitutions(c chan interface{}, keyword string) {
 }
 
 func BioEntityAuthors(c chan interface{}, keyword string) {
-	c <- GenerateSQL("SELECT min(SUBSTRING_INDEX(authorName, ' ', 2)) AS ForeName, min(SUBSTRING_INDEX(authorName, ' ', -2)) AS LastName,       min(authorAffiliation) as Affiliation, min(authorName) as FullName, min(authorAffiliationLocation) as Location, max(aid) as aid FROM MyTableTemp WHERE paperTitle IN ( SELECT KP.title FROM KaggleAllBioentitiesCleaned KB FORCE INDEX (`entity_pmid_index`) LEFT JOIN KaggleAllPaperDetails KP FORCE INDEX (`pubmedid_index`) ON KB.pmid=KP.pubmed_id WHERE entity like '%" + keyword + "%' AND title is not null)  GROUP BY aid ORDER BY LastName")
+	c <- GenerateSQL("SELECT min(SUBSTRING_INDEX(authorName, ' ', 2)) AS ForeName, min(SUBSTRING_INDEX(authorName, ' ', -2)) AS LastName,       min(authorAffiliation) as Affiliation, min(authorName) as FullName, min(authorAffiliationLocation) as Location, min(aid) as aid FROM MyTableTemp WHERE paperTitle IN ( SELECT KP.title FROM KaggleAllBioentitiesCleaned KB FORCE INDEX (`entity_pmid_index`) LEFT JOIN KaggleAllPaperDetails KP FORCE INDEX (`pubmedid_index`) ON KB.pmid=KP.pubmed_id WHERE entity like '" + keyword + "' AND title is not null)  and aid is not null group by aid ORDER BY LastName limit 5000")
 }
 
 func BarGraphPapersByYear(c chan interface{}, keyword string) {
 	c <- GenerateSQL("SELECT count(DISTINCT title) as NumberOfPapers, SUBSTRING(publish_time,1,4) as PubYear FROM KaggleAllPaperDetails WHERE pubmed_id IN (SELECT DISTINCT pmid FROM KaggleAllBioentitiesCleaned WHERE entity LIKE '%" + keyword + "%' ) GROUP BY PubYear DESC LIMIT 10")
-}
-
-func BioentityWordCloud() interface{} {
-	return GenerateSQL("SELECT Mention, occurences FROM Pubmed20_C04.Ace2MeshWords ORDER BY occurences DESC;")
 }
 
 ///institution
@@ -181,7 +177,8 @@ func AuthorTotalData(aid string) map[string]interface{} {
 }
 
 func AuthorArticles(c chan interface{}, aid string) {
-	c <- GenerateSQL("SELECT DISTINCT title as ArticleTitle, abstract, authors as Authors, pmcid, pubmed_id,   SUBSTRING(publish_time,1,4) as PubYear, journal as Journal_Title, Tweets as tweet,    (case when (url LIKE '%; %') THEN concat('https://www.ncbi.nlm.nih.gov/pubmed/',pubmed_id)       ELSE url END)as url FROM KaggleAllPaperDetails WHERE title IN (SELECT DISTINCT paperTitle FROM MyTableTemp  WHERE aid =" + aid + ") ORDER BY PubYear DESC")
+	//c <- GenerateSQL("SELECT DISTINCT title as ArticleTitle, abstract, authors as Authors, pmcid, pubmed_id,   SUBSTRING(publish_time,1,4) as PubYear, journal as Journal_Title, Tweets as tweet,    (case when (url LIKE '%; %') THEN concat('https://www.ncbi.nlm.nih.gov/pubmed/',pubmed_id)       ELSE url END)as url FROM KaggleAllPaperDetails WHERE title IN (SELECT DISTINCT paperTitle FROM MyTableTemp  WHERE aid =" + aid + ") ORDER BY PubYear DESC")
+	c <- GenerateSQL("SELECT DISTINCT title as ArticleTitle, abstract, authors as Authors, pmcid, pubmed_id,\n    SUBSTRING(publish_time,1,4) as PubYear, journal as Journal_Title, Tweets as tweet,\n    (case when (url LIKE '%; %') THEN concat('https://www.ncbi.nlm.nih.gov/pubmed/',pubmed_id)\n        ELSE url END)as url\nFROM KaggleAllPaperDetails\nWHERE title IN (SELECT DISTINCT paperTitle FROM MyTableTemp\n                WHERE aid = " + aid + ") AND pubmed_id is not null AND pubmed_id !=''\nORDER BY PubYear DESC;")
 }
 
 func AuthorcoAuthors(c chan interface{}, aid string) {

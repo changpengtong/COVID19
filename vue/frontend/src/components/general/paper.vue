@@ -22,7 +22,7 @@
                     >
                         <template slot-scope="scope">
                             <div v-for="(item,index) in scope.row.article" :key="index"  style="margin-left: 1rem">
-                                <span v-if="index==='title'" style="font-size: large">
+                                <span v-if="index==='title'" style="font-size: 17px">
                                     <a :href="scope.row.article.url">
                                     {{item}}
                                     </a>
@@ -84,7 +84,7 @@
                     >
                         <template slot-scope="scope">
                             <div v-for="(item,index) in scope.row.article" :key="index" style="margin-left: 1rem">
-                                <span v-if="index==='title'" style="font-size: large">
+                                <span v-if="index==='title'" style="font-size: 17px">
                                     <a href="https://www.google.com/">
                                     {{item}}
                                     </a>
@@ -225,6 +225,7 @@
                     t.push({"article":article,"year":this.d[i]["PubYear"],"tweet":"0"})
                   }
                   else{
+                    this.d[i]["tweet"]=String(this.d[i]["tweet"]).split('.')[0]
                     t.push({"article":article,"year":this.d[i]["PubYear"],"tweet":this.d[i]["tweet"]})
                   }
                   // else{

@@ -1,11 +1,9 @@
 <template>
   <div class="footer _bg-grey">
     <div class="_container">
-      <span
-        >&copy;<router-link to="/" tag="a">Covid-19 Portal</router-link>. All
-        Rights Reserved
-      </span>
-      <!-- <router-link to="/about" tag="a" class="item">contact us</router-link> -->
+      <p ><span>This Portal is Funded by</span> NSF RAPID (2028717)<span> and is built by </span>Yan Zhan, Sanjana Tripathi, Aoshen Wan, Jiarong Yang,</p>
+      <p>Yijing Chen, Mona Sachdev, and Ying Ding
+       <span>from</span> <a href="https://www.ischool.utexas.edu/" tag="a"> the School of Information at University of Texas at Austin</a>.</p>
     </div>
   </div>
 </template>
@@ -24,10 +22,21 @@ export default {
   width: 100%;
   background-color: #edf4ff !important;
 
-  padding-top: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   text-align: center;
   text-transform: capitalize;
 
   min-height: 50px;
 }
+._container span{
+  color: #303133;
+  /*font-size: small;*/
+}
+/*._container p span{*/
+/*  color: #434343;*/
+/*}*/
+/*._container p{*/
+/*  color: #409eff;*/
+/*}*/
 </style>

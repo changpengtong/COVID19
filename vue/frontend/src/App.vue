@@ -52,7 +52,6 @@
     color: black;
     margin: 0;
   }
-
   /*
   *  override the el-ui style
   */

@@ -4,14 +4,14 @@
     <div class="_container">
       <div class="framework-width">
         <el-row :gutter="20">
-          <el-col :span="15">
+          <el-col :span="12">
         <div id="icon">
           <a href="/COVID19/">COVID-19 PORTAL</a >
         </div>
           </el-col>
-          <el-col :span="9">
+          <el-col :span="12">
         <transition name="el-zoom-in-top">
-          <search-wrapper id="search-wrapper" v-if="ifSearchBox"></search-wrapper>
+          <search-wrapper v-if="ifSearchBox"></search-wrapper>
         </transition>
           </el-col>
         </el-row>
@@ -42,36 +42,40 @@ export default {
 
 <style>
 /*<!--search box wrapper-->*/
-.home-search-pane {
+.topnav .home-search-pane {
   display: block;
-  width: 80%;
-  padding-bottom: -100px;
-  padding-top: 15px;
+  width: 100%;
+  height: 100%;
+  padding-top: 18px;
+  position: relative;
+  margin-left: 20%;
 }
 
-.home-search-pane .search-box {
-  padding-bottom: 10px;
+.topnav .search-box {
+  position: absolute;
+  max-width: 30em;
+  width: 100%;
+  margin-right: 2em;
 }
+.topnav .el-radio-group {
+  position: absolute;
+  margin-top: 50px;
+  margin-left: 8%;
 
-.home-search-pane .radios .el-radio-group {
-  padding-top: 13px;
-  padding-left: 15%;
 }
-.search-box .search-box-auto {
-  position: center;
-  width: 30em;
+.topnav .search-box .search-box-auto {
+  position: absolute;
+  max-width: 500px;
+  width: 100%;
+  margin-right: 2px;
 }
 /*serach box*/
-.search-box .el-col-6 {
-  min-width: 100px;
-  padding-right: 15px;
-}
-
-.search-box .el-input__inner {
+.topnav .search-box .el-input__inner {
   border-radius: 20px 20px;
+
 }
 
-.search-box .el-icon-search {
+.topnav .search-box .el-icon-search {
   margin-top: 4px;
   font-size: 17px;
   margin-right: 10px;
@@ -108,7 +112,7 @@ export default {
   line-height: 80px;
   font-weight: bold;
   margin-top:15px;
-  margin-left: 15px;
+  margin-left: 40px;
 }
 #icon a {
   font-size: 35px;

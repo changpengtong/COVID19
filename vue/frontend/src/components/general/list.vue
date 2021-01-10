@@ -199,6 +199,20 @@
         margin-bottom: 0;
         margin-right: 0;
     }
+    .scroll{
+      overflow-y: scroll;
+      height: 300px;
+    }
+    .scroll::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 7px;
+    }
+
+    .scroll::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: rgba(0, 0, 0, .5);
+      box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    }
     /*/deep/ .el-tabs__item.is-active{*/
     /*    !*color: #409eff;*!*/
     /*    !*background-color: #409EFF;*!*/

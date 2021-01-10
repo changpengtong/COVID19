@@ -123,7 +123,7 @@ export default {
   padding-top: 35px;
   padding-left: 22%;
   padding-right: 9%;
-  position: fixed;
+  /*position: fixed;*/
 }
 
 .home .el-col-6 {

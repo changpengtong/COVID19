@@ -1,4 +1,5 @@
 <template>
+  <div class="table">
     <el-table
             :data="tableData"
             :default-sort = "{prop: 'num', order: 'descending'}"
@@ -24,6 +25,7 @@
 
         </el-table-column>
     </el-table>
+  </div>
 </template>
 
 <script>
@@ -74,9 +76,24 @@
     }
 </script>
 
-<style scoped>
+<style>
     .entity-name {
         /*text-decoration:underline;*/
         color: black;
+    }
+
+    .scroll{
+      overflow-y: scroll;
+      height: 300px;
+    }
+    .scroll::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 7px;
+    }
+
+    .scroll::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: rgba(0, 0, 0, .5);
+      box-shadow: 0 0 1px rgba(255, 255, 255, .5);
     }
 </style>

@@ -157,7 +157,7 @@ export default {
     }
     .info-text{
         margin: .5em 0;
-      font-size: 1.2rem;
+      font-size: 17px;
 
     }
     .info-item {
@@ -167,13 +167,13 @@ export default {
     }
     .info-item-title {
         font-weight: normal;
-      font-size: 1.2rem;
+      font-size: 17px;
         text-transform: capitalize;
         margin-right: .5em;
     }
     .institution{
         font-weight: normal;
-      font-size: 1.2rem;
+      font-size: 17px;
       text-transform: capitalize;
         margin-right: .5em;
         text-decoration:underline;
@@ -183,7 +183,7 @@ export default {
         margin-right: 1rem;
     }
     #name {
-        font-size: 1.2rem;
+        font-size: 17px;
         margin-bottom: .5em;
         font-weight: 500;
     }
