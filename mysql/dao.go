@@ -3,8 +3,9 @@ package mysql
 import (
 	"database/sql"
 	"fmt"
-	_ "github.com/go-sql-driver/mysql"
 	"time"
+
+	_ "github.com/go-sql-driver/mysql"
 )
 
 func ConnectMySQL() *sql.DB {
@@ -28,106 +29,135 @@ func ConnectMySQL() *sql.DB {
 
 //auto-complete api
 func AllInstitutionNames() interface{} {
-	return GenerateSQL("SELECT DISTINCT authorAffiliation as name \nFROM KaggleAllAuthors\nWHERE authorAffiliation is not null AND authorAffiliation != ''")
+	return GenerateSQL("SELECT institution as name, id as id FROM COVID19_Institution")
 }
-func AllTitleNames() interface{} {
-	return GenerateSQL("SELECT DISTINCT title\n as name FROM KaggleAllPaperDetails\nWHERE title is not null  AND title!=''")
-}
+
 func AllAuthorNames() interface{} {
-	return GenerateSQL("SELECT DISTINCT authorName\n as name FROM KaggleAllAuthors\nWHERE authorName is not null AND authorName!=''\nAND authorName REGEXP '^[A-Za-z0-9]'")
+	return GenerateSQL("SELECT name AS name, id AS id FROM COVID19_AuthorAutoComplete")
 }
+
 func AllBiontityNames() interface{} {
-	return GenerateSQL("SELECT DISTINCT entity\nas name FROM KaggleAllBioentitiesCleaned\nWHERE entity is not null AND entity!=''")
+	return GenerateSQL("SELECT entity AS name, id AS id FROM COVID19_Bioentity")
 }
 
 // bioentity
 
 func BioentityTotalData(keyword string) map[string]interface{} {
 	bioentity := make(map[string]interface{})
+	c0 := make(chan interface{})
 	c1 := make(chan interface{})
 	c2 := make(chan interface{})
 	c3 := make(chan interface{})
 	c4 := make(chan interface{})
+	c5 := make(chan interface{})
+	go BioentityName(c0, keyword)
 	go BarGraphPapersByYear(c1, keyword)
 	go BioentityArticles(c2, keyword)
 	go BioEntityAuthors(c3, keyword)
 	go BioentityInstitutions(c4, keyword)
+	go BioEntityClinicals(c5, keyword)
+	bioentity["name"] = <-c0
 	bioentity["bar"] = <-c1
 	bioentity["articles"] = <-c2
 	bioentity["coauthor"] = <-c3
 	bioentity["institution"] = <-c4
+	bioentity["clinicals"] = <-c5
+	close(c0)
 	close(c1)
 	close(c2)
 	close(c3)
 	close(c4)
+	close(c5)
 	return bioentity
 }
-func BioentityType(keyword string) interface{} {
-	return GenerateSQL("SELECT DISTINCT Type as type FROM KaggleAllBioentitiesCombined WHERE entity_list = '%" + keyword + "%'")
+
+func BioentityName(c chan interface{}, keyword string) {
+	c <- GenerateSQL("SELECT entity FROM COVID19_Bioentity WHERE id = '" + keyword + "'")
 }
 
 func BioentityArticles(c chan interface{}, keyword string) {
-	c <- GenerateSQL("SELECT DISTINCT pubmed_id, TRIM(BOTH '['  FROM title) as ArticleTitle, SUBSTRING(publish_time,1,4) as PubYear, authors as Authors, journal as Journal_Title, abstract, Tweets as tweet,(case when (url LIKE '%; %') THEN concat('https://www.ncbi.nlm.nih.gov/pubmed/',pubmed_id) ELSE url END)as url FROM KaggleAllPaperDetails FORCE INDEX (`title_pubmedid_index`) WHERE EXISTS (SELECT DISTINCT pmid FROM KaggleAllBioentitiesCleaned FORCE INDEX (`entity_pmid_index`) WHERE pmid=KaggleAllPaperDetails.pubmed_id AND  entity LIKE '%" + keyword + "%') ORDER BY PubYear DESC LIMIT 5000")
-
+	c <- GenerateSQL("SELECT TRIM(BOTH '['  FROM a.title) as ArticleTitle, a.abstract, a.author as Authors, SUBSTRING(a.publish_time, 1, 4) AS PubYear, a.journal as Journal_Title, a.url, a.tweet FROM COVID19_Paper a JOIN COVID19_Paper2Bioentity b ON a.cord_uid = b.paper_id WHERE b.entity_id = '" + keyword + "' ORDER BY PubYear DESC LIMIT 1000")
 }
 
 func BioentityInstitutions(c chan interface{}, keyword string) {
-	c <- GenerateSQL("SELECT DISTINCT authorAffiliation as Affiliation, authorAffiliationLocation as Location, count(DISTINCT paperTitle) as NumberOfPapers FROM KaggleAllAuthors\n    WHERE concat(authorAffiliation, '', authorAffiliationLocation) is not null AND paperTitle IN\n     (SELECT title FROM KaggleAllPaperDetails WHERE pubmed_id IN\n        (SELECT DISTINCT PMID FROM KaggleAllBioentitiesCleaned WHERE entity LIKE '%" + keyword + "%'))\n    GROUP BY authorAffiliation, authorAffiliationLocation ORDER BY NumberOfPapers DESC")
+	c <- GenerateSQL("SELECT d.id AS id, d.institution AS Affiliation, count(c.paper_id) AS NumberOfPapers FROM COVID19_Paper a JOIN COVID19_Paper2Bioentity b ON a.cord_uid = b.paper_id JOIN COVID19_Paper2Institution c ON a.cord_uid = c.paper_id JOIN COVID19_Institution d ON c.institution_id = d.id WHERE b.entity_id = '" + keyword + "' GROUP BY id, Affiliation ORDER BY NumberOfPapers DESC")
 }
 
 func BioEntityAuthors(c chan interface{}, keyword string) {
-	c <- GenerateSQL("SELECT min(SUBSTRING_INDEX(authorName, ' ', 2)) AS ForeName, min(SUBSTRING_INDEX(authorName, ' ', -2)) AS LastName,       min(authorAffiliation) as Affiliation, min(authorName) as FullName, min(authorAffiliationLocation) as Location, min(aid) as aid FROM MyTableTemp WHERE paperTitle IN ( SELECT KP.title FROM KaggleAllBioentitiesCleaned KB FORCE INDEX (`entity_pmid_index`) LEFT JOIN KaggleAllPaperDetails KP FORCE INDEX (`pubmedid_index`) ON KB.pmid=KP.pubmed_id WHERE entity like '" + keyword + "' AND title is not null)  and aid is not null group by aid ORDER BY LastName limit 5000")
+	c <- GenerateSQL("SELECT SUBSTRING_INDEX(d.author_name, ' ', 2) AS ForeName, SUBSTRING_INDEX(d.author_name, ' ', -2) AS LastName, e.institution AS Affiliation, d.author_name as FullName, e.location AS Location, d.id AS aid FROM COVID19_Paper a JOIN COVID19_Paper2Bioentity b ON a.cord_uid = b.paper_id JOIN COVID19_Paper2Author c ON a.cord_uid = c.paper_id JOIN COVID19_Author d ON c.author_id = d.id JOIN COVID19_Institution e ON d.institution_id = e.id WHERE b.entity_id = '" + keyword + "' LIMIT 3000;")
 }
 
 func BarGraphPapersByYear(c chan interface{}, keyword string) {
-	c <- GenerateSQL("SELECT count(DISTINCT title) as NumberOfPapers, SUBSTRING(publish_time,1,4) as PubYear FROM KaggleAllPaperDetails WHERE pubmed_id IN (SELECT DISTINCT pmid FROM KaggleAllBioentitiesCleaned WHERE entity LIKE '%" + keyword + "%' ) GROUP BY PubYear DESC LIMIT 10")
+	c <- GenerateSQL("SELECT COUNT(a.cord_uid) AS NumberOfPapers, SUBSTRING(a.publish_time, 1, 4) as PubYear FROM COVID19_Paper a JOIN COVID19_Paper2Bioentity b ON a.cord_uid = b.paper_id WHERE b.entity_id = '" + keyword + "' GROUP BY PubYear DESC LIMIT 10")
+}
+
+func BioEntityClinicals(c chan interface{}, keyword string) {
+	c <- GenerateSQL("SELECT TRIM(BOTH '['  FROM a.title) as title, a.researchers, a.year, a.sponsors, a.url FROM COVID19_Clinical a JOIN COVID19_Clinical2Entity b ON a.id = b.clinical_id WHERE b.entity_id = '" + keyword + "' ORDER BY year DESC LIMIT 1000")
 }
 
 ///institution
 
 func InstitutionTotalData(keyword string) map[string]interface{} {
 	institution := make(map[string]interface{})
+	c0 := make(chan interface{})
 	c1 := make(chan interface{})
 	c2 := make(chan interface{})
 	c3 := make(chan interface{})
 	c4 := make(chan map[string]interface{})
+	c5 := make(chan interface{})
+	go InstitutionName(c0, keyword)
 	go InstitutionBarGraphPapersByYear(c1, keyword)
 	go InstitutionPapers(c2, keyword)
 	go InstitutionAuthors(c3, keyword)
 	go InstitutionWordCloud(c4, keyword)
+	go InstitutionClinicals(c5, keyword)
+	institution["name"] = <-c0
 	institution["bar"] = <-c1
 	institution["articles"] = <-c2
 	institution["coauthor"] = <-c3
 	institution["wordcloud"] = <-c4
+	institution["clinicals"] = <-c5
+	close(c0)
 	close(c1)
 	close(c2)
 	close(c3)
 	close(c4)
+	close(c5)
 	return institution
 }
 
+func InstitutionName(c chan interface{}, keyword string) {
+	c <- GenerateSQL("SELECT institution FROM COVID19_Institution WHERE id = '" + keyword + "'")
+}
+
 func InstitutionBarGraphPapersByYear(c chan interface{}, keyword string) {
-	c <- GenerateSQL("SELECT count(DISTINCT pubmed_id) as NumberOfPapers, SUBSTRING(publish_time,1,4) as PubYear\nFROM KaggleAllPaperDetails\nWHERE EXISTS\n      (SELECT DISTINCT paperTitle FROM KaggleAllAuthors\n      WHERE title=KaggleAllAuthors.paperTitle AND\n        authorAffiliation LIKE '%" + keyword + "%'\n  AND (paperTitle != '' OR paperTitle is not null))\n  AND pubmed_id is not null AND pubmed_id!=' '\n    GROUP BY PubYear ORDER BY PubYear DESC LIMIT 10")
+	c <- GenerateSQL("SELECT COUNT(a.cord_uid) AS NumberOfPapers, SUBSTRING(a.publish_time, 1, 4) as PubYear FROM COVID19_Paper a JOIN COVID19_Paper2Institution b ON a.cord_uid = b.paper_id WHERE b.institution_id = '" + keyword + "' GROUP BY PubYear DESC LIMIT 10")
 }
 
 func InstitutionPapers(c chan interface{}, keyword string) {
-	c <- GenerateSQL("SELECT DISTINCT title as ArticleTitle, abstract, authors as Authors, pmcid, pubmed_id,\n    SUBSTRING(publish_time,1,4) as PubYear, journal as Journal_Title, Tweets as tweet,\n    (case when (url LIKE '%; %') THEN concat('https://www.ncbi.nlm.nih.gov/pubmed/',pubmed_id) ELSE url END) as url\n    FROM KaggleAllPaperDetails\n    WHERE EXISTS (SELECT DISTINCT paperTitle FROM KaggleAllAuthors\n        WHERE paperTitle=KaggleAllPaperDetails.title AND\n              authorAffiliation LIKE '%" + keyword + "%')\n  AND pubmed_id is not null AND pubmed_id !=' '\n   ORDER BY PubYear DESC;")
-	//c<-GenerateSQL("SELECT SLEEP(1);")
-
+	c <- GenerateSQL("SELECT TRIM(BOTH '['  FROM a.title) as ArticleTitle, a.abstract, a.author as Authors, SUBSTRING(a.publish_time, 1, 4) AS PubYear, a.journal as Journal_Title, a.url, a.tweet FROM COVID19_Paper a JOIN COVID19_Paper2Institution b ON a.cord_uid = b.paper_id WHERE b.institution_id = '" + keyword + "' ORDER BY PubYear DESC LIMIT 1000")
 }
+
 func InstitutionAuthors(c chan interface{}, keyword string) {
-	c <- GenerateSQL("SELECT DISTINCT min(SUBSTRING_INDEX(authorName, ' ', 2)) AS ForeName, min(SUBSTRING_INDEX(authorName, ' ', -2)) AS LastName,       min(authorAffiliation) as Affiliation, min(authorName) as FullName, min(authorAffiliationLocation) as Location, min(aid) as aid FROM MyTableTemp\nWHERE authorName is not null AND authorAffiliation LIKE '%" + keyword + "%' and aid is not null\n  AND authorName REGEXP '^[A-Za-z0-9]'\nGROUP BY aid ORDER BY LastName")
+	c <- GenerateSQL("SELECT SUBSTRING_INDEX(d.author_name, ' ', 2) AS ForeName, SUBSTRING_INDEX(d.author_name, ' ', -2) AS LastName, e.institution AS Affiliation, d.author_name as FullName, e.location AS Location, d.id AS aid FROM COVID19_Paper a JOIN COVID19_Paper2Institution b ON a.cord_uid = b.paper_id JOIN COVID19_Paper2Author c ON a.cord_uid = c.paper_id JOIN COVID19_Author d ON c.author_id = d.id JOIN COVID19_Institution e ON d.institution_id = e.id WHERE b.institution_id = '" + keyword + "' LIMIT 3000")
+}
 
-}
 func InstitutionDisease(c chan interface{}, keyword string) {
-	c <- GenerateSQL("SELECT entity as Mention, count(DISTINCT pmid) as occurences FROM KaggleAllBioentitiesCleaned WHERE type='disease' AND pmid IN (SELECT pubmed_id FROM KaggleAllPaperDetails WHERE EXISTS (SELECT paperTitle FROM KaggleAllAuthors WHERE paperTitle=KaggleAllPaperDetails.title AND authorAffiliation LIKE '%" + keyword + "%' ) ) GROUP BY Mention ORDER BY occurences DESC")
+	c <- GenerateSQL("SELECT d.id AS id, d.entity AS Mention, COUNT(a.cord_uid) AS occurences FROM COVID19_Paper a JOIN COVID19_Paper2Institution b ON a.cord_uid = b.paper_id JOIN COVID19_Paper2Bioentity c ON a.cord_uid = c.paper_id JOIN COVID19_Bioentity d ON c.entity_id = d.id WHERE b.institution_id = '" + keyword + "' AND c.type = 'Disease' GROUP BY id, Mention ORDER BY occurences DESC")
 }
+
 func InstitutionDrug(c chan interface{}, keyword string) {
-	c <- GenerateSQL("SELECT entity as Mention, count(DISTINCT pmid) as occurences FROM KaggleAllBioentitiesCleaned WHERE type='chemical' AND pmid IN (SELECT pubmed_id FROM KaggleAllPaperDetails WHERE EXISTS (SELECT paperTitle FROM KaggleAllAuthors WHERE paperTitle=KaggleAllPaperDetails.title AND authorAffiliation LIKE '%" + keyword + "%')) GROUP BY Mention ORDER BY occurences DESC")
+	c <- GenerateSQL("SELECT d.id AS id, d.entity AS Mention, COUNT(a.cord_uid) AS occurences FROM COVID19_Paper a JOIN COVID19_Paper2Institution b ON a.cord_uid = b.paper_id JOIN COVID19_Paper2Bioentity c ON a.cord_uid = c.paper_id JOIN COVID19_Bioentity d ON c.entity_id = d.id WHERE b.institution_id = '" + keyword + "' AND c.type = 'Chemical' GROUP BY id, Mention ORDER BY occurences DESC")
 }
+
 func InstitutionGene(c chan interface{}, keyword string) {
-	c <- GenerateSQL("SELECT entity as Mention, count(DISTINCT pmid) as occurences FROM KaggleAllBioentitiesCleaned WHERE type='gene' AND pmid IN (SELECT pubmed_id FROM KaggleAllPaperDetails WHERE EXISTS (SELECT paperTitle FROM KaggleAllAuthors WHERE paperTitle=KaggleAllPaperDetails.title AND authorAffiliation LIKE '%" + keyword + "%')) GROUP BY Mention ORDER BY occurences DESC")
+	c <- GenerateSQL("SELECT d.id AS id, d.entity AS Mention, COUNT(a.cord_uid) AS occurences FROM COVID19_Paper a JOIN COVID19_Paper2Institution b ON a.cord_uid = b.paper_id JOIN COVID19_Paper2Bioentity c ON a.cord_uid = c.paper_id JOIN COVID19_Bioentity d ON c.entity_id = d.id WHERE b.institution_id = '" + keyword + "' AND c.type = 'Gene' GROUP BY id, Mention ORDER BY occurences DESC")
 }
+
+func InstitutionClinicals(c chan interface{}, keyword string) {
+	c <- GenerateSQL("SELECT TRIM(BOTH '['  FROM a.title) as title, a.researchers, a.year, a.sponsors, a.url FROM COVID19_Clinical a JOIN COVID19_Clinical2Institution b ON a.id = b.clinical_id WHERE b.institution_id = '" + keyword + "' ORDER BY year DESC LIMIT 1000")
+}
+
 func InstitutionWordCloud(c chan map[string]interface{}, keyword string) {
 	res := make(map[string]interface{})
 	c1 := make(chan interface{})
@@ -147,7 +177,7 @@ func InstitutionWordCloud(c chan map[string]interface{}, keyword string) {
 
 //authorlist
 func AuthorList(keyword string) interface{} {
-	return GenerateSQL("SELECT DISTINCT min(aid) as aid, min(authorEmail) as Email, min(authorName) as Name, min(authorAffiliationLocation) as Location,min(authorAffiliation) as Affiliation  FROM KaggleAllAuthors RIGHT JOIN mytable\nON KaggleAllAuthors.paper_id=mytable.pid collate utf8_general_ci AND KaggleAllAuthors.authorName=mytable.author collate utf8_general_ci\nWHERE authorName LIKE '%" + keyword + "%' \n  AND authorAffiliation is not null AND authorAffiliationLocation is not null\n  AND authorEmail is not null AND authorEmail!=' ' GROUP BY aid")
+	return GenerateSQL("SELECT a.id as aid, a.email as Email, a.author_name AS Name, b.institution AS Affiliation, b.id AS institution_id, b.location AS Location FROM COVID19_Author a LEFT JOIN COVID19_Institution b ON a.institution_id = b.id WHERE author_name LIKE '%" + keyword + "%'")
 }
 
 //author
@@ -158,49 +188,60 @@ func AuthorTotalData(aid string) map[string]interface{} {
 	c3 := make(chan interface{})
 	c4 := make(chan map[string]interface{})
 	c5 := make(chan interface{})
+	c6 := make(chan interface{})
 	go AuthorArticles(c1, aid)
 	go AuthorcoAuthors(c2, aid)
 	go AuthorBarGraphPapersByYear(c3, aid)
 	go AuthorWordCloudType(c4, aid)
 	go AuthorCard(c5, aid)
+	go AuthorClinicals(c6, aid)
 	author["articles"] = <-c1
 	author["coauthor"] = <-c2
 	author["bar"] = <-c3
 	author["wordcloud"] = <-c4
 	author["card"] = <-c5
+	author["clinicals"] = <-c6
 	close(c1)
 	close(c2)
 	close(c3)
 	close(c4)
 	close(c5)
+	close(c6)
 	return author
 }
 
 func AuthorArticles(c chan interface{}, aid string) {
-	//c <- GenerateSQL("SELECT DISTINCT title as ArticleTitle, abstract, authors as Authors, pmcid, pubmed_id,   SUBSTRING(publish_time,1,4) as PubYear, journal as Journal_Title, Tweets as tweet,    (case when (url LIKE '%; %') THEN concat('https://www.ncbi.nlm.nih.gov/pubmed/',pubmed_id)       ELSE url END)as url FROM KaggleAllPaperDetails WHERE title IN (SELECT DISTINCT paperTitle FROM MyTableTemp  WHERE aid =" + aid + ") ORDER BY PubYear DESC")
-	c <- GenerateSQL("SELECT DISTINCT title as ArticleTitle, abstract, authors as Authors, pmcid, pubmed_id,\n    SUBSTRING(publish_time,1,4) as PubYear, journal as Journal_Title, Tweets as tweet,\n    (case when (url LIKE '%; %') THEN concat('https://www.ncbi.nlm.nih.gov/pubmed/',pubmed_id)\n        ELSE url END)as url\nFROM KaggleAllPaperDetails\nWHERE title IN (SELECT DISTINCT paperTitle FROM MyTableTemp\n                WHERE aid = " + aid + ") AND pubmed_id is not null AND pubmed_id !=''\nORDER BY PubYear DESC;")
+	c <- GenerateSQL("SELECT TRIM(BOTH '['  FROM a.title) as ArticleTitle, a.abstract, a.author as Authors, SUBSTRING(a.publish_time, 1, 4) AS PubYear, a.journal as Journal_Title, a.url, a.tweet FROM COVID19_Paper a JOIN COVID19_Paper2Author b ON a.cord_uid = b.paper_id WHERE b.author_id = '" + aid + "' ORDER BY PubYear DESC LIMIT 1000")
 }
 
 func AuthorcoAuthors(c chan interface{}, aid string) {
-	c <- GenerateSQL("SELECT DISTINCT min(SUBSTRING_INDEX(authorName, ' ', 2)) AS ForeName, min(SUBSTRING_INDEX(authorName, ' ', -2)) AS LastName,       min(authorAffiliation) as Affiliation, min(authorName) as FullName, min(authorAffiliationLocation) as Location, min(aid) as aid FROM MyTableTemp WHERE paperTitle IN (SELECT DISTINCT paperTitle         FROM MyTableTemp   WHERE aid= " + aid + ")  AND authorName is not null and aid!=" + aid + "  AND authorName REGEXP '^[A-Za-z0-9]' GROUP BY aid ORDER BY LastName")
+	c <- GenerateSQL("SELECT SUBSTRING_INDEX(e.author_name, ' ', 2) AS ForeName, SUBSTRING_INDEX(e.author_name, ' ', -2) AS LastName, f.institution AS Affiliation, e.author_name as FullName, f.location AS Location, e.id AS aid FROM (SELECT a.cord_uid AS cord_uid FROM COVID19_Paper a JOIN COVID19_Paper2Author b ON a.cord_uid = b.paper_id WHERE b.author_id = '" + aid + "') c JOIN COVID19_Paper2Author d ON c.cord_uid = d.paper_id JOIN COVID19_Author e ON d.author_id = e.id JOIN COVID19_Institution f ON e.institution_id = f.id WHERE d.author_id != '" + aid + "' LIMIT 3000")
+}
 
-}
 func AuthorBarGraphPapersByYear(c chan interface{}, aid string) {
-	c <- GenerateSQL("SELECT count(title) as NumberOfPapers, SUBSTRING(publish_time,1,4) as PubYear FROM KaggleAllPaperDetails WHERE title IN      (SELECT DISTINCT paperTitle FROM MyTableTemp   WHERE aid=" + aid + ") GROUP BY PubYear ORDER BY PubYear DESC LIMIT 10;")
+	c <- GenerateSQL("SELECT COUNT(a.cord_uid) AS NumberOfPapers, SUBSTRING(a.publish_time, 1, 4) as PubYear FROM COVID19_Paper a JOIN COVID19_Paper2Author b ON a.cord_uid = b.paper_id WHERE b.author_id = '" + aid + "' GROUP BY PubYear DESC LIMIT 10")
 }
+
 func AuthorCard(c chan interface{}, aid string) {
-	c <- GenerateSQL("SELECT min(SUBSTRING_INDEX(authorName, ' ', 2)) AS ForeName, min(SUBSTRING_INDEX(authorName, ' ', -2)) AS LastName, min(authorAffiliation) as Affiliation, min(authorName) as FullName, min(authorAffiliationLocation) as Location, aid, min(authorEmail) as Email FROM MyTableTemp WHERE aid=" + aid + " AND authorAffiliation is not null AND authorAffiliationLocation is not null\n GROUP BY aid")
+	c <- GenerateSQL("SELECT SUBSTRING_INDEX(a.author_name, ' ', 2) AS ForeName, SUBSTRING_INDEX(a.author_name, ' ', -2) AS LastName, b.institution AS Affiliation, b.id AS institution_id, a.author_name AS FullName, b.location AS Location, a.id AS aid, a.email AS Email FROM COVID19_Author a LEFT JOIN COVID19_Institution b ON a.institution_id = b.id WHERE a.id = '" + aid + "'")
 }
 
 func AuthorDisease(c chan interface{}, aid string) {
-	c <- GenerateSQL("SELECT entity as Mention, count(DISTINCT pmid) as occurences FROM KaggleAllBioentitiesCleaned WHERE type='disease' AND pmid IN (SELECT pubmed_id FROM KaggleAllPaperDetails WHERE title IN (SELECT paperTitle FROM MyTableTemp WHERE aid=" + aid + ")) GROUP BY Mention ORDER BY occurences DESC")
+	c <- GenerateSQL("SELECT d.id AS id, d.entity AS Mention, COUNT(a.cord_uid) AS occurences FROM COVID19_Paper a JOIN COVID19_Paper2Author b ON a.cord_uid = b.paper_id JOIN COVID19_Paper2Bioentity c ON a.cord_uid = c.paper_id JOIN COVID19_Bioentity d ON c.entity_id = d.id WHERE b.author_id = '" + aid + "' AND c.type = 'Disease' GROUP BY id, Mention ORDER BY occurences DESC")
 }
+
 func AuthorDrug(c chan interface{}, aid string) {
-	c <- GenerateSQL("SELECT entity as Mention, count(DISTINCT pmid) as occurences FROM KaggleAllBioentitiesCleaned WHERE type='chemical' AND pmid IN (SELECT pubmed_id FROM KaggleAllPaperDetails WHERE title IN (SELECT paperTitle FROM MyTableTemp WHERE aid=" + aid + ")) GROUP BY Mention ORDER BY occurences DESC")
+	c <- GenerateSQL("SELECT d.id AS id, d.entity AS Mention, COUNT(a.cord_uid) AS occurences FROM COVID19_Paper a JOIN COVID19_Paper2Author b ON a.cord_uid = b.paper_id JOIN COVID19_Paper2Bioentity c ON a.cord_uid = c.paper_id JOIN COVID19_Bioentity d ON c.entity_id = d.id WHERE b.author_id = '" + aid + "' AND c.type = 'Chemical' GROUP BY id, Mention ORDER BY occurences DESC")
 }
+
 func AuthorGene(c chan interface{}, aid string) {
-	c <- GenerateSQL("SELECT entity as Mention, count(DISTINCT pmid) as occurences FROM KaggleAllBioentitiesCleaned WHERE type='gene' AND pmid IN (SELECT pubmed_id FROM KaggleAllPaperDetails WHERE title IN (SELECT paperTitle FROM MyTableTemp WHERE aid=" + aid + ")) GROUP BY Mention ORDER BY occurences DESC")
+	c <- GenerateSQL("SELECT d.id AS id, d.entity AS Mention, COUNT(a.cord_uid) AS occurences FROM COVID19_Paper a JOIN COVID19_Paper2Author b ON a.cord_uid = b.paper_id JOIN COVID19_Paper2Bioentity c ON a.cord_uid = c.paper_id JOIN COVID19_Bioentity d ON c.entity_id = d.id WHERE b.author_id = '" + aid + "' AND c.type = 'Gene' GROUP BY id, Mention ORDER BY occurences DESC")
 }
+
+func AuthorClinicals(c chan interface{}, aid string) {
+	c <- GenerateSQL("SELECT TRIM(BOTH '['  FROM a.title) as title, a.researchers, a.year, a.sponsors, a.url FROM COVID19_Clinical a JOIN COVID19_Clinical2Author b ON a.id = b.clinical_id WHERE b.author_id = '" + aid + "' ORDER BY year DESC LIMIT 1000")
+}
+
 func AuthorWordCloudType(c chan map[string]interface{}, aid string) {
 	res := make(map[string]interface{})
 	c1 := make(chan interface{})
@@ -240,7 +281,6 @@ func GenerateSQL(sql string) interface{} {
 			}
 		}
 		result = append(result, record)
-		//	fmt.Println(record)
 	}
 	rows.Close()
 	db.Close()

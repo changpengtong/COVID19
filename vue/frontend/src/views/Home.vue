@@ -60,41 +60,6 @@ export default {
     "small-table": SmallTable,
     "search-wrapper": SearchWrapper,
   },
-  methods: {
-    getData() {
-      fetch("../data/sample.json")
-        .then((response) => response.json())
-        .then((data) => (this.dataList = data));
-    },
-    getInstitutionDetailPage(row) {
-      this.$router.push("path").catch((error) => {
-        if (error.name != "NavigationDuplicated") {
-          throw error;
-        }
-      });
-      this.$router.push({
-        path: "/institution/" + row.name,
-      });
-    },
-    getAuthorDetailPage(row) {
-      this.$router.push("path").catch((error) => {
-        if (error.name != "NavigationDuplicated") {
-          throw error;
-        }
-      });
-      this.$router.push({
-        path: "/itemAuthor/" + row.name,
-      });
-    },
-    getPaperDetailPage(row) {
-      this.$router.push({
-        path: "/displayInfo",
-        query: {
-          query: row.name,
-        },
-      });
-    },
-  },
 };
 </script>
 
@@ -107,23 +72,20 @@ export default {
   -o-background-size: cover;
   background-size: cover;
   background-attachment: fixed;
-  height: 700px;
-}
-
-.home .context {
-
+  height: 100%;
 }
 
 .home .search {
-  padding-top: 190px;
+  padding-top: 5%;
   padding-left: 25%;
+  height: 10%
 }
 
 .home .table {
-  padding-top: 35px;
+  padding-top: 5%;
   padding-left: 22%;
   padding-right: 9%;
-  /*position: fixed;*/
+  padding-bottom: 10%;
 }
 
 .home .el-col-6 {
@@ -146,7 +108,7 @@ export default {
 }
 .home .search-box .search-box-auto {
   position: center;
-  width: 770px;
+  width: 70%;
 }
 
 .home .search-box .el-col-6 {

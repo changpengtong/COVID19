@@ -1,6 +1,5 @@
 <template>
     <div>
-        <!-- head+button -->
         <div class="head">
             <span class="title-left" style="margin-right: 11em" v-if='flag==="aut"'>Co-authors</span>
             <span class="title-left" style="margin-right: 11em" v-else>Authors</span>
@@ -9,11 +8,9 @@
             </el-button>
         </div>
         <el-divider></el-divider>
-        <!--list-->
         <el-dialog title="Authors" :visible.sync="dialogTableVisible">
             <div>
                 <el-table :data="coauthors">
-                    <!--                <el-table-column  width="150" class="table-img"> <el-avatar :size="small" src="../../../../../../frontend/src/assets/img/user.png"></el-avatar></el-table-column>-->
                     <el-table-column property="name" label="Name" width="200"></el-table-column>
                     <el-table-column property="institution" label="Affiliation"></el-table-column>
                 </el-table>
@@ -24,7 +21,6 @@
 
             <div v-for="(author,index) in coauthors" :key="index" class="link">
                 <a :href=author.url target="_blank">
-<!--                <span @click="redirect(author)">-->
                     <el-row :gutter="20" v-if="index<20">
                         <el-col :xs="6" :sm="2" :md="6" :lg="5">
                             <div class="info-image">
@@ -49,7 +45,6 @@
                             </div>
                         </el-col>
                     </el-row>
-<!--                </span>-->
                 </a>
             </div>
         </div>
@@ -70,43 +65,32 @@
         },
         watch:{
             coauthor:function (newData) {
-                // console.log(newData)
                 this.d = newData;
                 this.get_data()
             }
         },
         mounted() {
-            // this.get_data()
         },
         methods: {
             get_data() {
                 let t=[]
                 for(let i=0;i<this.d.length;i++) {
-
-                    // Do stuff
-    if (typeof this.d[i]["Location"]!='undefined' && typeof this.d[i]["aid"]!='undefined' && typeof this.d[i]["ForeName"]!='undefined' && typeof this.d[i]["LastName"]!='undefined' && typeof this.d[i]["Affiliation"]!='undefined' ) {
-    t.push({
-    'name': this.d[i]["ForeName"] + " " + this.d[i]["LastName"],
-    'institution': this.d[i]["Affiliation"] + " " + this.d[i]["Location"],
-    'url': "/COVID19/#/author/" + this.d[i]["aid"]
-  })
-}
-
-
+                    if (typeof this.d[i]["Location"]!='undefined' && typeof this.d[i]["aid"]!='undefined' && typeof this.d[i]["ForeName"]!='undefined' && typeof this.d[i]["LastName"]!='undefined' && typeof this.d[i]["Affiliation"]!='undefined' ) {
+                        t.push({
+                            'name': this.d[i]["ForeName"] + " " + this.d[i]["LastName"],
+                            'institution': this.d[i]["Affiliation"] + " " + this.d[i]["Location"],
+                            'url': "/COVID19/#/author/" + this.d[i]["aid"]
+                        })
+                    }
                 }
                 this.coauthors = t
-                //   console.log(this.coauthors)
             },
-            // redirect:function (author) {
-            //     this.$router.push({path:author.url})
-            // }
-        }
-    }
+    }   
+}
 </script>
 
 <style scoped>
     .info-card {
-        /* margin: 0 auto; */
         padding: 1em;
     }
     .info-image {
@@ -121,7 +105,6 @@
       border-radius: 50%;
     }
     .info-icon {
-        /*margin-left: 27em;*/
         margin-top: 1.5em;
     }
     .custom-icon {
@@ -133,14 +116,11 @@
         margin: 0 auto;
         height: 100%;
         width: 100%;
-        /*border-radius: 50%;*/
     }
     .info-text{
         margin: .7em 0;
     }
     .info-item {
-        /*margin: .5em 0;*/
-
     }
     .info-work {
         overflow:hidden;

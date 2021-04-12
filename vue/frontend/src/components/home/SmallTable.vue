@@ -6,17 +6,21 @@
         ref="singleTable"
         :data="dataList"
         stripe
-        height="200"
         highlight-current-row
         fit
         @current-change="handleCurrentChange"
         @row-click="getDetailPage"
-        max-height="325"
         :show-header="false"
       >
-        <el-table-column type="index" width="35"> </el-table-column>
-        <el-table-column property="name" label="Name"> </el-table-column>
+      <el-table-column type="index" width="30"> </el-table-column>
+      <el-table-column width="200">
+        <template slot-scope="scope">
+          <button class="item-button">{{ scope.row.name }}</button>
+        </template>
+      </el-table-column>
+        <!-- <el-table-column property="name" label="Name"><button></button></el-table-column> -->
       </el-table>
+
     </div>
   </el-card>
 </template>
@@ -30,17 +34,16 @@ export default {
     type: Number,
   },
   methods: {
-    // 发送检索请求
     getDetailPage(row) {
       switch (this.type) {
         case 1:
           this.$router.push({
-            path: "/institution/" + row.name,
+            path: "/institution/" + row.id,
           });
           break;
         case 2:
           this.$router.push({
-            path: "/bioentity/" + row.name,
+            path: "/bioentity/" + row.id,
           });
           break;
         case 3:
@@ -55,17 +58,22 @@ export default {
 </script>
 
 <style >
+.el-table {
+  height: 10%;
+  max-height: 10%;
+}
+
 .small-table-card {
   text-align: center;
-  height: 220px;
-  width: 265px;
+  height: 30%;
+  width: 100%;
   border: hidden;
   margin-right: 0px;
 }
 
 .small-table .title {
   font-size: 21px;
-  margin-top: -10px;
+  margin-top: 0px;
   font-weight: bold;
 }
 
@@ -78,7 +86,7 @@ export default {
 }
 
 .small-table-card .small-table .el-table__row {
-  font-size: 13px;
+  font-size: 12px;
   height: 30px;
 }
 
@@ -88,7 +96,6 @@ export default {
   .el-table__body
   tr.el-table__row--striped
   td {
-  background-color: #edf4ff;
 }
 
 .small-table-card .small-table .el-table td,
@@ -100,6 +107,14 @@ export default {
 .small-table-card .small-table .title {
   font-weight: bold;
   font-family: "Slabo 27px", serif;
+}
+
+.item-button {
+  border: none;
+  background-color: transparent;
+  outline: none; 
+  width: 100%;
+  text-align: left;
 }
 
 

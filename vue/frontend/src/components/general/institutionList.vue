@@ -7,7 +7,6 @@
             height="300"
             :stripe="true"
     >
-
         <el-table-column
                 prop="ins"
                 label="Institutions"
@@ -29,9 +28,6 @@
 </template>
 
 <script>
-
- // import $axios from "../../util/axios";
-
     export default {
         props:['institution'],
         data() {
@@ -41,27 +37,24 @@
             }
         },
         mounted() {
-           // this.get_data()
         },
         watch: {
             institution:function(newData) {
-                // console.log(newData)
                 this.d = newData
                 this.get_data()
             }
         },
         methods: {
             get_data() {
-               // let d=[]
-                let t=[]
+              let t=[]
               if (this.d!=null){
                 for(let i=0;i<this.d.length;i++) {
-                  if (this.d[i]["Affiliation"]!=null && this.d[i]["Location"]!=null) {
+                  if (this.d[i]["Affiliation"]!=null) {
                     this.d[i]["Affiliation"]=this.d[i]["Affiliation"].replace(/^,+/,"").replace(/,+$/,"")
                     t.push({
                       'ins': {
-                        'name': this.d[i]["Affiliation"]+", "+this.d[i]["Location"],
-                        'url': "/COVID19/#/institution/" + this.d[i]["Affiliation"]
+                        'name': this.d[i]["Affiliation"],
+                        'url': "/COVID19/#/institution/" + this.d[i]["id"]
                       },
                       'num': this.d[i]['NumberOfPapers'],
                     })
@@ -69,8 +62,7 @@
                 }
               }
 
-                    this.tableData = t
-                    console.log(this.tableData)
+              this.tableData = t
             }
         }
     }
@@ -78,7 +70,6 @@
 
 <style>
     .entity-name {
-        /*text-decoration:underline;*/
         color: black;
     }
 

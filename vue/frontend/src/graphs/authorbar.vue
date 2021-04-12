@@ -10,7 +10,6 @@
 </template>
 <script>
     import $search from "./../util/search.js"
-    // import echarts from 'vue-echarts/components/ECharts'
     let echarts = require('echarts');
     import $axios from"./../util/axios"
     export default {
@@ -29,9 +28,7 @@
                     d=response.data
                     let group=[]
                     let value=[]
-                    //  let val =0;
                     for(let i=0;i<d.length;i++) {
-                        //   xgroup.push(d[i]['group']===""?"unknown":d[i]['group'].split(" ")[0])
                         if (d[i]['group']===''){
                             continue;
                         }
@@ -39,7 +36,6 @@
                         group.push(d[i]['group'])
                         value.push(d[i]['value'])
                     }
-                    // val = d[0]['value']/10;
                     this.draw_bar(group,value)
                 })
             },
@@ -63,19 +59,13 @@
                 const option = {
                     title:{
                         text:"Author's Contribution",
-                        // left:'center',
                         top:"0%",
                     },
                     tooltip : {
                         trigger: 'axis',
-                        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-                            type : 'line'        // 默认为直线，可选为：'line' | 'shadow'
+                        axisPointer : {    
+                            type : 'line'      
                         },
-                        // formatter:function (params) {
-                        //     // console.log(params)
-                        //     return "Name: "+params[0]['data']['group']+
-                        //         "<br/>"+"Contribution: "+params[0]['data']['value']
-                        // }
                     },
                     grid: {
                         left: '3%',
@@ -86,16 +76,14 @@
                     xAxis : [
                         {
                             type : 'category',
-                            // data:["map", "lines", "bar", "line", "pie", "scatter", "candlestick", "radar", "heatmap", "treemap"],
                             data : group,
                             axisTick: {
                                 alignWithLabel: true
                             },
-                            inverse: false,  // 反向排列 默认升序 和sortNumber方法配合使用
+                            inverse: false,  
                             axisLabel: {
                                 rotate:45,
                                 textStyle: {
-                                    // fontSize:'16'
                                 }
                             }
                         }
@@ -120,35 +108,15 @@
                                     }
                                 }
                             }
-                            //  data: [120, 200, 150, 80, 70, 110, 130]
                         }
                     ]
                 };
                 myChart.setOption(option);
-                // 当多个图形渲染时，调用以下方法只能实现最后一个图的自适应效果
-                // window.onresize = function(){
-                //     console.log("window resize!")
-                //     initial();
-                //     myChart.resize();
-                //     console.log("myChart resize!")
-                // }
-                // 生成多个图时实现全部都能自适应。参考博客：https://blog.csdn.net/qq_25816185/article/details/82414529
                 window.addEventListener('resize', function () {
                     initial();
                     myChart.resize()
                 })
-                // 这种写法无法实现自适应，不知道为什么
-                // window.onresize = ("resize",function() {
-                //     initial();
-                //     echart.resize()
-                // })
                 myChart.on("click",function(params){
-                    console.log(params);
-                    // window.open("https://www.baidu.com/baidu?wd="+params.seriesName);
-                    // $router.push({
-                    //     path:"/displayInfo",
-                    //     query:{query:params.data.name.toLowerCase()}
-                    // })
                     $search.to_display(params.data.name.toLowerCase())
                 })
             }

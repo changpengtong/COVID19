@@ -23,8 +23,6 @@
 </template>
 
 <script>
-// import $search from "../../util/search"
-
     export default {
         props:['name'],
         data() {
@@ -39,9 +37,7 @@
         },
         watch:{
             name:function (newData) {
-              console.log("bioentity card is: ")
-                console.log(newData)
-              this.tableData.name=newData
+              this.tableData.name=newData[0]['entity']
             }
         }
 
@@ -56,14 +52,10 @@
 
     .info-card {
         max-width: 60em;
-        /*width: 50em;*/
-        /* display: inline-block; */
         margin: 2em auto;
         padding: 1em 1em;
     }
     .info-card {
-        /*margin: 0 auto;*/
-        /*padding: 1em;*/
     }
     img {
         object-fit: cover;
@@ -72,8 +64,6 @@
         width: 120px;
         display: block;
         margin: auto;
-        /*margin-top: 1em;*/
-
     }
     .info-text{
         margin: 0;
@@ -81,12 +71,9 @@
         top: 50%;
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
-        /*-ms-transform: translateY(-50%);*/
-        /*transform: translateY(-50%);*/
     }
     .info-item-name {
         margin: .5em 0;
-        /*font-weight: normal;*/
         text-transform: capitalize;
         font-weight: 500;
 
@@ -108,7 +95,6 @@
       font-size: 1.5em;
       font-weight: 500;
       margin: 0;
-      /*position: absolute;*/
       top: 50%;
       -ms-transform: translateY(-50%);
       transform: translateY(-50%);

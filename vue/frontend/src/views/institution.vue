@@ -60,7 +60,6 @@
           entity: [],
           flag: "",
           loading: true,
-          // complete: false
         }
       },
       created() {
@@ -76,16 +75,13 @@
           $axios.get("/displayInstitution/" + this.$route.params.id).then(response => {
             this.loading = false
             let d = response.data
-            // console.log(d)
-            this.name = this.$route.params.id
-            console.log(this.name)
-            this.paper = d["articles"]
+            this.name = d["name"]
+            this.paper = [d["articles"], d["clinicals"]]
             this.bar = d["bar"]
             this.coauthor = d["coauthor"]
             this.entity = d["wordcloud"]
             this.wordcloud = d["wordcloud"]
             this.flag = "ins"
-            console.log(this.paper)
           })
         }
       }
@@ -99,18 +95,15 @@
         max-width: 1200px;
          width: 100%;
         margin: 0 auto;
-        /*padding: .5em;*/
     }
     .right{
         margin: 0 auto;
-        /*width: 100%;*/
     }
     .display-author{
         width: 100%;
     }
     .display-view {
         width: 100%;
-        /* max-width: 970px; */
          margin: 0 auto;
     }
 
@@ -118,7 +111,6 @@
         margin-bottom: 1.5em;
     }
     .display-query #query {
-        /* text-transform: uppercase; */
         font-weight: bold;
         font-size: 1.5em;
     }
@@ -136,7 +128,6 @@
     .display-visual .title {
         text-transform: capitalize;
         margin-bottom: 1em;
-        /* color: #409EFF; */
     }
 
     .el-divider--horizontal {

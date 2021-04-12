@@ -1,5 +1,4 @@
 <template xmlns:img="http://www.w3.org/1999/html">
-    <!-- 开发者名片 -->
   <div>
       <div v-for="(author,index) in tempList" :key="index">
         <el-card class="info-card" :body-style="{ padding: '0px' }" shadow="hover">
@@ -19,15 +18,13 @@
                     </div>
                     <!-- affilliation-->
                     <div class="info-item" v-if="author">
-<!--                        <router-link :to=affiliation.institution.url >-->
                             <a :href="author.affiliationUrl">
                            <span class="institution" v-if="author.affiliation">{{author.affiliation}}</span>
-<!--                        </router-link>-->
                             </a>
-                      <span v-if="author.location">{{author.location}}, </span>
-
                     </div>
-                    <!-- mail -->
+                    <div class="info-item" v-if="author.email">
+                        <span class="info-item-title"></span><span>{{author.location}}</span>
+                    </div>
                     <div class="info-item" v-if="author.email">
                         <span class="info-item-title">Email:</span><span>{{author.email}}</span>
                     </div>
@@ -50,13 +47,9 @@
 </template>
 
 <script>
-// import http from "../../../util/axios";
-
-
 export default {
     props:['author'],
     components: {
-      // "info-card": CardHelper
     },
     data() {
       return {
@@ -73,8 +66,6 @@ export default {
         this.d = newData
         this.get_data()
         this.currentChangePage(this.tableData,1)
-
-        // this.currentChangePage(this.tableData,1)
       }
     },
     methods:{
@@ -97,25 +88,22 @@ export default {
           }
         }
       },
+      
       get_data() {
-        console.log("get data")
         let t=[]
         for(let i=0;i<this.d.length;i++) {
-          this.d[i]["Affiliation"]=this.d[i]["Affiliation"].replace(/^,+/,"").replace(/,+$/,"")
             t.push({
               "email": this.d[i]["Email"],
               "name" : this.d[i]["Name"],
-              "affiliation" : this.d[i]["Affiliation"]+",",
+              "affiliation" : this.d[i]["Affiliation"],
               "aid" :this.d[i]["aid"],
-              "affiliationUrl":"/COVID19/#/institution/"+ this.d[i]["Affiliation"],
+              "affiliationUrl":"/COVID19/#/institution/"+ this.d[i]["institution_id"],
               "url": "/COVID19/#/author/"+this.d[i]["aid"],
-              "location":this.d[i]["Location"]
+              "location": this.d[i]["Location"]
             })
         }
         this.authors = t
         this.tableData=t
-        console.log("authorcard"),
-          console.log(this.authors)
       },
 
     }
@@ -123,7 +111,6 @@ export default {
   }
 </script>
 <style scoped>
-
     .show-developer {
         margin: 1.5em auto;
     }
@@ -133,17 +120,12 @@ export default {
 
     .info-card {
         max-width: 50em;
-         /*width: 50em;*/
-        /* display: inline-block; */
-        /*margin: 2em auto;*/
         padding: 1em 1em;
     }
     .center {
         margin: 0 auto;
     }
     .info-card {
-         /*margin: 0 auto;*/
-        /*padding: 1em;*/
     }
     .info-image img {
         object-fit: cover;
@@ -152,8 +134,6 @@ export default {
         width: 80px;
         display: block;
         margin: auto;
-        /*margin-top: 1em;*/
-
     }
     .info-text{
         margin: .5em 0;
@@ -162,8 +142,6 @@ export default {
     }
     .info-item {
         margin: .5em 0;
-      /*font-size: 1rem;*/
-
     }
     .info-item-title {
         font-weight: normal;

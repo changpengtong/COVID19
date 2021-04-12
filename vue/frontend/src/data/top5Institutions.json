@@ -1,17 +1,22 @@
 [
     {
-        "name": "Harvard University"
+        "name": "Harvard University",
+        "id": 11029
     },
     {
-        "name": "University of Texas at Austin"
+        "name": "University of Texas at Austin",
+        "id": 36698
     },
     {
-        "name": "University Of Oxford"
+        "name": "University Of Oxford",
+        "id": 36160
     },
     {
-        "name": "The University of Sydney"
+        "name": "The University of Sydney",
+        "id": 30650
     },
     {
-        "name": "Imperial College London"
+        "name": "Imperial College London",
+        "id": 13798
     }
 ]

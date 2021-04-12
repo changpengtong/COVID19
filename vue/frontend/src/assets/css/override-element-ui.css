@@ -3,14 +3,22 @@
   padding: 0;
 }
 
-.el-container,
+.el-container {
+  height: 100%;
+}
+
 .el-header,
 .el-main,
 .el-footer {
     width: 100%;
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
 }
+
+.m-footer {
+    height: 5% !important;
+  }
+
 .el-tabs__header {
     margin: 0 0;
 }

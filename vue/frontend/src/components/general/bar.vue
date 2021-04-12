@@ -7,7 +7,6 @@
     import $search from "../../util/search"
     let echarts = require('echarts');
     export default {
-        //  name: "bar",
         props: ['bar'],
         data() {
             return {
@@ -15,11 +14,9 @@
             }
         },
         mounted() {
-            //this.start_draw();
         },
         watch: {
             bar:function(newData) {
-                // console.log(newData)
                 this.d = newData
                 this.start_draw()
             }
@@ -28,7 +25,6 @@
             start_draw() {
                 let group=[]
                 let value=[]
-               // for(let i=this.d.length-10;i<this.d.length;i++) {
                 for(let i=this.d.length-1;i>=0;i--) {
                     group.push(this.d[i]['PubYear'])
                     value.push(parseInt(this.d[i]['NumberOfPapers']))
@@ -58,8 +54,8 @@
                     color:['#686868'],
                     tooltip : {
                         trigger: 'axis',
-                        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-                            type : 'line'        // 默认为直线，可选为：'line' | 'shadow'
+                        axisPointer : {       
+                            type : 'line'     
                         },
                     },
                     grid: {
@@ -71,8 +67,7 @@
                     xAxis : [
                         {
                             type : 'category',
-                            data:group,//["2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"],
-                            //data : group,
+                            data:group,
                             axisTick: {
                                 alignWithLabel: true
                             },
@@ -96,40 +91,20 @@
                             name:'Paper',
                             type:'bar',
                             barWidth: '40%',
-                            data:seriesData//[119,139,137,205,219,253,389,289]
+                            data:seriesData
                         }
                     ]
                 };
                 myChart.setOption(option);
-                // 当多个图形渲染时，调用以下方法只能实现最后一个图的自适应效果
-                // window.onresize = function(){
-                //     console.log("window resize!")
-                //     initial();
-                //     myChart.resize();
-                //     console.log("myChart resize!")
-                // }
-                // 生成多个图时实现全部都能自适应。参考博客：https://blog.csdn.net/qq_25816185/article/details/82414529
                 window.addEventListener('resize', function () {
                     initial();
                     myChart.resize()
                 })
-                // 这种写法无法实现自适应，不知道为什么
-                // window.onresize = ("resize",function() {
-                //     initial();
-                //     echart.resize()
-                // })
+
                 myChart.on("click",function(params){
-                    console.log(params);
-                    // window.open("https://www.baidu.com/baidu?wd="+params.seriesName);
-                    // $router.push({
-                    //     path:"/displayInfo",
-                    //     query:{query:params.data.name.toLowerCase()}
-                    // })
                     $search.to_display(params.data.name.toLowerCase())
                 })
             }
         }
     }
 </script>
-<style>
-</style>

@@ -105,7 +105,6 @@
         watch: {
           entity:function (newData) {
               this.d = newData
-             // console.log(newData)
               this.get_data()
           }
         },
@@ -122,15 +121,13 @@
 
                       if (temp!==null) {
                         for (let i = 0; i < temp.length; i++) {
-                          //               if (true){
                           mention.push({
                             'entity': {
                               name: temp[i]['Mention'],
-                              'url': "/COVID19/#/bioentity/" + temp[i]['Mention']
+                              'url': "/COVID19/#/bioentity/" + temp[i]['id']
                             },
                             'num': temp[i]['occurences']
                           })
-//                            }
                         }
                       }
 
@@ -152,7 +149,6 @@
                     }
             },
             tableRowClassName({row,rowIndex}) {
-               // console.log(row)
                 var r=row
                 r=0
                 console.log(r)
@@ -163,7 +159,6 @@
                 }
             },
             tableRowClassName2({row,rowIndex}) {
-               // console.log(row)
                 var r=row
                 r=0
                 console.log(r)
@@ -213,13 +208,4 @@
       background-color: rgba(0, 0, 0, .5);
       box-shadow: 0 0 1px rgba(255, 255, 255, .5);
     }
-    /*/deep/ .el-tabs__item.is-active{*/
-    /*    !*color: #409eff;*!*/
-    /*    !*background-color: #409EFF;*!*/
-    /*    background-color: #ffffff;*/
-    /*}*/
-    /*/deep/ .el-tabs__item {*/
-    /*    font-size: 0.8em;*/
-    /*    letter-spacing: 0.1em;*/
-    /*}*/
 </style>

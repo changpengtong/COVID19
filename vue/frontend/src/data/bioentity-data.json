@@ -1,0 +1,7449 @@
+{
+  "0": [
+    {
+      "data": {
+        "name": "COVID19",
+        "id": "380279",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Respiratory Tract Infections",
+        "id": "63999",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Coronavirus Infections",
+        "id": "130872",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Pneumonia, Viral",
+        "id": "43263",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Bosentan",
+        "id": "754575",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "EDNRB",
+        "id": "304698",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "EDNRA",
+        "id": "561854",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "NR1I2",
+        "id": "439864",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "SARDH",
+        "id": "162585",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "FABP5",
+        "id": "766897",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "DNAH5",
+        "id": "10927",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CD8A",
+        "id": "562088",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CD14",
+        "id": "909130",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ADRB2",
+        "id": "855366",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CD19",
+        "id": "1003262",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "GJB2",
+        "id": "767080",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "FBN2",
+        "id": "364188",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "DPP4",
+        "id": "35863",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "FCGR2A",
+        "id": "439580",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "FCGR2B",
+        "id": "20303",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "GLRX",
+        "id": "956696",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "FCN2",
+        "id": "627304",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "COMT",
+        "id": "33649",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "source": "380279",
+        "target": "63999",
+        "type": "IS_A",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "380279",
+        "target": "130872",
+        "type": "IS_A",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "380279",
+        "target": "43263",
+        "type": "IS_A",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "754575",
+        "target": "63999",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.04
+      }
+    },
+    {
+      "data": {
+        "source": "754575",
+        "target": "304698",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.47
+      }
+    },
+    {
+      "data": {
+        "source": "754575",
+        "target": "561854",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 8.1
+      }
+    },
+    {
+      "data": {
+        "source": "754575",
+        "target": "561854",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 8.1
+      }
+    },
+    {
+      "data": {
+        "source": "754575",
+        "target": "439864",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.05
+      }
+    },
+    {
+      "data": {
+        "source": "162585",
+        "target": "63999",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "766897",
+        "target": "63999",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "10927",
+        "target": "63999",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "562088",
+        "target": "63999",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "909130",
+        "target": "63999",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "855366",
+        "target": "63999",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "1003262",
+        "target": "63999",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "767080",
+        "target": "63999",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "364188",
+        "target": "63999",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "35863",
+        "target": "63999",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "439580",
+        "target": "63999",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "20303",
+        "target": "63999",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "956696",
+        "target": "63999",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "627304",
+        "target": "63999",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.04
+      }
+    },
+    {
+      "data": {
+        "source": "33649",
+        "target": "63999",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    }
+  ],
+  "8944": [
+    {
+      "data": {
+        "name": "Cinacalcet",
+        "id": "424039",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Malignant Neoplasms",
+        "id": "2580",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "CASR",
+        "id": "3261",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "GLRA1",
+        "id": "439994",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CYP2D6",
+        "id": "60619",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CYP2D6",
+        "id": "244879",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Letrozole",
+        "id": "1107836",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "CYP19A1",
+        "id": "305028",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "RPL18",
+        "id": "11223",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "LRPAP1",
+        "id": "766676",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "HOXB7",
+        "id": "216222",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "HOXB8",
+        "id": "162211",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "FABP1",
+        "id": "707035",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "COL4A5",
+        "id": "26975",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ARF1",
+        "id": "439692",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "A2M",
+        "id": "1003016",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "NAT1",
+        "id": "909341",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "NAT2",
+        "id": "562340",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "SERPINA3",
+        "id": "27265",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "AADAC",
+        "id": "118408",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "AAMP",
+        "id": "181149",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "AANAT",
+        "id": "208112",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "RPL17",
+        "id": "216446",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "source": "424039",
+        "target": "2580",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.24
+      }
+    },
+    {
+      "data": {
+        "source": "424039",
+        "target": "3261",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 7.1
+      }
+    },
+    {
+      "data": {
+        "source": "424039",
+        "target": "439994",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.5
+      }
+    },
+    {
+      "data": {
+        "source": "424039",
+        "target": "60619",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 7.3
+      }
+    },
+    {
+      "data": {
+        "source": "424039",
+        "target": "244879",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 7.3
+      }
+    },
+    {
+      "data": {
+        "source": "1107836",
+        "target": "2580",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.022
+      }
+    },
+    {
+      "data": {
+        "source": "1107836",
+        "target": "305028",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 7.28
+      }
+    },
+    {
+      "data": {
+        "source": "11223",
+        "target": "2580",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "766676",
+        "target": "2580",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "216222",
+        "target": "2580",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "162211",
+        "target": "2580",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "707035",
+        "target": "2580",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "26975",
+        "target": "2580",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "439692",
+        "target": "2580",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "1003016",
+        "target": "2580",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.06
+      }
+    },
+    {
+      "data": {
+        "source": "909341",
+        "target": "2580",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.4
+      }
+    },
+    {
+      "data": {
+        "source": "562340",
+        "target": "2580",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "27265",
+        "target": "2580",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.04
+      }
+    },
+    {
+      "data": {
+        "source": "118408",
+        "target": "2580",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.03
+      }
+    },
+    {
+      "data": {
+        "source": "181149",
+        "target": "2580",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "208112",
+        "target": "2580",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "216446",
+        "target": "2580",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    }
+  ],
+  "14": [
+    {
+      "data": {
+        "name": "Pneumonia",
+        "id": "43254",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Lung diseases",
+        "id": "25452",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Respiratory Tract Infections",
+        "id": "63999",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Pneumocystis pneumonia",
+        "id": "1619",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Bexarotene",
+        "id": "1309182",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "RXRA",
+        "id": "18436",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "RXRB",
+        "id": "63711",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "RXRB",
+        "id": "91949",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "RXRB",
+        "id": "131770",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "RXRB",
+        "id": "157398",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "RXRB",
+        "id": "131973",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "RXRB",
+        "id": "131707",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "RXRG",
+        "id": "439564",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "RARA",
+        "id": "208423",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "RARB",
+        "id": "20469",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "RARG",
+        "id": "956622",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ABCA1",
+        "id": "766986",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ABCA3",
+        "id": "855059",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ABCF1",
+        "id": "63820",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "AOC1",
+        "id": "2754",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ARG1",
+        "id": "138559",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ACADVL",
+        "id": "20306",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CAT",
+        "id": "162389",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ACP5",
+        "id": "61090",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ACTA1",
+        "id": "439677",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CAV1",
+        "id": "79099",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "STS",
+        "id": "60981",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "COL4A5",
+        "id": "26975",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "RUNX1",
+        "id": "627150",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ASAH1",
+        "id": "78832",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "PRKCA",
+        "id": "562158",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "source": "43254",
+        "target": "25452",
+        "type": "IS_A",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "43254",
+        "target": "63999",
+        "type": "IS_A",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "1619",
+        "target": "43254",
+        "type": "IS_A",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "1309182",
+        "target": "43254",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "1309182",
+        "target": "63711",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.95
+      }
+    },
+    {
+      "data": {
+        "source": "1309182",
+        "target": "91949",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.95
+      }
+    },
+    {
+      "data": {
+        "source": "1309182",
+        "target": "131770",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.95
+      }
+    },
+    {
+      "data": {
+        "source": "1309182",
+        "target": "157398",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.95
+      }
+    },
+    {
+      "data": {
+        "source": "1309182",
+        "target": "131973",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.95
+      }
+    },
+    {
+      "data": {
+        "source": "1309182",
+        "target": "131707",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.95
+      }
+    },
+    {
+      "data": {
+        "source": "1309182",
+        "target": "439564",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.91
+      }
+    },
+    {
+      "data": {
+        "source": "1309182",
+        "target": "208423",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.75
+      }
+    },
+    {
+      "data": {
+        "source": "1309182",
+        "target": "20469",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 7.3
+      }
+    },
+    {
+      "data": {
+        "source": "1309182",
+        "target": "956622",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.89
+      }
+    },
+    {
+      "data": {
+        "source": "1309182",
+        "target": "18436",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 7.8
+      }
+    },
+    {
+      "data": {
+        "source": "766986",
+        "target": "43254",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "855059",
+        "target": "43254",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "63820",
+        "target": "43254",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.3
+      }
+    },
+    {
+      "data": {
+        "source": "2754",
+        "target": "43254",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "138559",
+        "target": "43254",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.03
+      }
+    },
+    {
+      "data": {
+        "source": "20306",
+        "target": "43254",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "162389",
+        "target": "43254",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "61090",
+        "target": "43254",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "439677",
+        "target": "43254",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "79099",
+        "target": "43254",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.05
+      }
+    },
+    {
+      "data": {
+        "source": "60981",
+        "target": "43254",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "26975",
+        "target": "43254",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "627150",
+        "target": "43254",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "78832",
+        "target": "43254",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "562158",
+        "target": "43254",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    }
+  ],
+  "8904": [
+    {
+      "data": {
+        "name": "ATP1A1",
+        "id": "706974",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Respiratory Syndrome",
+        "id": "110770",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "DPP4",
+        "id": "35863",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CRP",
+        "id": "208568",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "GPER1",
+        "id": "766938",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "HSPA5",
+        "id": "10976",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CXCL10",
+        "id": "855360",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "IRF3",
+        "id": "181017",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "TSPO",
+        "id": "60659",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "MAX",
+        "id": "180962",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CDSN",
+        "id": "63809",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CTSL",
+        "id": "252054",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "IFNA1",
+        "id": "35935",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "IFNA13",
+        "id": "157248",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CHRM3",
+        "id": "251754",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ADA",
+        "id": "35663",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "source": "706974",
+        "target": "110770",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "35863",
+        "target": "110770",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "208568",
+        "target": "110770",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "766938",
+        "target": "110770",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "10976",
+        "target": "110770",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "855360",
+        "target": "110770",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "181017",
+        "target": "110770",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "60659",
+        "target": "110770",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "180962",
+        "target": "110770",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "63809",
+        "target": "110770",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "252054",
+        "target": "110770",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "35935",
+        "target": "110770",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "157248",
+        "target": "110770",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "251754",
+        "target": "110770",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "35663",
+        "target": "110770",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    }
+  ],
+  "25": [
+    {
+      "data": {
+        "name": "Anxiety",
+        "id": "971",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Emotions",
+        "id": "13659",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Performance anxiety",
+        "id": "309320",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Catastrophization",
+        "id": "352781",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Carnitine",
+        "id": "482406",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "MAPT",
+        "id": "280394",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "MAPT",
+        "id": "245091",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Bupropion",
+        "id": "565334",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "SLC6A3",
+        "id": "364655",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "SLC6A3",
+        "id": "280214",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "SLC6A2",
+        "id": "78711",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "MAPT",
+        "id": "18539",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ACACA",
+        "id": "280517",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ASIC1",
+        "id": "98247",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ACHE",
+        "id": "33374",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ARSA",
+        "id": "60658",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ARSD",
+        "id": "2886",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ARVCF",
+        "id": "33784",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CCK",
+        "id": "26779",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ADCY5",
+        "id": "956685",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CCKAR",
+        "id": "706972",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ADCYAP1",
+        "id": "364539",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ATM",
+        "id": "484643",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CCKBR",
+        "id": "98176",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ADCYAP1R1",
+        "id": "20528",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "DLX4",
+        "id": "98015",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "HOXB8",
+        "id": "162211",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "source": "971",
+        "target": "13659",
+        "type": "IS_A",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "309320",
+        "target": "971",
+        "type": "IS_A",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "352781",
+        "target": "971",
+        "type": "IS_A",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "482406",
+        "target": "971",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "482406",
+        "target": "280394",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.05
+      }
+    },
+    {
+      "data": {
+        "source": "482406",
+        "target": "245091",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.05
+      }
+    },
+    {
+      "data": {
+        "source": "565334",
+        "target": "971",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.031
+      }
+    },
+    {
+      "data": {
+        "source": "565334",
+        "target": "364655",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.54
+      }
+    },
+    {
+      "data": {
+        "source": "565334",
+        "target": "280214",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.54
+      }
+    },
+    {
+      "data": {
+        "source": "565334",
+        "target": "78711",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.84
+      }
+    },
+    {
+      "data": {
+        "source": "565334",
+        "target": "364655",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.8
+      }
+    },
+    {
+      "data": {
+        "source": "565334",
+        "target": "280214",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.8
+      }
+    },
+    {
+      "data": {
+        "source": "482406",
+        "target": "18539",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.05
+      }
+    },
+    {
+      "data": {
+        "source": "280517",
+        "target": "971",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.03
+      }
+    },
+    {
+      "data": {
+        "source": "98247",
+        "target": "971",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "33374",
+        "target": "971",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "60658",
+        "target": "971",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "2886",
+        "target": "971",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "33784",
+        "target": "971",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "26779",
+        "target": "971",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "956685",
+        "target": "971",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "706972",
+        "target": "971",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "364539",
+        "target": "971",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.03
+      }
+    },
+    {
+      "data": {
+        "source": "484643",
+        "target": "971",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "98176",
+        "target": "971",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.04
+      }
+    },
+    {
+      "data": {
+        "source": "20528",
+        "target": "971",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "98015",
+        "target": "971",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "162211",
+        "target": "971",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    }
+  ],
+  "19": [
+    {
+      "data": {
+        "name": "Diabetes",
+        "id": "8384",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Diabetes Mellitus",
+        "id": "8380",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Diabetes Mellitus, Insulin-Dependent",
+        "id": "8382",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Gestational Diabetes",
+        "id": "95707",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Carmustine",
+        "id": "1061337",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "ALDH1A1",
+        "id": "767000",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "BLM",
+        "id": "35776",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Carvedilol",
+        "id": "1070722",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "KCNH2",
+        "id": "11112",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "SLC22A2",
+        "id": "118155",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "KCNK2",
+        "id": "20669",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "KCNK10",
+        "id": "60715",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "SLC22A1",
+        "id": "957000",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ADRB2",
+        "id": "855366",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "HTR2A",
+        "id": "61081",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "HTR2B",
+        "id": "252223",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "GSR",
+        "id": "78819",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "PRKCA",
+        "id": "562158",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "LRPAP1",
+        "id": "766676",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "FABP1",
+        "id": "707035",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "FABP2",
+        "id": "439923",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "FABP3",
+        "id": "162398",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CAT",
+        "id": "162389",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "A2M",
+        "id": "1003016",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "NAT2",
+        "id": "562340",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "SERPINA3",
+        "id": "27265",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ABCA1",
+        "id": "766986",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ABL2",
+        "id": "439597",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ARG1",
+        "id": "138559",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ABO",
+        "id": "957026",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ACACA",
+        "id": "280517",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "A1BG",
+        "id": "162367",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "source": "8384",
+        "target": "8380",
+        "type": "IS_A",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "8382",
+        "target": "8380",
+        "type": "IS_A",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "95707",
+        "target": "8380",
+        "type": "IS_A",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "1061337",
+        "target": "8380",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.05
+      }
+    },
+    {
+      "data": {
+        "source": "1061337",
+        "target": "767000",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.5
+      }
+    },
+    {
+      "data": {
+        "source": "1061337",
+        "target": "35776",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 7.85
+      }
+    },
+    {
+      "data": {
+        "source": "1070722",
+        "target": "8380",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "1070722",
+        "target": "11112",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.46
+      }
+    },
+    {
+      "data": {
+        "source": "1070722",
+        "target": "118155",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.12
+      }
+    },
+    {
+      "data": {
+        "source": "1070722",
+        "target": "20669",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.8
+      }
+    },
+    {
+      "data": {
+        "source": "1070722",
+        "target": "60715",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.12
+      }
+    },
+    {
+      "data": {
+        "source": "1070722",
+        "target": "957000",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.47
+      }
+    },
+    {
+      "data": {
+        "source": "1070722",
+        "target": "855366",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 9.71
+      }
+    },
+    {
+      "data": {
+        "source": "1070722",
+        "target": "61081",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.39
+      }
+    },
+    {
+      "data": {
+        "source": "1070722",
+        "target": "252223",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 7.64
+      }
+    },
+    {
+      "data": {
+        "source": "1061337",
+        "target": "78819",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.09
+      }
+    },
+    {
+      "data": {
+        "source": "562158",
+        "target": "8380",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.05
+      }
+    },
+    {
+      "data": {
+        "source": "766676",
+        "target": "8380",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "707035",
+        "target": "8380",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "439923",
+        "target": "8380",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.08
+      }
+    },
+    {
+      "data": {
+        "source": "162398",
+        "target": "8380",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "162389",
+        "target": "8380",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.4
+      }
+    },
+    {
+      "data": {
+        "source": "1003016",
+        "target": "8380",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "562340",
+        "target": "8380",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.04
+      }
+    },
+    {
+      "data": {
+        "source": "27265",
+        "target": "8380",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "766986",
+        "target": "8380",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "439597",
+        "target": "8380",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "138559",
+        "target": "8380",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.13
+      }
+    },
+    {
+      "data": {
+        "source": "957026",
+        "target": "8380",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "280517",
+        "target": "8380",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.03
+      }
+    },
+    {
+      "data": {
+        "source": "162367",
+        "target": "8380",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    }
+  ],
+  "22": [
+    {
+      "data": {
+        "name": "Acute Respiratory Syndrome",
+        "id": "508302",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Respiratory Tract Infections",
+        "id": "63999",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Coronavirus Infections",
+        "id": "130872",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Bosentan",
+        "id": "754575",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "EDNRB",
+        "id": "304698",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "EDNRA",
+        "id": "561854",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "NR1I2",
+        "id": "439864",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ACRV1",
+        "id": "252040",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "MAP3K8",
+        "id": "97910",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CD14",
+        "id": "909130",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "B2M",
+        "id": "808337",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CR1",
+        "id": "63606",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "FCER2",
+        "id": "78877",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CREB1",
+        "id": "138527",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ATF2",
+        "id": "138248",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "AGT",
+        "id": "252192",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "AHSG",
+        "id": "439893",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CRK",
+        "id": "808459",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "BCL2L1",
+        "id": "909382",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "GNL1",
+        "id": "63825",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "GOT1",
+        "id": "162207",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ABCA4",
+        "id": "63445",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "source": "508302",
+        "target": "63999",
+        "type": "IS_A",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "508302",
+        "target": "130872",
+        "type": "IS_A",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "754575",
+        "target": "63999",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.04
+      }
+    },
+    {
+      "data": {
+        "source": "754575",
+        "target": "304698",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.47
+      }
+    },
+    {
+      "data": {
+        "source": "754575",
+        "target": "561854",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 8.1
+      }
+    },
+    {
+      "data": {
+        "source": "754575",
+        "target": "439864",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.05
+      }
+    },
+    {
+      "data": {
+        "source": "252040",
+        "target": "508302",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "97910",
+        "target": "508302",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "909130",
+        "target": "508302",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "808337",
+        "target": "508302",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "63606",
+        "target": "508302",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "78877",
+        "target": "508302",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "138527",
+        "target": "508302",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "138248",
+        "target": "508302",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "252192",
+        "target": "508302",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "439893",
+        "target": "508302",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "808459",
+        "target": "508302",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "909382",
+        "target": "508302",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "63825",
+        "target": "508302",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "162207",
+        "target": "508302",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "63445",
+        "target": "508302",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    }
+  ],
+  "30": [
+    {
+      "data": {
+        "name": "Depression",
+        "id": "677",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Trauma and Stressor",
+        "id": "197002",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "OPN1SW",
+        "id": "181243",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "BDNF",
+        "id": "1003137",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "BRAF",
+        "id": "626970",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "MVD",
+        "id": "808515",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "JAK2",
+        "id": "33726",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "MIF",
+        "id": "157674",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "HDAC5",
+        "id": "98025",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "TH",
+        "id": "4715",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ENPEP",
+        "id": "305209",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ADIPOQ",
+        "id": "4856",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "source": "677",
+        "target": "197002",
+        "type": "IS_A",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "181243",
+        "target": "677",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "1003137",
+        "target": "677",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "626970",
+        "target": "677",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "808515",
+        "target": "677",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "33726",
+        "target": "677",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "157674",
+        "target": "677",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "98025",
+        "target": "677",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.3
+      }
+    },
+    {
+      "data": {
+        "source": "4715",
+        "target": "677",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "462157",
+        "target": "677",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "305209",
+        "target": "197002",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "4856",
+        "target": "197002",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    }
+  ],
+  "24": [
+    {
+      "data": {
+        "name": "Fever",
+        "id": "14048",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Temperature Changes",
+        "id": "2460",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Sweating Sickness",
+        "id": "169301",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Fever of Unknown Origin",
+        "id": "14049",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Carnitine",
+        "id": "482406",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "MAPT",
+        "id": "280394",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "MAPT",
+        "id": "245091",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "MAPT",
+        "id": "18539",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Bupropion",
+        "id": "565334",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "SLC6A3",
+        "id": "364655",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "SLC6A3",
+        "id": "280214",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "SLC6A2",
+        "id": "78711",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CAT",
+        "id": "162389",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "A2M",
+        "id": "1003016",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "NAT1",
+        "id": "909341",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "NAT2",
+        "id": "562340",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ABL1",
+        "id": "33728",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ACAT1",
+        "id": "20397",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ACHE",
+        "id": "33374",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ARRB1",
+        "id": "304947",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ARSA",
+        "id": "60658",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ACTB",
+        "id": "20418",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "STS",
+        "id": "60981",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ARSD",
+        "id": "2886",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ARSF",
+        "id": "11206",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "RUNX1",
+        "id": "627150",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "PRKCA",
+        "id": "562158",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "source": "14048",
+        "target": "2460",
+        "type": "IS_A",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "169301",
+        "target": "14048",
+        "type": "IS_A",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "14049",
+        "target": "14048",
+        "type": "IS_A",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "482406",
+        "target": "14048",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.12
+      }
+    },
+    {
+      "data": {
+        "source": "482406",
+        "target": "280394",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.05
+      }
+    },
+    {
+      "data": {
+        "source": "482406",
+        "target": "245091",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.05
+      }
+    },
+    {
+      "data": {
+        "source": "482406",
+        "target": "18539",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.05
+      }
+    },
+    {
+      "data": {
+        "source": "565334",
+        "target": "14048",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "565334",
+        "target": "364655",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.54
+      }
+    },
+    {
+      "data": {
+        "source": "565334",
+        "target": "280214",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.54
+      }
+    },
+    {
+      "data": {
+        "source": "565334",
+        "target": "78711",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.84
+      }
+    },
+    {
+      "data": {
+        "source": "162389",
+        "target": "14048",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "1003016",
+        "target": "14048",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.2
+      }
+    },
+    {
+      "data": {
+        "source": "909341",
+        "target": "14048",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "562340",
+        "target": "14048",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "33728",
+        "target": "14048",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "20397",
+        "target": "14048",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "33374",
+        "target": "14048",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "304947",
+        "target": "14048",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "60658",
+        "target": "14048",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "20418",
+        "target": "14048",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.03
+      }
+    },
+    {
+      "data": {
+        "source": "60981",
+        "target": "14048",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "2886",
+        "target": "14048",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "11206",
+        "target": "14048",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "627150",
+        "target": "14048",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "562158",
+        "target": "14048",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    }
+  ],
+  "15": [
+    {
+      "data": {
+        "name": "Hydroxychloroquine",
+        "id": "1008710",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "TLR9",
+        "id": "157609",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "TLR7",
+        "id": "35621",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Acquired Immunodeficiency Syndrome",
+        "id": "618",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Pancreatitis",
+        "id": "646",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Phenylthiadiazole Carboxamide",
+        "id": "310193",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Methylthiadiazole Carboxamide",
+        "id": "310194",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "MYD88",
+        "id": "956643",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Sarcoidosis, Pulmonary",
+        "id": "64141",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Chronic Lymphocytic Leukemia",
+        "id": "25305",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "PTK2B",
+        "id": "162316",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CD14",
+        "id": "909130",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Malignant Neoplasms",
+        "id": "2580",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Oxolan-3-ol",
+        "id": "394204",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Cinacalcet",
+        "id": "424039",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Pentoxifylline",
+        "id": "851851",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Liver carcinoma",
+        "id": "49363",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Lactobacillus",
+        "id": "1638",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "name": "Epsilonproteobacteria",
+        "id": "1741",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "source": "1008710",
+        "target": "157609",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.96
+      }
+    },
+    {
+      "data": {
+        "source": "1008710",
+        "target": "35621",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.1
+      }
+    },
+    {
+      "data": {
+        "source": "157609",
+        "target": "618",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "157609",
+        "target": "646",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.03
+      }
+    },
+    {
+      "data": {
+        "source": "310193",
+        "target": "157609",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.05
+      }
+    },
+    {
+      "data": {
+        "source": "310194",
+        "target": "157609",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.0
+      }
+    },
+    {
+      "data": {
+        "source": "956643",
+        "target": "157609",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.768
+      }
+    },
+    {
+      "data": {
+        "source": "1008710",
+        "target": "64141",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.75
+      }
+    },
+    {
+      "data": {
+        "source": "1008710",
+        "target": "25305",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "162316",
+        "target": "64141",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "909130",
+        "target": "64141",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "1008710",
+        "target": "2580",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "394204",
+        "target": "2580",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "424039",
+        "target": "2580",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.24
+      }
+    },
+    {
+      "data": {
+        "source": "851851",
+        "target": "64141",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "1008710",
+        "target": "49363",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "49363",
+        "target": "1638",
+        "type": "OBSERVED",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "49363",
+        "target": "1741",
+        "type": "OBSERVED",
+        "avg_score": 0.1
+      }
+    }
+  ],
+  "46": [
+    {
+      "data": {
+        "name": "Chloroquine",
+        "id": "1119952",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "PRNP",
+        "id": "909459",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "NQO2",
+        "id": "180760",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Congenital Abnormality",
+        "id": "555",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Acquired Immunodeficiency Syndrome",
+        "id": "618",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Quinazolin-4-amine",
+        "id": "490791",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Quinacrine",
+        "id": "261098",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "HSPB1",
+        "id": "79139",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "LAMC1",
+        "id": "252213",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Malaria",
+        "id": "25538",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "LSAMP",
+        "id": "18256",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "IL13",
+        "id": "855343",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Encephalopathies",
+        "id": "95831",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Busulfan",
+        "id": "422643",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Paclitaxel",
+        "id": "502181",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "fosmidomycin",
+        "id": "648487",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Rosiglitazone",
+        "id": "1252948",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "HIV Infections",
+        "id": "19142",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Actinobacteria",
+        "id": "3477",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "name": "Bacteroidetes",
+        "id": "3615",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "source": "1119952",
+        "target": "909459",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.4
+      }
+    },
+    {
+      "data": {
+        "source": "1119952",
+        "target": "180760",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.82
+      }
+    },
+    {
+      "data": {
+        "source": "909459",
+        "target": "555",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.03
+      }
+    },
+    {
+      "data": {
+        "source": "909459",
+        "target": "618",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "490791",
+        "target": "909459",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.2
+      }
+    },
+    {
+      "data": {
+        "source": "261098",
+        "target": "909459",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.52
+      }
+    },
+    {
+      "data": {
+        "source": "909459",
+        "target": "79139",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.744
+      }
+    },
+    {
+      "data": {
+        "source": "909459",
+        "target": "252213",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.8
+      }
+    },
+    {
+      "data": {
+        "source": "1119952",
+        "target": "25538",
+        "type": "HAS_INDICATION",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "18256",
+        "target": "25538",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.05
+      }
+    },
+    {
+      "data": {
+        "source": "855343",
+        "target": "25538",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.03
+      }
+    },
+    {
+      "data": {
+        "source": "1119952",
+        "target": "95831",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "422643",
+        "target": "95831",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "502181",
+        "target": "95831",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "648487",
+        "target": "25538",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.75
+      }
+    },
+    {
+      "data": {
+        "source": "1252948",
+        "target": "25538",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "1119952",
+        "target": "19142",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "19142",
+        "target": "3477",
+        "type": "OBSERVED",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "19142",
+        "target": "3615",
+        "type": "OBSERVED",
+        "avg_score": 0.1
+      }
+    }
+  ],
+  "77": [
+    {
+      "data": {
+        "name": "Cholesterol",
+        "id": "827762",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "RORC",
+        "id": "439607",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "LMNA",
+        "id": "706526",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Acromegaly",
+        "id": "623",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Arthritis, Psoriatic",
+        "id": "1041",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "zymosterol",
+        "id": "1129253",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "cholest-5-ene-3 beta",
+        "id": "714594",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "MED1",
+        "id": "180890",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Asperger Syndrome",
+        "id": "149097",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Autistic Disorder",
+        "id": "2211",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "ARSD",
+        "id": "2886",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "BDNF",
+        "id": "1003137",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Leucovorin",
+        "id": "541435",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Memantine",
+        "id": "1145463",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "source": "827762",
+        "target": "439607",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 7.7
+      }
+    },
+    {
+      "data": {
+        "source": "827762",
+        "target": "706526",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.2
+      }
+    },
+    {
+      "data": {
+        "source": "439607",
+        "target": "623",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "439607",
+        "target": "1041",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "1129253",
+        "target": "439607",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.96
+      }
+    },
+    {
+      "data": {
+        "source": "714594",
+        "target": "439607",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 7.7
+      }
+    },
+    {
+      "data": {
+        "source": "439607",
+        "target": "180890",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.9
+      }
+    },
+    {
+      "data": {
+        "source": "827762",
+        "target": "149097",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "827762",
+        "target": "2211",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "2886",
+        "target": "149097",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "1003137",
+        "target": "149097",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "541435",
+        "target": "149097",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "1145463",
+        "target": "149097",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    }
+  ],
+  "42": [
+    {
+      "data": {
+        "name": "remdesivir",
+        "id": "217363",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Hemorrhagic Fever",
+        "id": "231141",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Acute Respiratory Syndrome",
+        "id": "508302",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "ACP2",
+        "id": "251982",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ACTB",
+        "id": "20418",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Respiratory Distress Syndrome",
+        "id": "63987",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Medetomidine",
+        "id": "938951",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Voriconazole",
+        "id": "1177743",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Nonoxynol",
+        "id": "557876",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Amiodarone",
+        "id": "790207",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "source": "217363",
+        "target": "231141",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "217363",
+        "target": "508302",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "251982",
+        "target": "231141",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "20418",
+        "target": "231141",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "217363",
+        "target": "63987",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "938951",
+        "target": "63987",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "1177743",
+        "target": "63987",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "557876",
+        "target": "231141",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "790207",
+        "target": "231141",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    }
+  ],
+  "54": [
+    {
+      "data": {
+        "name": "Creatinine",
+        "id": "235211",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Amyotrophic Lateral Sclerosis",
+        "id": "829",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Amyotrophic Lateral Sclerosis With Dementia",
+        "id": "273258",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "A1BG",
+        "id": "162367",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "SERPINA3",
+        "id": "27265",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Creatine",
+        "id": "464700",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Imidazol-5-one",
+        "id": "464988",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Mannheimia",
+        "id": "1684",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "name": "Anaerotruncus",
+        "id": "1893",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "source": "235211",
+        "target": "829",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "235211",
+        "target": "273258",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "162367",
+        "target": "829",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "27265",
+        "target": "829",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "464700",
+        "target": "829",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.75
+      }
+    },
+    {
+      "data": {
+        "source": "464988",
+        "target": "829",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "829",
+        "target": "1684",
+        "type": "OBSERVED",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "829",
+        "target": "1893",
+        "type": "OBSERVED",
+        "avg_score": 0.1
+      }
+    }
+  ],
+  "747": [
+    {
+      "data": {
+        "name": "Voriconazole",
+        "id": "1177743",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Respiratory Distress Syndrome",
+        "id": "63987",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "CYP2C9",
+        "id": "305081",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CYP2C19",
+        "id": "808127",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CYP2B6",
+        "id": "35802",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CYP46A1",
+        "id": "3257",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ABCA4",
+        "id": "63445",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ABO",
+        "id": "957026",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ACACA",
+        "id": "280517",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ACO2",
+        "id": "60705",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CAV1",
+        "id": "79099",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "COL4A5",
+        "id": "26975",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ARSD",
+        "id": "2886",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "SERPINC1",
+        "id": "138473",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "SERPINH1",
+        "id": "484631",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ADCY9",
+        "id": "706673",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CCNB1",
+        "id": "251883",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "DNASE1",
+        "id": "113143",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CD14",
+        "id": "909130",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ABCA3",
+        "id": "855059",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "source": "1177743",
+        "target": "63987",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "1177743",
+        "target": "305081",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.44
+      }
+    },
+    {
+      "data": {
+        "source": "1177743",
+        "target": "808127",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.28
+      }
+    },
+    {
+      "data": {
+        "source": "1177743",
+        "target": "305081",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.08
+      }
+    },
+    {
+      "data": {
+        "source": "1177743",
+        "target": "808127",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.06
+      }
+    },
+    {
+      "data": {
+        "source": "1177743",
+        "target": "35802",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.92
+      }
+    },
+    {
+      "data": {
+        "source": "1177743",
+        "target": "35802",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.1
+      }
+    },
+    {
+      "data": {
+        "source": "1177743",
+        "target": "35802",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.43
+      }
+    },
+    {
+      "data": {
+        "source": "1177743",
+        "target": "35802",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.72
+      }
+    },
+    {
+      "data": {
+        "source": "1177743",
+        "target": "35802",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.4
+      }
+    },
+    {
+      "data": {
+        "source": "1177743",
+        "target": "35802",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.47
+      }
+    },
+    {
+      "data": {
+        "source": "1177743",
+        "target": "305081",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.55
+      }
+    },
+    {
+      "data": {
+        "source": "1177743",
+        "target": "808127",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.29
+      }
+    },
+    {
+      "data": {
+        "source": "1177743",
+        "target": "3257",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 7.3
+      }
+    },
+    {
+      "data": {
+        "source": "1177743",
+        "target": "3257",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 7.66
+      }
+    },
+    {
+      "data": {
+        "source": "1177743",
+        "target": "35802",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.77
+      }
+    },
+    {
+      "data": {
+        "source": "63445",
+        "target": "63987",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "957026",
+        "target": "63987",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "280517",
+        "target": "63987",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "60705",
+        "target": "63987",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.3
+      }
+    },
+    {
+      "data": {
+        "source": "79099",
+        "target": "63987",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "26975",
+        "target": "63987",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "2886",
+        "target": "63987",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "405401",
+        "target": "63987",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.3
+      }
+    },
+    {
+      "data": {
+        "source": "138473",
+        "target": "63987",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.3
+      }
+    },
+    {
+      "data": {
+        "source": "484631",
+        "target": "63987",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.3
+      }
+    },
+    {
+      "data": {
+        "source": "706673",
+        "target": "63987",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "251883",
+        "target": "63987",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "113143",
+        "target": "63987",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "909130",
+        "target": "63987",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "855059",
+        "target": "63987",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    }
+  ],
+  "78": [
+    {
+      "data": {
+        "name": "Ribavirin",
+        "id": "1050954",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "ADORA1",
+        "id": "706997",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "LMNA",
+        "id": "706526",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Airway Obstruction",
+        "id": "753",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Alzheimer's Disease",
+        "id": "796",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "9-ethyladenine",
+        "id": "1227683",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Dihydroxyoxolane-2-carboxamide",
+        "id": "907481",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "GNB3",
+        "id": "118002",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "GNB4",
+        "id": "118373",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Leukemia, Myelocytic",
+        "id": "25320",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Acute Myeloid Leukemia",
+        "id": "29243",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "PRKCA",
+        "id": "562158",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "HOXB4",
+        "id": "7844",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Hepatitis C",
+        "id": "15788",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Everolimus",
+        "id": "1040408",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Malignant Neoplasms",
+        "id": "2580",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Oxolan-3-ol",
+        "id": "394204",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "octanoic acid",
+        "id": "1068419",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Cytosine",
+        "id": "754011",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Lactobacillus",
+        "id": "1638",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "name": "Pseudoflavonifractor",
+        "id": "1969",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "source": "1050954",
+        "target": "706997",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.13
+      }
+    },
+    {
+      "data": {
+        "source": "1050954",
+        "target": "706526",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 8.4
+      }
+    },
+    {
+      "data": {
+        "source": "706997",
+        "target": "753",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "706997",
+        "target": "796",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "1227683",
+        "target": "706997",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.13
+      }
+    },
+    {
+      "data": {
+        "source": "907481",
+        "target": "706997",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 7.79
+      }
+    },
+    {
+      "data": {
+        "source": "706997",
+        "target": "118002",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.915
+      }
+    },
+    {
+      "data": {
+        "source": "706997",
+        "target": "118373",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.915
+      }
+    },
+    {
+      "data": {
+        "source": "1050954",
+        "target": "25320",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "1050954",
+        "target": "29243",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "562158",
+        "target": "25320",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.06
+      }
+    },
+    {
+      "data": {
+        "source": "7844",
+        "target": "25320",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.03
+      }
+    },
+    {
+      "data": {
+        "source": "1050954",
+        "target": "15788",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.75
+      }
+    },
+    {
+      "data": {
+        "source": "1040408",
+        "target": "15788",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.079
+      }
+    },
+    {
+      "data": {
+        "source": "1050954",
+        "target": "2580",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "394204",
+        "target": "2580",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "1068419",
+        "target": "25320",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "754011",
+        "target": "25320",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.25
+      }
+    },
+    {
+      "data": {
+        "source": "15788",
+        "target": "1638",
+        "type": "OBSERVED",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "15788",
+        "target": "1969",
+        "type": "OBSERVED",
+        "avg_score": 0.1
+      }
+    }
+  ],
+  "36": [
+    {
+      "data": {
+        "name": "Serine",
+        "id": "693556",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Amyotrophic Lateral Sclerosis",
+        "id": "829",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Amyotrophic Lateral Sclerosis With Dementia",
+        "id": "273258",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "A1BG",
+        "id": "162367",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "SERPINA3",
+        "id": "27265",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Schizophrenia",
+        "id": "64169",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "hexaene",
+        "id": "424001",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Quetiapine Fumarate",
+        "id": "1158848",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Creatine",
+        "id": "464700",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "imidazol-5-one",
+        "id": "464988",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Mannheimia",
+        "id": "1684",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "name": "Anaerotruncus",
+        "id": "1893",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "source": "693556",
+        "target": "829",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "693556",
+        "target": "273258",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "162367",
+        "target": "829",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "27265",
+        "target": "829",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "693556",
+        "target": "64169",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "424001",
+        "target": "64169",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.028
+      }
+    },
+    {
+      "data": {
+        "source": "1158848",
+        "target": "64169",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "464700",
+        "target": "829",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.75
+      }
+    },
+    {
+      "data": {
+        "source": "464988",
+        "target": "829",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "829",
+        "target": "1684",
+        "type": "OBSERVED",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "829",
+        "target": "1893",
+        "type": "OBSERVED",
+        "avg_score": 0.1
+      }
+    }
+  ],
+  "4": [
+    {
+      "data": {
+        "name": "ACE2",
+        "id": "208174",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Spontaneous abortion",
+        "id": "561",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Abortion, Tubal",
+        "id": "572",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "ARNT",
+        "id": "439630",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ACP1",
+        "id": "439685",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Urofollitropin",
+        "id": "1013420",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Gabapentin",
+        "id": "935899",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "carboxylic acid",
+        "id": "142587",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Lactobacillus",
+        "id": "1638",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "name": "Atopobium",
+        "id": "3586",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "name": "methylpentanoic acid",
+        "id": "983729",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "pyrrolidine-2-carboxylic acid",
+        "id": "528618",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "propanoic acid",
+        "id": "727659",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "ACE",
+        "id": "627201",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "MME",
+        "id": "35586",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Ulcerative Colitis",
+        "id": "5177",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "source": "208174",
+        "target": "561",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.3
+      }
+    },
+    {
+      "data": {
+        "source": "208174",
+        "target": "572",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.3
+      }
+    },
+    {
+      "data": {
+        "source": "439630",
+        "target": "561",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.3
+      }
+    },
+    {
+      "data": {
+        "source": "439685",
+        "target": "561",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "1013420",
+        "target": "561",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.11
+      }
+    },
+    {
+      "data": {
+        "source": "935899",
+        "target": "561",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "142587",
+        "target": "561",
+        "type": "HAS_INDICATION",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "561",
+        "target": "1638",
+        "type": "OBSERVED",
+        "avg_score": 0.2
+      }
+    },
+    {
+      "data": {
+        "source": "561",
+        "target": "3586",
+        "type": "OBSERVED",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "983729",
+        "target": "208174",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 9.36
+      }
+    },
+    {
+      "data": {
+        "source": "528618",
+        "target": "208174",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 8.55
+      }
+    },
+    {
+      "data": {
+        "source": "727659",
+        "target": "208174",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 8.82
+      }
+    },
+    {
+      "data": {
+        "source": "727659",
+        "target": "627201",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.7
+      }
+    },
+    {
+      "data": {
+        "source": "727659",
+        "target": "35586",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 7.89
+      }
+    },
+    {
+      "data": {
+        "source": "983729",
+        "target": "5177",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.25
+      }
+    }
+  ],
+  "34": [
+    {
+      "data": {
+        "name": "CD8",
+        "id": "562088",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Congenital Abnormality",
+        "id": "555",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Spontaneous abortion",
+        "id": "561",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "NAT1",
+        "id": "909341",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ABL1",
+        "id": "33728",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Urofollitropin",
+        "id": "1013420",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "carboxylic acid",
+        "id": "128909",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "phenylsulfanylpropanamide",
+        "id": "129176",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Lactobacillus",
+        "id": "1638",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "name": "Atopobium",
+        "id": "3586",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "name": "CD4",
+        "id": "2995",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ZAP70",
+        "id": "118444",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Acquired Immunodeficiency Syndrome",
+        "id": "618",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Arthritis, Infectious",
+        "id": "1040",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "complestatin",
+        "id": "942886",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "chloropeptin I",
+        "id": "942887",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "WASL",
+        "id": "79151",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ARPC3",
+        "id": "117941",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "source": "562088",
+        "target": "555",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "562088",
+        "target": "561",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.3
+      }
+    },
+    {
+      "data": {
+        "source": "909341",
+        "target": "555",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.03
+      }
+    },
+    {
+      "data": {
+        "source": "33728",
+        "target": "555",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "1013420",
+        "target": "561",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.11
+      }
+    },
+    {
+      "data": {
+        "source": "128909",
+        "target": "555",
+        "type": "HAS_INDICATION",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "129176",
+        "target": "555",
+        "type": "HAS_INDICATION",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "561",
+        "target": "1638",
+        "type": "OBSERVED",
+        "avg_score": 0.2
+      }
+    },
+    {
+      "data": {
+        "source": "561",
+        "target": "3586",
+        "type": "OBSERVED",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "562088",
+        "target": "2995",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.933
+      }
+    },
+    {
+      "data": {
+        "source": "562088",
+        "target": "118444",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.912
+      }
+    },
+    {
+      "data": {
+        "source": "2995",
+        "target": "618",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.03
+      }
+    },
+    {
+      "data": {
+        "source": "2995",
+        "target": "1040",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.2
+      }
+    },
+    {
+      "data": {
+        "source": "942886",
+        "target": "2995",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.89
+      }
+    },
+    {
+      "data": {
+        "source": "942887",
+        "target": "2995",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.89
+      }
+    },
+    {
+      "data": {
+        "source": "2995",
+        "target": "79151",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.9
+      }
+    },
+    {
+      "data": {
+        "source": "2995",
+        "target": "117941",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.9
+      }
+    }
+  ],
+  "12": [
+    {
+      "data": {
+        "name": "CD4",
+        "id": "2995",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Acquired Immunodeficiency Syndrome",
+        "id": "618",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Arthritis, Infectious",
+        "id": "1040",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "LSAMP",
+        "id": "18256",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "NAT2",
+        "id": "562340",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "triazol-3-one",
+        "id": "289535",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Rheumatoid Arthritis",
+        "id": "1042",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Meloxicam",
+        "id": "1198939",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Thioctic Acid",
+        "id": "651474",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Pyrazinamide",
+        "id": "720312",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Lactobacillus",
+        "id": "1638",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "name": "Bacteroides stercoris",
+        "id": "1639",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "name": "complestatin",
+        "id": "942886",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "chloropeptin I",
+        "id": "942887",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "chloro-2-hydroxybenzoic acid",
+        "id": "1181390",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "CCR1",
+        "id": "766635",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "WASL",
+        "id": "79151",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ARPC3",
+        "id": "117941",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Azoospermia",
+        "id": "2233",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Malignant neoplasm of breast",
+        "id": "2519",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "ZAP70",
+        "id": "118444",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "lestaurtinib",
+        "id": "623604",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "pyrrolo pyrazine",
+        "id": "1008591",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "M6PR",
+        "id": "2761",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "CFTR",
+        "id": "2745",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "source": "2995",
+        "target": "618",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.03
+      }
+    },
+    {
+      "data": {
+        "source": "2995",
+        "target": "1040",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.2
+      }
+    },
+    {
+      "data": {
+        "source": "18256",
+        "target": "618",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "562340",
+        "target": "618",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "289535",
+        "target": "618",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.07
+      }
+    },
+    {
+      "data": {
+        "source": "2995",
+        "target": "1042",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "1198939",
+        "target": "1042",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.023
+      }
+    },
+    {
+      "data": {
+        "source": "651474",
+        "target": "618",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "720312",
+        "target": "618",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "618",
+        "target": "1638",
+        "type": "OBSERVED",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "618",
+        "target": "1639",
+        "type": "OBSERVED",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "942886",
+        "target": "2995",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.89
+      }
+    },
+    {
+      "data": {
+        "source": "942887",
+        "target": "2995",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.89
+      }
+    },
+    {
+      "data": {
+        "source": "1181390",
+        "target": "2995",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.4
+      }
+    },
+    {
+      "data": {
+        "source": "1181390",
+        "target": "766635",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.58
+      }
+    },
+    {
+      "data": {
+        "source": "2995",
+        "target": "79151",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.9
+      }
+    },
+    {
+      "data": {
+        "source": "2995",
+        "target": "117941",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.9
+      }
+    },
+    {
+      "data": {
+        "source": "79151",
+        "target": "2233",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "79151",
+        "target": "2519",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.05
+      }
+    },
+    {
+      "data": {
+        "source": "2995",
+        "target": "118444",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.916
+      }
+    },
+    {
+      "data": {
+        "source": "623604",
+        "target": "118444",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 7.8
+      }
+    },
+    {
+      "data": {
+        "source": "1008591",
+        "target": "118444",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.58
+      }
+    },
+    {
+      "data": {
+        "source": "79151",
+        "target": "2761",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.9
+      }
+    },
+    {
+      "data": {
+        "source": "79151",
+        "target": "2745",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.9
+      }
+    }
+  ],
+  "8": [
+    {
+      "data": {
+        "name": "IL6",
+        "id": "304713",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Abdominal Pain",
+        "id": "553",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Spontaneous abortion",
+        "id": "561",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "ABCA1",
+        "id": "766986",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Carnitine",
+        "id": "482406",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "carbamate",
+        "id": "128861",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Acetaminophen",
+        "id": "564842",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Lactobacillus",
+        "id": "1638",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "name": "Atopobium",
+        "id": "3586",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "name": "Prednisolone",
+        "id": "1049323",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "BI 653048 BS H3PO4",
+        "id": "506523",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "NR3C1",
+        "id": "118284",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Asthma",
+        "id": "1077",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "CBL",
+        "id": "98198",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "STAT3",
+        "id": "855213",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Abetalipoproteinemia",
+        "id": "554",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Primary Myelofibrosis",
+        "id": "732",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "piperlonguminine",
+        "id": "1021619",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "methyl benzoate",
+        "id": "1067595",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "FGF4",
+        "id": "20405",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "FGF20",
+        "id": "20529",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "source": "304713",
+        "target": "553",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.11
+      }
+    },
+    {
+      "data": {
+        "source": "304713",
+        "target": "561",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.3
+      }
+    },
+    {
+      "data": {
+        "source": "416730",
+        "target": "553",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "766986",
+        "target": "553",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "482406",
+        "target": "553",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.21
+      }
+    },
+    {
+      "data": {
+        "source": "482406",
+        "target": "553",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.05
+      }
+    },
+    {
+      "data": {
+        "source": "128861",
+        "target": "553",
+        "type": "HAS_INDICATION",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "564842",
+        "target": "553",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.75
+      }
+    },
+    {
+      "data": {
+        "source": "561",
+        "target": "1638",
+        "type": "OBSERVED",
+        "avg_score": 0.2
+      }
+    },
+    {
+      "data": {
+        "source": "561",
+        "target": "3586",
+        "type": "OBSERVED",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "1049323",
+        "target": "304713",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 8.38
+      }
+    },
+    {
+      "data": {
+        "source": "506523",
+        "target": "304713",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 7.64
+      }
+    },
+    {
+      "data": {
+        "source": "1049323",
+        "target": "118284",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 8.1
+      }
+    },
+    {
+      "data": {
+        "source": "1049323",
+        "target": "118284",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 8.68
+      }
+    },
+    {
+      "data": {
+        "source": "1049323",
+        "target": "1077",
+        "type": "HAS_INDICATION",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "1049323",
+        "target": "1077",
+        "type": "HAS_INDICATION",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "304713",
+        "target": "98198",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.9
+      }
+    },
+    {
+      "data": {
+        "source": "304713",
+        "target": "855213",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.972
+      }
+    },
+    {
+      "data": {
+        "source": "98198",
+        "target": "554",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "98198",
+        "target": "732",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "1021619",
+        "target": "855213",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.16
+      }
+    },
+    {
+      "data": {
+        "source": "1067595",
+        "target": "855213",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.27
+      }
+    },
+    {
+      "data": {
+        "source": "98198",
+        "target": "20405",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.902
+      }
+    },
+    {
+      "data": {
+        "source": "98198",
+        "target": "20529",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.901
+      }
+    }
+  ],
+  "7": [
+    {
+      "data": {
+        "name": "TNF-α",
+        "id": "132069",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Abdominal Pain",
+        "id": "553",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Congenital Abnormality",
+        "id": "555",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "ABCA1",
+        "id": "766986",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Carnitine",
+        "id": "482406",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "tert-butyl carbamate",
+        "id": "128861",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Acetaminophen",
+        "id": "564842",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Abscess",
+        "id": "576",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Staphylococcus aureus",
+        "id": "3518",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "name": "Acquired Immunodeficiency Syndrome",
+        "id": "618",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Lactobacillus",
+        "id": "1638",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "name": "marimastat",
+        "id": "982026",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "sulfanyl acetamide",
+        "id": "1094121",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "MMP2",
+        "id": "33387",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "MMP9",
+        "id": "60823",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Malignant neoplasm of breast",
+        "id": "2519",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Breast Carcinoma",
+        "id": "382789",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "TNFRSF1A",
+        "id": "11370",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "TAB1",
+        "id": "60670",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Spontaneous abortion",
+        "id": "561",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "diazinane dione",
+        "id": "987166",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "dione",
+        "id": "1008603",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "SMPD3",
+        "id": "78630",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "source": "132069",
+        "target": "553",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "132069",
+        "target": "555",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.04
+      }
+    },
+    {
+      "data": {
+        "source": "416730",
+        "target": "553",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "766986",
+        "target": "553",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "482406",
+        "target": "553",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.21
+      }
+    },
+    {
+      "data": {
+        "source": "482406",
+        "target": "553",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.05
+      }
+    },
+    {
+      "data": {
+        "source": "128861",
+        "target": "553",
+        "type": "HAS_INDICATION",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "564842",
+        "target": "553",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.75
+      }
+    },
+    {
+      "data": {
+        "source": "132069",
+        "target": "576",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "576",
+        "target": "3518",
+        "type": "OBSERVED",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "132069",
+        "target": "618",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.2
+      }
+    },
+    {
+      "data": {
+        "source": "618",
+        "target": "1638",
+        "type": "OBSERVED",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "982026",
+        "target": "132069",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.0
+      }
+    },
+    {
+      "data": {
+        "source": "1094121",
+        "target": "132069",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.24
+      }
+    },
+    {
+      "data": {
+        "source": "982026",
+        "target": "33387",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 8.7
+      }
+    },
+    {
+      "data": {
+        "source": "982026",
+        "target": "60823",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 8.82
+      }
+    },
+    {
+      "data": {
+        "source": "982026",
+        "target": "2519",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.75
+      }
+    },
+    {
+      "data": {
+        "source": "982026",
+        "target": "382789",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.75
+      }
+    },
+    {
+      "data": {
+        "source": "132069",
+        "target": "11370",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.99
+      }
+    },
+    {
+      "data": {
+        "source": "132069",
+        "target": "60670",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.902
+      }
+    },
+    {
+      "data": {
+        "source": "11370",
+        "target": "553",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.11
+      }
+    },
+    {
+      "data": {
+        "source": "11370",
+        "target": "561",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "987166",
+        "target": "11370",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 6.89
+      }
+    },
+    {
+      "data": {
+        "source": "1008603",
+        "target": "11370",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.35
+      }
+    },
+    {
+      "data": {
+        "source": "11370",
+        "target": "60670",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.9
+      }
+    },
+    {
+      "data": {
+        "source": "11370",
+        "target": "78630",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.901
+      }
+    }
+  ],
+  "11": [
+    {
+      "data": {
+        "name": "IFN-γ",
+        "id": "117986",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Congenital Abnormality",
+        "id": "555",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Abscess",
+        "id": "576",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "NAT1",
+        "id": "909341",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "ABL1",
+        "id": "33728",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "trien-11-ol",
+        "id": "379028",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "arboxylic acid",
+        "id": "128909",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "phenylsulfanylpropanamide",
+        "id": "129176",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Staphylococcus aureus",
+        "id": "3518",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "name": "Acquired Immunodeficiency Syndrome",
+        "id": "618",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Lactobacillus",
+        "id": "1638",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "name": "sulfooxyoxane-2-carboxylic acid",
+        "id": "643445",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "sulfooxyoxane-2-carboxylic acid",
+        "id": "643446",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "PF4",
+        "id": "766605",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "BMP6",
+        "id": "562048",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "IFNGR2",
+        "id": "627130",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "SOCS1",
+        "id": "18213",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Rheumatoid Arthritis",
+        "id": "1042",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Asthma",
+        "id": "1077",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "JAK1",
+        "id": "706722",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "pyrazole-4-carboxamide",
+        "id": "931855",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "pyrazole-4-carboxamide",
+        "id": "931856",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "source": "117986",
+        "target": "555",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "117986",
+        "target": "576",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "909341",
+        "target": "555",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.03
+      }
+    },
+    {
+      "data": {
+        "source": "33728",
+        "target": "555",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "379028",
+        "target": "576",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.022
+      }
+    },
+    {
+      "data": {
+        "source": "128909",
+        "target": "555",
+        "type": "HAS_INDICATION",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "129176",
+        "target": "555",
+        "type": "HAS_INDICATION",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "576",
+        "target": "3518",
+        "type": "OBSERVED",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "117986",
+        "target": "618",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.32
+      }
+    },
+    {
+      "data": {
+        "source": "618",
+        "target": "1638",
+        "type": "OBSERVED",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "643445",
+        "target": "117986",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.16
+      }
+    },
+    {
+      "data": {
+        "source": "643446",
+        "target": "117986",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.0
+      }
+    },
+    {
+      "data": {
+        "source": "643445",
+        "target": "766605",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.52
+      }
+    },
+    {
+      "data": {
+        "source": "643445",
+        "target": "562048",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 5.05
+      }
+    },
+    {
+      "data": {
+        "source": "117986",
+        "target": "627130",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.801
+      }
+    },
+    {
+      "data": {
+        "source": "117986",
+        "target": "18213",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.907
+      }
+    },
+    {
+      "data": {
+        "source": "627130",
+        "target": "1042",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "627130",
+        "target": "1077",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "117986",
+        "target": "706722",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.901
+      }
+    },
+    {
+      "data": {
+        "source": "931855",
+        "target": "706722",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 8.15
+      }
+    },
+    {
+      "data": {
+        "source": "931856",
+        "target": "706722",
+        "type": "HAS_ACTIVITY",
+        "avg_score": 8.7
+      }
+    },
+    {
+      "data": {
+        "source": "627130",
+        "target": "117986",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.801
+      }
+    },
+    {
+      "data": {
+        "source": "627130",
+        "target": "18213",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.904
+      }
+    }
+  ],
+  "81": [
+    {
+      "data": {
+        "name": "IFN-α",
+        "id": "35935",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Acquired Immunodeficiency Syndrome",
+        "id": "618",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Acute bronchiolitis",
+        "id": "643",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "LSAMP",
+        "id": "18256",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "NAT2",
+        "id": "562340",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "4-triazol-3-one",
+        "id": "289535",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Pancreatitis, Acute",
+        "id": "646",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Paclitaxel",
+        "id": "502181",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Thioctic Acid",
+        "id": "651474",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Pyrazinamide",
+        "id": "720312",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Lactobacillus",
+        "id": "1638",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "name": "Bacteroides stercoris",
+        "id": "1639",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "source": "35935",
+        "target": "618",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.3
+      }
+    },
+    {
+      "data": {
+        "source": "35935",
+        "target": "643",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "18256",
+        "target": "618",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "562340",
+        "target": "618",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "289535",
+        "target": "618",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.07
+      }
+    },
+    {
+      "data": {
+        "source": "35935",
+        "target": "646",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.02
+      }
+    },
+    {
+      "data": {
+        "source": "502181",
+        "target": "646",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "651474",
+        "target": "618",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "720312",
+        "target": "618",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.5
+      }
+    },
+    {
+      "data": {
+        "source": "618",
+        "target": "1638",
+        "type": "OBSERVED",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "618",
+        "target": "1639",
+        "type": "OBSERVED",
+        "avg_score": 0.1
+      }
+    }
+  ],
+  "9": [
+    {
+      "data": {
+        "name": "C-reactive protein",
+        "id": "208568",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Abdominal Pain",
+        "id": "553",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Congenital Abnormality",
+        "id": "555",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "ABCA1",
+        "id": "766986",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Carnitine",
+        "id": "482406",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "tert-butyl carbamate",
+        "id": "128861",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Acetaminophen",
+        "id": "564842",
+        "type": "Compound"
+      }
+    },
+    {
+      "data": {
+        "name": "Abscess",
+        "id": "576",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Staphylococcus aureus",
+        "id": "3518",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "name": "Acquired Immunodeficiency Syndrome",
+        "id": "618",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Lactobacillus",
+        "id": "1638",
+        "type": "Organism"
+      }
+    },
+    {
+      "data": {
+        "name": "C1QB",
+        "id": "956723",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "C1QC",
+        "id": "627141",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "name": "Amyloidosis",
+        "id": "827",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "Antibody Deficiency Syndrome",
+        "id": "954",
+        "type": "Phenotype"
+      }
+    },
+    {
+      "data": {
+        "name": "SERPING1",
+        "id": "484616",
+        "type": "Gene"
+      }
+    },
+    {
+      "data": {
+        "source": "208568",
+        "target": "553",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.07
+      }
+    },
+    {
+      "data": {
+        "source": "208568",
+        "target": "555",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "416730",
+        "target": "553",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "766986",
+        "target": "553",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "482406",
+        "target": "553",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.21
+      }
+    },
+    {
+      "data": {
+        "source": "482406",
+        "target": "553",
+        "type": "HAS_ADVERSE_EFFECT",
+        "avg_score": 0.05
+      }
+    },
+    {
+      "data": {
+        "source": "128861",
+        "target": "553",
+        "type": "HAS_INDICATION",
+        "avg_score": 1.0
+      }
+    },
+    {
+      "data": {
+        "source": "564842",
+        "target": "553",
+        "type": "HAS_INDICATION",
+        "avg_score": 0.75
+      }
+    },
+    {
+      "data": {
+        "source": "208568",
+        "target": "576",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.06
+      }
+    },
+    {
+      "data": {
+        "source": "576",
+        "target": "3518",
+        "type": "OBSERVED",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "208568",
+        "target": "618",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "618",
+        "target": "1638",
+        "type": "OBSERVED",
+        "avg_score": 0.1
+      }
+    },
+    {
+      "data": {
+        "source": "208568",
+        "target": "956723",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.9
+      }
+    },
+    {
+      "data": {
+        "source": "208568",
+        "target": "627141",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.913
+      }
+    },
+    {
+      "data": {
+        "source": "956723",
+        "target": "827",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.01
+      }
+    },
+    {
+      "data": {
+        "source": "956723",
+        "target": "954",
+        "type": "ASSOCIATED_WITH",
+        "avg_score": 0.3
+      }
+    },
+    {
+      "data": {
+        "source": "956723",
+        "target": "208568",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.9
+      }
+    },
+    {
+      "data": {
+        "source": "956723",
+        "target": "484616",
+        "type": "HAS_PHYSICAL_INTERACTION",
+        "avg_score": 0.904
+      }
+    }
+  ]
+}

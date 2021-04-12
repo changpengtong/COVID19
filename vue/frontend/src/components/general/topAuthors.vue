@@ -33,10 +33,9 @@ export default {
     }
   },
   methods: {
-    // 发送检索请求
     getDetailPage(row) {
-      row.authorUrl="/COVID19/"+row.authorUrl,
-          row.affiliationUrl="/COVID19/"+row.affiliationUrl
+      row.authorUrl="/"+row.authorUrl,
+          row.affiliationUrl="/"+row.affiliationUrl
 
     },
   },

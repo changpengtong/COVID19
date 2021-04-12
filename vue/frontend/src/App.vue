@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <el-container>
+    <el-container class='override-el-container'>
       <el-header class="override-el-header">
         <div class="top-nav">
           <top-nav></top-nav>
@@ -12,8 +12,8 @@
           <router-view class="view" />
         </div>
       </el-main>
-      <el-footer>
-        <vfooter class="override-el-footer footer"></vfooter>
+      <el-footer class='m-footer'>
+        <vfooter class='footer'></vfooter>
       </el-footer>
     </el-container>
     <back-top></back-top>
@@ -23,10 +23,8 @@
 <script>
   import TopNav from './components/common/TopNav'
   import Footer from './components/common/Footer'
-  // 直接导入外部样式 覆盖element-ui样式
  import './assets/css/override-element-ui.css'
-  import backtop from "./components/common/BackTop"
- // import './components/'
+import backtop from "./components/common/BackTop"
   export default {
     name: 'App',
     components: {
@@ -48,38 +46,32 @@
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* color: #2c3e50; */
     color: black;
     margin: 0;
+    height: 100%;
+    min-height:100%;
+    padding:0;
   }
-  /*
-  *  override the el-ui style
-  */
-  /* .el-container,
-  .el-header,
-  .el-main,
-  .el-footer {
-      width: 100%;
-      margin: 0 auto;
-      padding: 0;
-  } */
-
 
   .content {
-    min-height: 600px;
-    /* background-color: #00BFB3; */
+    min-height: 100%;
   }
 
   .view {
-    min-height: 600px;
+    min-height: 100%;
   }
 
-  /* 修改局部样式 不影响其他的组件 */
   .override-el-main.el-main {
-    padding:0px;
+    padding: 0px;
+    height: 80%;
   }
+
   .override-el-header.el-header {
-    padding:0px;
-    height:auto !important;
+    padding: 0px;
+    height: 15% !important;
+  }
+
+  .override-el-container {
+    height: 100%;
   }
 </style>

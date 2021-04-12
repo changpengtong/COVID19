@@ -16,7 +16,7 @@
                     <div class="display-visual">
                         <institution-list class="up" :institution="institution" v-loading="loading"></institution-list>
                     </div>
-<!--                    <word-cloud :wordcloud="wordcloud" v-loading="loading"></word-cloud>-->
+                    <bioentity-graph :bioentity_data="bioentity_data" v-loading="loading"></bioentity-graph>
                     <trend-linefold :linefold="linefold" v-loading="loading"></trend-linefold>
                     <br/>
                     <co-author :coauthor="coauthor" :flag="flag" v-loading="loading"></co-author>
@@ -27,21 +27,22 @@
 </template>
 
 <script>
+    import bioData from "../data/bioentity-data.json";
     import EntityCard from "../components/general/BioentityCard";
     import entityPapers from "../components/general/paper";
     import CoAuthors from "../components/general/coauthor";
     import EntityLinefold from "../components/general/linefold";
     import institutionList from "../components/general/institutionList";
-    // import wordcloud from "../components/general/wordcloud";
+    import BioentityGraph from "../components/general/BioentityGraph";
     import $axios from "./../util/axios"
     export default {
         components: {
-            "entity-card":EntityCard,
+            "entity-card": EntityCard,
             "author-paper": entityPapers,
             "co-author": CoAuthors,
             "institution-list": institutionList,
-            "trend-linefold":EntityLinefold,
-            // "word-cloud": wordcloud,
+            "trend-linefold": EntityLinefold,
+            "bioentity-graph": BioentityGraph,
         },
         data() {
           return {
@@ -49,11 +50,11 @@
               linefold:[],
               coauthor:[],
               institution:[],
-              // wordcloud:[],
               flag:"",
               name:"",
-            type:[],
-              loading:true
+              type:[],
+              bioentity_data: [],
+              loading:true,
           }
         },
       created() {
@@ -63,28 +64,19 @@
       watch: {
         '$route': 'get_data'
       },
-        // mounted() {
-        //     this.get_data()
-        // },
         methods:{
             get_data() {
               this.loading = true
               $axios.get("/displayBioentity/"+this.$route.params.id).then(response=>{
                 this.loading = false
                 let d=response.data
-                    console.log("d is :", d)
-                    this.name = this.$route.params.id
-                  // this.type=d["type"]
-                    this.paper = d["articles"]
+                    this.name = d["name"]
+                    this.paper = [d["articles"], d["clinicals"]]
                     this.linefold = d["bar"]
                     this.coauthor = d["coauthor"]
                     this.institution = d["institution"]
-                    // this.wordcloud = d["wordcloud"]
-                  //  this.paper = d
+                    this.bioentity_data = bioData[this.$route.params.id]
                     this.flag = "bio"
-                    // this.loading = false
-                  console.log("type is :")
-                   console.log(this.type)
                 })
             }
         }
@@ -100,18 +92,15 @@
         max-width: 1200px;
         width: 100%;
         margin: 0 auto;
-        /*padding: .5em;*/
     }
     .right{
         margin: 0 auto;
-        /*width: 100%;*/
     }
     .display-author{
         width: 100%;
     }
     .display-view {
         width: 100%;
-        /* max-width: 970px; */
         margin: 0 auto;
     }
 
@@ -119,7 +108,6 @@
         margin-bottom: 1.5em;
     }
     .display-query #query {
-        /* text-transform: uppercase; */
         font-weight: bold;
         font-size: 1.5em;
     }
@@ -137,7 +125,6 @@
     .display-visual .title {
         text-transform: capitalize;
         margin-bottom: 1em;
-        /* color: #409EFF; */
     }
 
     .el-divider--horizontal {

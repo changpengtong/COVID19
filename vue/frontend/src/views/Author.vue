@@ -1,13 +1,10 @@
 <template>
     <div class="display-view container">
-        <!-- 展示数据和可视化 -->
         <div class="display-info ">
             <el-row :gutter="24" >
 
                 <el-col :md="17" :sm="24" :xs="24">
-<!--                    author info-->
                     <author-card class="display-author"  :card="card" v-loading="loading"></author-card>
-                    <!-- 展示数据 -->
                     <div
                             v-loading="isLoading"
                             element-loading-text="loading……">
@@ -20,7 +17,6 @@
                             <i class="el-icon-question"></i>
                         </el-tooltip></p>
                         <entityList class="display-visual" :entity="entity" v-loading="loading"></entityList>
-<!--                        <wordcloud :wordcloud="wordcloud" v-loading="loading"></wordcloud>-->
                     <bar class="down" :bar="bar" v-loading="loading"></bar>
                     </div>
                     <co-author :coauthor="coauthor" :flag="flag" v-loading="loading"></co-author>
@@ -34,12 +30,8 @@
     import AuthorPaper from "../components/general/paper";
     import CoAuthors from "../components/general/coauthor";
     import entityList from "../components/general/list";
-    // import wordcloud from "../components/Author/AuthorWordcloud";
     import bar from "../components/general/bar";
-    // import wordcloud from "../components/general/wordcloud";
     import $axios from "../util/axios";
- //   import $route from "../util/router"
-    //import DisplayProfile from "../components/display_info/DisplayProfile";
     export default {
         name: "Author",
         components: {
@@ -47,17 +39,15 @@
             "author-paper": AuthorPaper,
             "co-author": CoAuthors,
             "bar":bar,
-            'entityList' : entityList,
-            // 'wordcloud':wordcloud
+            'entityList' : entityList
         },
         data() {
             return {
                 paper:[],
-              card:[],
+                card:[],
                 coauthor:[],
                 entity:[],
                 bar:[],
-                // wordcloud:[],
                 flag:"",
                 loading:true
             }
@@ -78,21 +68,12 @@
             $axios.get("/displayAuthor/" + this.$route.params.id).then(response => {
               this.loading = false
               let d = response.data
-              // console.log(d)
-              this.paper = d["articles"]
+              this.paper = [d["articles"], d["clinicals"]]
               this.bar = d["bar"]
               this.coauthor = d["coauthor"]
               this.entity = d["wordcloud"]
               this.card=d["card"]
-              // this.wordcloud = d["wordcloud"]
-              // this.card.name = this.$route.params.name
-              // this.card.mail= ""
-              // this.card.institution= this.$route.params.affi
-              // this.card.lab=""
-              // this.card.url= "/COVID19/#/institution/"+this.$route.params.affi
-              //  this.paper = d
               this.flag = "aut"
-              console.log("card is", this.card)
             })
           }
         },
@@ -107,18 +88,15 @@
         max-width: 1200px;
          width: 100%;
         margin: 0 auto;
-        /*padding: .5em;*/
     }
     .right{
         margin: 0 auto;
-        /*width: 100%;*/
     }
     .display-author{
         width: 100%;
     }
     .display-view {
         width: 100%;
-        /* max-width: 970px; */
          margin: 0 auto;
     }
 
@@ -126,7 +104,6 @@
         margin-bottom: 1.5em;
     }
     .display-query #query {
-        /* text-transform: uppercase; */
         font-weight: bold;
         font-size: 1.5em;
     }
@@ -141,7 +118,6 @@
     .display-visual .title {
         text-transform: capitalize;
         margin-bottom: 1em;
-        /* color: #409EFF; */
     }
 
     .el-divider--horizontal {

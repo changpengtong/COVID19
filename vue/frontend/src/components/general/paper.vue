@@ -9,7 +9,6 @@
                         :default-sort="{prop:'year',order:'ascending'}"
                         @sort-change="sort_change"
                         :header-cell-style="{
-                            // 'background-color': '#F5F5F5'
                             'padding-left': '1rem',
                         }"
                 >
@@ -50,7 +49,7 @@
                       label="TWEETS"
                       sortable="custom"
                       align="center"
-                      width="120"
+                      width="130"
                   >
                   </el-table-column>
                 </el-table>
@@ -63,16 +62,16 @@
                 </el-pagination>
             </div>
         </el-tab-pane>
-        <el-tab-pane label="ClinicalTrials">
+        <el-tab-pane label="Clinical Trials">
             <div>
                 <el-table
                         :data="tempClist"
                         style="width: 100%"
+                        class="my-table"
                         :default-sort="{prop:'year',order:'ascending'}"
                         @sort-change="sort_change"
                         :header-cell-style="{
-                            // 'background-color': '#F5F5F5'
-                            'padding-left': '1rem'
+                            'padding-left': '1rem',
                         }"
                 >
                     <el-table-column
@@ -83,17 +82,16 @@
                             width="600"
                     >
                         <template slot-scope="scope">
-                            <div v-for="(item,index) in scope.row.article" :key="index" style="margin-left: 1rem">
+                            <div v-for="(item,index) in scope.row.article" :key="index"  style="margin-left: 1rem">
                                 <span v-if="index==='title'" style="font-size: 17px">
-                                    <a href="https://www.google.com/">
+                                    <a :href="scope.row.article.url">
                                     {{item}}
                                     </a>
                                 </span>
-                                <span v-if="index==='author'" style="font-size: small">
-                                    <text-expand-shrink :text="item" :key="index"></text-expand-shrink>
-                                    <!--                                    {{item}}-->
+                                <span v-if="index==='researchers'" style="font-size: small">
+                                    {{item}}
                                 </span>
-                                <span v-if="index==='journal'" style="font-style: italic; font-size: small">
+                                <span v-if="index==='sponsors'" style="font-style: italic; font-size: small">
                                     {{item}}
                                 </span>
                             </div>
@@ -105,32 +103,26 @@
                             label="YEAR"
                             sortable="custom"
                             align="center"
+                            width="100"
                     >
                     </el-table-column>
-
                 </el-table>
                 <el-pagination
                         @size-change="handleSizeChange1"
                         @current-change="handleCurrentChange1" :current-page="currentPage1"
-                        :page-sizes="[5,10,20,50,100]"
-                        :page-size="pageSize1" layout="total, sizes, prev, pager, next, jumper"
-                        :total="cList.length"
-                        style="text-align: center;"
-                >
+                        :page-sizes="[5,10,15,20,50,100]"
+                        :page-size="pageSize" layout="total, sizes, prev, pager, next, jumper"
+                        :total="clinicalData.length">
                 </el-pagination>
             </div>
         </el-tab-pane>
-
     </el-tabs>
 
 </template>
 
 <script>
-    import textExpandShrink from "./../textExpandShrink";
     export default {
-        components: {
-            "text-expand-shrink": textExpandShrink
-        },
+        components: {},
         props:['paper'],
         data() {
             return {
@@ -143,58 +135,9 @@
                 currentPage1:1,
                 pageSize1:15,
                 tempList:[],
-                //    dataList:[],
                 tempClist:[],
                 tableData: [],
-                cList:[{
-                    article: {
-                        title: "Monte Carlo Calculations for Alcohols and Their Mixtures with Alkanes. Transferable Potentials for Phase Equilibria. 5. United-Atom Description of Primary, Secondary, and Tertiary Alcohols",
-                        author: "Bin Chen, Jeffrey J. Potoff, and J. Ilja Siepmann",
-                        journal: "The Journal of Physical Chemistry B 105 (15), 3093-3104",
-                        url:""
-                    },
-                    year: 12
-                },{
-                    article: {
-                        title: "Monte Carlo Calculations for Alcohols and Their Mixtures with Alkanes. Transferable Potentials for Phase Equilibria. 5. United-Atom Description of Primary, Secondary, and Tertiary Alcohols",
-                        author: "Bin Chen, Jeffrey J. Potoff, and J. Ilja Siepmann",
-                        journal: "The Journal of Physical Chemistry B 105 (15), 3093-3104",
-                        url:""
-                    },
-                    year: 13
-                },{
-                    article: {
-                        title: "Potentials for Phase Equilibria. 5. United-Atom Description of Primary, Secondary, and Tertiary Alcohols",
-                        author: "Bin Chen, Jeffrey J. Potoff, and J. Ilja Siepmann",
-                        journal: "The Journal of Physical Chemistry B 105 (15), 3093-3104",
-                        url:""
-                    },
-                    year: 14
-                },{
-                    article: {
-                        title: "Monte Carlo Calculations for Alcohols and Their Mixtures with Alkanes",
-                        author: "Jeffrey J. Potoff, and J. Ilja Siepmann",
-                        journal: "The Journal of Physical Chemistry B 105 (15), 3093-3104",
-                        url:""
-                    },
-                    year: 15
-                },{
-                    article: {
-                        title: " 5. United-Atom Description of Primary, Secondary, and Tertiary Alcohols",
-                        author: "Bin Chen, Jeffrey J. Potoff, and J. Ilja Siepmann",
-                        journal: "The Journal of Physical Chemistry B 105 (15), 3093-3104",
-                        url:""
-                    },
-                    year: 16
-                },{
-                    article: {
-                        title: "Transferable Potentials for Phase Equilibria. 5. United-Atom Description of Primary, Secondary, and Tertiary Alcohols",
-                        author: "Bin Chen, Jeffrey J. Potoff, and J. Ilja Siepmann",
-                        journal: "The Journal of Physical Chemistry B 105 (15), 3093-3104",
-                        url:""
-                    },
-                    year: 17
-                }]
+                clinicalData:[],
             }
 
         },
@@ -202,44 +145,50 @@
         },
         watch: {
             paper:function (newData) {
-                //console.log(newData)
                 this.d = newData
                 this.get_data()
                 this.currentChangePage(this.tableData,1)
-                this.currentChangePage1(this.cList,1)
+                this.currentChangePage1(this.clinicalData,1)
             }
         },
         methods: {
             get_data() {
-               // console.log(this.d)
                 let t=[]
-                for(let i=0;i<this.d.length;i++) {
+                for(let i=0;i<this.d[0].length;i++) {
                     let article = {}
-                    article["title"] = this.d[i]["ArticleTitle"]
-                    article["author"] = this.d[i]["Authors"]
-                    article["journal"] = this.d[i]["Journal_Title"]
-                    article["url"] = this.d[i]["url"]
-                    // article["tweet"]=this.d[i]["tweet"]
-                  if (!this.d[i]["tweet"]) {
-                    // data attribute doesn't exist
-                    t.push({"article":article,"year":this.d[i]["PubYear"],"tweet":"0"})
+                    article["title"] = this.d[0][i]["ArticleTitle"]
+                    article["author"] = this.d[0][i]["Authors"]
+                    article["journal"] = this.d[0][i]["Journal_Title"]
+                    article["url"] = this.d[0][i]["url"]
+
+                  if (!this.d[0][i]["tweet"]) {
+                    t.push({"article":article,"year":this.d[0][i]["PubYear"],"tweet":"0"})
                   }
                   else{
-                    this.d[i]["tweet"]=String(this.d[i]["tweet"]).split('.')[0]
-                    t.push({"article":article,"year":this.d[i]["PubYear"],"tweet":this.d[i]["tweet"]})
+                    this.d[0][i]["tweet"]=String(this.d[0][i]["tweet"]).split('.')[0]
+                    t.push({"article":article,"year":this.d[0][i]["PubYear"],"tweet":this.d[0][i]["tweet"]})
                   }
-                  // else{
-                  //   t.push({"article":article,"year":this.d[i]["PubYear"],"tweet":0})
-                  // }
-                  // console.log(t)
-
                 }
                 this.tableData = t
+
+                let t1 = []
+                if (this.d[1] != null) {
+                    for (let i = 0; i < this.d[1].length; i++) {
+                        let clinical = {}
+                        clinical['title'] = this.d[1][i]['title']
+                        clinical['url'] = this.d[1][i]['url']
+                        clinical['sponsors'] = this.d[1][i]['sponsors']
+                        clinical['researchers'] = this.d[1][i]['researchers']
+
+                        t1.push({"article": clinical, "year": this.d[1][i]['year']})
+                    }
+                }
+                this.clinicalData = t1
             },
             sort_change(column) {
-                this.currentPage = 1; // 排序后返回第一页
+                this.currentPage = 1; 
                 if (column.prop === "year") {
-                    this.proptype = column.prop; // 将键名prop赋值给变量proptype
+                    this.proptype = column.prop; 
                     if (column.order === "descending") {
                         this.tableData.sort(this.my_desc_sort);
                         this.currentChangePage(this.tableData,1)
@@ -249,7 +198,7 @@
                     }
                 }
               if (column.prop === "tweet") {
-                this.proptype = column.prop; // 将键名prop赋值给变量proptype
+                this.proptype = column.prop; 
                 if (column.order === "descending") {
                   this.tableData.sort(this.my_desc_sort);
                   this.currentChangePage(this.tableData,1)
@@ -259,7 +208,7 @@
                 }
               }
                 if(column.prop === "article") {
-                    this.proptype = column.prop; //
+                    this.proptype = column.prop; 
                     if (column.order === "descending") {
                         this.tableData.sort(this.my_desc_sort);
                         this.currentChangePage(this.tableData,1)
@@ -269,9 +218,9 @@
                     }
                 }
             },
-            //排序方法
+
             my_desc_sort(a, b) {
-                return b[this.proptype] - a[this.proptype]; // a["time"] 等价于 a.time
+                return b[this.proptype] - a[this.proptype]; 
             },
             my_asc_sort(a, b) {
                 return a[this.proptype] - b[this.proptype];
@@ -305,7 +254,7 @@
             },
             handleCurrentChange1:function (currentPage) {
                 this.currentPage1 = currentPage
-                this.currentChangePage1(this.cList,currentPage)
+                this.currentChangePage1(this.clinicalData,currentPage)
             },
             currentChangePage(list,currentPage) {
                 let from = (currentPage-1)*this.pageSize
@@ -337,11 +286,8 @@
         padding: 0;
         position: relative;
         margin: 0 0;
-        /*border: 1px solid #eeeeee;*/
-
     }
     .el-table__row>td {
-        /*margin-left: 10em;*/
     }
     .el-table{
         border: 1px solid #eeeeee;
@@ -351,7 +297,6 @@
         height: 0px
     }
     .my-tab {
-        /*margin-top: -1.5em;*/
     }
     .el-pagination{
         text-align: center;

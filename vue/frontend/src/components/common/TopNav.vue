@@ -5,14 +5,14 @@
       <div class="framework-width">
         <el-row :gutter="20">
           <el-col :span="12">
-        <div id="icon">
-          <a href="/COVID19/">COVID-19 PORTAL</a >
-        </div>
+            <div id="icon">
+              <a href="/COVID19/">COVID-19 PORTAL</a >
+            </div>
           </el-col>
           <el-col :span="12">
-        <transition name="el-zoom-in-top">
-          <search-wrapper v-if="ifSearchBox"></search-wrapper>
-        </transition>
+            <transition name="el-zoom-in-top">
+              <search-wrapper v-if="ifSearchBox"></search-wrapper>
+            </transition>
           </el-col>
         </el-row>
       </div>
@@ -21,11 +21,9 @@
 </template>
 
 <script scoped>
-// import SearchBox from "./../common/SearchBox.vue";
 import SearchWrapper from "../home/SearchWrapper";
 export default {
   components: {
-    // "search-box": SearchBox,
     "search-wrapper": SearchWrapper,
   },
   computed: {
@@ -41,11 +39,9 @@ export default {
 </script>
 
 <style>
-/*<!--search box wrapper-->*/
 .topnav .home-search-pane {
   display: block;
   width: 100%;
-  height: 100%;
   padding-top: 18px;
   position: relative;
   margin-left: 20%;
@@ -64,12 +60,11 @@ export default {
 
 }
 .topnav .search-box .search-box-auto {
-  position: absolute;
+  position: auto;
   max-width: 500px;
   width: 100%;
   margin-right: 2px;
 }
-/*serach box*/
 .topnav .search-box .el-input__inner {
   border-radius: 20px 20px;
 
@@ -86,26 +81,15 @@ export default {
   box-sizing: border-box;
 }
 
-/*
-    导航栏样式
-     */
 .topnav {
   overflow: hidden;
-  /* background-color: #e9e9e9; */
   background-color: #ffffff;
-  /* box-shadow: 0px 1px 2px #aaaaaa; */
-  /* position: fixed; */
   border-bottom: 1px solid #e1e1e1;
   top: 0;
-  height: 150px;
+  height: 10%;
   width: 100%;
-  padding-top: 15px;
 }
 
-/*
-     * ---------------------------------------------
-     *  暂时的网站标识
-     */
 #icon {
   float: left;
   display: block;
@@ -116,6 +100,18 @@ export default {
 }
 #icon a {
   font-size: 35px;
+}
+
+#info {
+  float: right;
+  display: block;
+  line-height: 30px;
+  font-weight: bold;
+  margin-top:15px;
+  margin-left: 40px;
+}
+#info a {
+  font-size: 20px;
 }
 
 .topnav a,
@@ -133,16 +129,7 @@ export default {
 }
 
 .topnav .link:hover {
-  /* border-bottom: 4px solid #409EFF; */
   border-bottom-color: #409eff;
 }
 
-/*.topnav .search-wrapperr{*/
-/*  float: right;*/
-/*  display: inline-block;*/
-/*  !* height: 25px; *!*/
-/*  line-height: 40px;*/
-/*  width: 55%;*/
-/*  border: #503C0E;*/
-/*}*/
 </style>

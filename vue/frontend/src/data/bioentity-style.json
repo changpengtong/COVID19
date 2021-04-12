@@ -1,0 +1,184 @@
+[
+  {
+    "selector": "core",
+    "style": {
+      "selection-box-color": "#AAD8FF",
+      "selection-box-border-color": "#8BB0D0",
+      "selection-box-opacity": "0.5"
+    }
+  },
+  {
+    "selector": "node",
+    "style": {
+      "content": "data(name)",
+      "font-size": "12px",
+      "text-valign": "center",
+      "text-halign": "center",
+      "background-color": "#A0F7F9",
+      "text-outline-color": "#A0F7F9",
+      "text-outline-width": "2px",
+      "color": "#fff",
+      "overlay-padding": "6px",
+      "z-index": "10"
+    }
+  },
+  {
+    "selector": "node[?attr]",
+    "style": {
+      "shape": "rectangle",
+      "background-color": "#aaa",
+      "text-outline-color": "#aaa",
+      "width": "16px",
+      "height": "16px",
+      "font-size": "6px",
+      "z-index": "1"
+    }
+  },
+  {
+    "selector": "node[?query]",
+    "style": {
+      "background-clip": "none",
+      "background-fit": "contain"
+    }
+  },
+  {
+    "selector": "node:selected",
+    "style": {
+      "border-width": "6px",
+      "border-color": "#AAD8FF",
+      "border-opacity": "0.5",
+      "background-color": "#77828C",
+      "text-outline-color": "#77828C"
+    }
+  },
+  {
+    "selector": "edge",
+    "style": {
+      "curve-style": "haystack",
+      "haystack-radius": "0.5",
+      "opacity": "0.8",
+      "line-color": "#bbb",
+      "overlay-padding": "3px"
+    }
+  },
+  {
+    "selector": "node.unhighlighted",
+    "style": {
+      "opacity": "0.2"
+    }
+  },
+  {
+    "selector": "edge.unhighlighted",
+    "style": {
+      "opacity": "0.05"
+    }
+  },
+  {
+    "selector": ".highlighted",
+    "style": {
+      "z-index": "999999"
+    }
+  },
+  {
+    "selector": "node.highlighted",
+    "style": {
+      "border-width": "6px",
+      "border-color": "#AAD8FF",
+      "border-opacity": "0.5",
+      "background-color": "#394855",
+      "text-outline-color": "#394855"
+    }
+  },
+  {
+    "selector": "edge.filtered",
+    "style": {
+      "opacity": "0"
+    }
+  },
+  {
+    "selector": "edge[type=\"ASSOCIATED_WITH\"]",
+    "style": {
+      "line-color": "#d0b7d5",
+      "label": "data(type)",
+      "text-rotation": "autorotate"
+    }
+  },
+  {
+    "selector": "edge[type=\"OBSERVED\"]",
+    "style": {
+      "line-color": "#a0b3dc",
+      "label": "data(type)",
+      "text-rotation": "autorotate"
+    }
+  },
+  {
+    "selector": "edge[type=\"HAS_ACTIVITY\"]",
+    "style": {
+      "line-color": "#9bd8de",
+      "label": "data(type)",
+      "text-rotation": "autorotate"
+    }
+  },
+  {
+    "selector": "edge[type=\"HAS_ADVERSE_EFFECT\"]",
+    "style": {
+      "line-color": "#f6c384",
+      "label": "data(type)",
+      "text-rotation": "autorotate"
+    }
+  },
+  {
+    "selector": "edge[type=\"HAS_INDICATION\"]",
+    "style": {
+      "line-color": "#D0D0D0",
+      "label": "data(type)",
+      "text-rotation": "autorotate"
+    }
+  },
+  {
+    "selector": "edge[type=\"HAS_PHYSICAL_INTERACTION\"]",
+    "style": {
+      "line-color": "#eaa2a2",
+      "label": "data(type)",
+      "text-rotation": "autorotate"
+    }
+  },
+  {
+    "selector": "edge[type=\"IS_A\"]",
+    "style": {
+      "line-color": "#f0ec86",
+      "label": "data(type)",
+      "text-rotation": "autorotate"
+    }
+  },
+  {
+    "selector": "node[type=\"Compound\"]",
+    "style": {
+      "color": "#EFBE07"
+    }
+  },
+  {
+    "selector": "node[type=\"Organism\"]",
+    "style": {
+      "color": "#eaa2a2"
+    }
+  },
+  {
+    "selector": "node[type=\"Gene\"]",
+    "style": {
+      "color": "#314985"
+    }
+  },
+  {
+    "selector": "node[type=\"Phenotype\"]",
+    "style": {
+      "color": "#EF4607"
+    }
+  },
+  {
+    "selector": "node[type=\"undefined\"]",
+    "style": {
+      "color": "#E9881B"
+    }
+  }
+]

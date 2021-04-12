@@ -1,17 +1,22 @@
 [
     {
-        "name": "Covid-19"
+        "name": "covid-19",
+        "id": "0"
     },
     {
-        "name": "Ace2"
+        "name": "Ace2",
+        "id": "4"
     },
     {
-        "name": "IL-6"
+        "name": "Pneumonia",
+        "id": "14"
     },
     {
-        "name": "Lopinavir"
+        "name": "CD8",
+        "id": "34"
     },
     {
-        "name": "Ritonavir"
+        "name": "CD4",
+        "id": "12"
     }
 ]
