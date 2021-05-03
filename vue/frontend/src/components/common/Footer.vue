@@ -1,7 +1,8 @@
 <template>
   <div class="footer _bg-grey">
     <div class="_container">
-      <p ><span>This Portal is Funded by</span> NSF RAPID (2028717), and is hosted by the School of Information at University of Texas at Austin</p>
+      <p><span>This Portal is Funded by</span> NSF RAPID (2028717), Suit Endowment Fund and Mary R. Boyvey Dean’s Excellence Fund, and is hosted by the School of Information at University of Texas at Austin</p>
+      <p>Website Organized by Aoshen Wan, Yan Zhan, Sanjana Tripathi, Jiarong Yang and Mona Sachdev</p>
     </div>
   </div>
 </template>

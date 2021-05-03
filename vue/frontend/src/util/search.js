@@ -1,6 +1,5 @@
 import $bus from "./bus"
 import $axios from "./axios"
-import $router from './router'
 
 export default {
     author_query: (query) => {
@@ -10,9 +9,9 @@ export default {
         $axios.get("/author/"+query)
             .then(res=> {
                 $bus.receive_result(res.data)
-            }).catch(err=> {
+            }).catch(
                 $bus.$emit("changeLoading",false)
-        })
+        )
     },
 
     bioentity_query: (query) => {
@@ -22,9 +21,9 @@ export default {
         $axios.get("/bioentity/"+query)
             .then(res=> {
                 $bus.receive_result(res.data)
-            }).catch(err=> {
+            }).catch(
             $bus.$emit("changeLoading",false)
-        })
+        )
     },
 
     institution_query: (query) => {
@@ -34,8 +33,8 @@ export default {
         $axios.get("/institution/"+this.$route.params.id)
             .then(res=> {
                 $bus.receive_result(res.data)
-            }).catch(err=> {
+            }).catch(
             $bus.$emit("changeLoading",false)
-        })
+        )
     },
 }

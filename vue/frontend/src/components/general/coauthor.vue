@@ -79,7 +79,7 @@
                         t.push({
                             'name': this.d[i]["ForeName"] + " " + this.d[i]["LastName"],
                             'institution': this.d[i]["Affiliation"] + " " + this.d[i]["Location"],
-                            'url': "/COVID19/#/author/" + this.d[i]["aid"]
+                            'url': "/#/author/" + this.d[i]["aid"]
                         })
                     }
                 }

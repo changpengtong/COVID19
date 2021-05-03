@@ -5,9 +5,9 @@ let http = axios.create({
 })
 
 if (process.env.NODE_ENV == 'development') {
-    http.defaults.baseURL = 'localhost:9999/COVID19/';}
+    http.defaults.baseURL = 'localhost:9999/';}
 else if (process.env.NODE_ENV == 'production') {
-    http.defaults.baseURL = '/COVID19/';
+    http.defaults.baseURL = '/';
 }
 
 export default http;

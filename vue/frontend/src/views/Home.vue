@@ -85,7 +85,7 @@ export default {
   padding-top: 5%;
   padding-left: 22%;
   padding-right: 9%;
-  padding-bottom: 10%;
+  padding-bottom: 6%;
 }
 
 .home .el-col-6 {
