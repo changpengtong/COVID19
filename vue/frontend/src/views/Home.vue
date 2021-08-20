@@ -34,6 +34,9 @@
         </el-row>
       </div>
     </div>
+    <el-footer class='m-footer'>
+      <vfooter class='footer'></vfooter>
+    </el-footer>
   </div>
 </template>
 
@@ -43,6 +46,8 @@ import dataInstitutions from "../data/top5Institutions.json";
 import dataAuthors from "../data/top5Authors.json";
 import SmallTable from "../components/home/SmallTable.vue";
 import SearchWrapper from "../components/home/SearchWrapper";
+import Footer from '../components/common/Footer';
+import '../assets/css/override-element-ui.css';
 
 export default {
   name: "home",
@@ -59,6 +64,7 @@ export default {
   components: {
     "small-table": SmallTable,
     "search-wrapper": SearchWrapper,
+    "Vfooter": Footer,
   },
 };
 </script>
@@ -75,17 +81,21 @@ export default {
   height: 100%;
 }
 
+.context {
+  height: 92%;
+}
+
 .home .search {
   padding-top: 5%;
   padding-left: 25%;
-  height: 10%
+  height: 20%;
 }
 
 .home .table {
   padding-top: 5%;
   padding-left: 22%;
   padding-right: 9%;
-  padding-bottom: 6%;
+  padding-bottom: 9.5%;
 }
 
 .home .el-col-6 {
@@ -102,7 +112,7 @@ export default {
   padding-bottom: 10px;
 }
 
-.home .home-search-pane .radios .el-radio-group {
+.home .home-search-pane.radios .el-radio-group {
   padding-top: 13px;
   padding-left: 15%;
 }

@@ -14,8 +14,8 @@
       "font-size": "12px",
       "text-valign": "center",
       "text-halign": "center",
-      "background-color": "#A0F7F9",
-      "text-outline-color": "#A0F7F9",
+      "background-color": "#555",
+      "text-outline-color": "#555",
       "text-outline-width": "2px",
       "color": "#fff",
       "overlay-padding": "6px",
@@ -58,6 +58,7 @@
       "haystack-radius": "0.5",
       "opacity": "0.8",
       "line-color": "#bbb",
+      "width": "mapData(avg_score, 0, 1, 1, 8)",
       "overlay-padding": "3px"
     }
   },
@@ -98,63 +99,49 @@
   {
     "selector": "edge[type=\"ASSOCIATED_WITH\"]",
     "style": {
-      "line-color": "#d0b7d5",
-      "label": "data(type)",
-      "text-rotation": "autorotate"
+      "line-color": "#d0b7d5"
     }
   },
   {
     "selector": "edge[type=\"OBSERVED\"]",
     "style": {
-      "line-color": "#a0b3dc",
-      "label": "data(type)",
-      "text-rotation": "autorotate"
+      "line-color": "#a0b3dc"
     }
   },
   {
     "selector": "edge[type=\"HAS_ACTIVITY\"]",
     "style": {
-      "line-color": "#9bd8de",
-      "label": "data(type)",
-      "text-rotation": "autorotate"
+      "line-color": "#9bd8de"
     }
   },
   {
     "selector": "edge[type=\"HAS_ADVERSE_EFFECT\"]",
     "style": {
-      "line-color": "#f6c384",
-      "label": "data(type)",
-      "text-rotation": "autorotate"
+      "line-color": "#f6c384"
     }
   },
   {
     "selector": "edge[type=\"HAS_INDICATION\"]",
     "style": {
-      "line-color": "#D0D0D0",
-      "label": "data(type)",
-      "text-rotation": "autorotate"
+      "line-color": "#D0D0D0"
     }
   },
   {
     "selector": "edge[type=\"HAS_PHYSICAL_INTERACTION\"]",
     "style": {
-      "line-color": "#eaa2a2",
-      "label": "data(type)",
-      "text-rotation": "autorotate"
+      "line-color": "#eaa2a2"
     }
   },
   {
     "selector": "edge[type=\"IS_A\"]",
     "style": {
-      "line-color": "#f0ec86",
-      "label": "data(type)",
-      "text-rotation": "autorotate"
+      "line-color": "#f0ec86"
     }
   },
   {
     "selector": "node[type=\"Compound\"]",
     "style": {
-      "color": "#EFBE07"
+      "color": "#1C1919"
     }
   },
   {
@@ -173,12 +160,6 @@
     "selector": "node[type=\"Phenotype\"]",
     "style": {
       "color": "#EF4607"
-    }
-  },
-  {
-    "selector": "node[type=\"undefined\"]",
-    "style": {
-      "color": "#E9881B"
     }
   }
 ]

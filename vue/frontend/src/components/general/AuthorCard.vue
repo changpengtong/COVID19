@@ -17,13 +17,6 @@
               <span class="institution" v-if="profile.institution">{{profile.institution}}</span>
             </a>
           </div>
-          <div class="info-item" v-if="profile.mail">
-            <span class="info-item-title">Location:</span><span>{{profile.location}}</span>
-          </div>
-          <!-- mail -->
-          <div class="info-item" v-if="profile.mail">
-            <span class="info-item-title">Email:</span><span>{{profile.mail}}</span>
-          </div>
         </div>
       </el-col>
     </el-row>

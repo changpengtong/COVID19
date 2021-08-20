@@ -3,69 +3,69 @@
     {
         "name": "Edward C Holmes",
         "aid": "7006609",
-        "affiliation": "Instituto de Salud Carlos III",
-        "authorUrl": "/#/author/7006609",
-        "affiliationUrl": "/#/institution/14708"
+        "affiliation": "The University Of Sydney",
+        "authorUrl": "/COVID19/#/author/7006609",
+        "affiliationUrl": "/COVID19/#/institution/30650"
     },
     {
         "name": "Jason S McLellan",
         "aid": "3222527",
         "affiliation": "University of Texas at Austin",
-        "authorUrl": "/#/author/3222527",
-        "affiliationUrl": "/#/institution/36698"
+        "authorUrl": "/COVID19/#/author/3222527",
+        "affiliationUrl": "/COVID19/#/institution/36698"
     },
     {
         "name": "Linda J Saif",
         "aid": "6494749",
         "affiliation": "The Ohio State University",
-        "authorUrl": "/#/author/6494749",
-        "affiliationUrl": "/#/institution/30161"
+        "authorUrl": "/COVID19/#/author/6494749",
+        "affiliationUrl": "/COVID19/#/institution/30161"
     },
     {
         "name": "Barney S Graham",
         "aid": "3352799",
         "affiliation": "National Institutes of Health",
-        "authorUrl": "/#/author/3352799",
-        "affiliationUrl": "/#/institution/21144"
+        "authorUrl": "/COVID19/#/author/3352799",
+        "affiliationUrl": "/COVID19/#/institution/21144"
     },
     {
         "name": "Janet A Englund",
         "aid": "5247744",
         "affiliation": "University of washington",
-        "authorUrl": "/#/author/5247744",
-        "affiliationUrl": "/#/institution/37133"
+        "authorUrl": "/COVID19/#/author/5247744",
+        "affiliationUrl": "/COVID19/#/institution/37133"
     },
     {    "name": "Susan R Weiss",
         "aid": "144068257",
     "affiliation": "University of Pennsylvania",
-        "authorUrl": "/#/author/144068257",
-        "affiliationUrl": "/#/institution/36217"
+        "authorUrl": "/COVID19/#/author/144068257",
+        "affiliationUrl": "/COVID19/#/institution/36217"
     },
     {
         "name": "Gary R Whittaker",
         "aid": "2779993",
         "affiliation": "Cornell University",
-        "authorUrl": "/#/author/2779993",
-        "affiliationUrl": "/#/institution/6919"
+        "authorUrl": "/COVID19/#/author/2779993",
+        "affiliationUrl": "/COVID19/#/institution/6919"
     },
     {
         "name": "Oliver G Pybus",
         "aid":"2305815",
         "affiliation": "University of Oxford",
-        "authorUrl": "/#/author/2305815",
-        "affiliationUrl": "/#/institution/36160"
+        "authorUrl": "/COVID19/#/author/2305815",
+        "affiliationUrl": "/COVID19/#/institution/36160"
     },
     {
         "name": "Jens H Kuhn",
         "aid": "1905145",
         "affiliation": "National Institutes of Health",
-        "authorUrl": "/#/author/1905145",
-        "affiliationUrl": "/#/institution/21144"},
+        "authorUrl": "/COVID19/#/author/1905145",
+        "affiliationUrl": "/COVID19/#/institution/21144"},
     {
         "name": "Keith R Jerome",
         "aid": "2600436",
         "affiliation": "University of Washington",
-        "authorUrl": "/#/author/2600436",
-        "affiliationUrl": "/#/institution/36924"
+        "authorUrl": "/COVID19/#/author/2600436",
+        "affiliationUrl": "/COVID19/#/institution/36924"
     }
 ]

@@ -22,12 +22,6 @@
                            <span class="institution" v-if="author.affiliation">{{author.affiliation}}</span>
                             </a>
                     </div>
-                    <div class="info-item" v-if="author.email">
-                        <span class="info-item-title"></span><span>{{author.location}}</span>
-                    </div>
-                    <div class="info-item" v-if="author.email">
-                        <span class="info-item-title">Email:</span><span>{{author.email}}</span>
-                    </div>
                  </el-scrollbar>
                 </div>
             </el-col>
@@ -97,8 +91,8 @@ export default {
               "name" : this.d[i]["Name"],
               "affiliation" : this.d[i]["Affiliation"],
               "aid" :this.d[i]["aid"],
-              "affiliationUrl":"/#/institution/"+ this.d[i]["institution_id"],
-              "url": "/#/author/"+this.d[i]["aid"],
+              "affiliationUrl":"/COVID19/#/institution/"+ this.d[i]["institution_id"],
+              "url": "/COVID19/#/author/"+this.d[i]["aid"],
               "location": this.d[i]["Location"]
             })
         }

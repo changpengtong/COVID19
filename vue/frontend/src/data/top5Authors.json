@@ -2,22 +2,37 @@
 
     {
         "name": "Edward C Holmes",
-        "aid": "7006609"
-    },
-    {
-        "name": "Oliver G Pybus",
-        "aid":"2305815"
+        "aid": "7006609",
+        "affiliation": "The University of Syndney",
+        "authorUrl": "/#/author/7006609",
+        "affiliationUrl": "/#/institution/14708"
     },
     {
         "name": "Jason S McLellan",
-        "aid": "3222527"
+        "aid": "3222527",
+        "affiliation": "University of Texas at Austin",
+        "authorUrl": "/#/author/3222527",
+        "affiliationUrl": "/#/institution/36698"
     },
     {
         "name": "Linda J Saif",
-        "aid": "6494749"
+        "aid": "6494749",
+        "affiliation": "The Ohio State University",
+        "authorUrl": "/#/author/6494749",
+        "affiliationUrl": "/#/institution/30161"
     },
     {
         "name": "Barney S Graham",
-        "aid": "3352799"
+        "aid": "3352799",
+        "affiliation": "National Institutes of Health",
+        "authorUrl": "/#/author/3352799",
+        "affiliationUrl": "/#/institution/21144"
+    },
+    {
+        "name": "Janet A Englund",
+        "aid": "5247744",
+        "affiliation": "University of washington",
+        "authorUrl": "/#/author/5247744",
+        "affiliationUrl": "/#/institution/37133"
     }
 ]

@@ -9569,6 +9569,11 @@
   "resolved" "http://mirrors.cloud.tencent.com/npm/vm-browserify/-/vm-browserify-1.1.2.tgz"
   "version" "1.1.2"
 
+"vue-analytics@^5.22.1":
+  "integrity" "sha512-HPKQMN7gfcUqS5SxoO0VxqLRRSPkG1H1FqglsHccz6BatBatNtm/Vyy8brApktZxNCfnAkrSVDpxg3/FNDeOgQ=="
+  "resolved" "https://registry.npmjs.org/vue-analytics/-/vue-analytics-5.22.1.tgz"
+  "version" "5.22.1"
+
 "vue-echarts@^5.0.0-beta.0":
   "integrity" "sha512-QZFKGXDAYFQo+F20REpzcdLx79nsl4kOorJRpN+08aYq4YiIlmtWss1Lxadm7Fo+NYyWm8nnT+h4xHv3uqWIDQ=="
   "resolved" "http://mirrors.cloud.tencent.com/npm/vue-echarts/-/vue-echarts-5.0.0-beta.0.tgz"

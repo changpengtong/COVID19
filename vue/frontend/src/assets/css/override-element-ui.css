@@ -8,7 +8,11 @@
 }
 
 .el-header,
-.el-main,
+
+.el-main {
+  height: 100%;
+}
+
 .el-footer {
     width: 100%;
     margin: 0;
@@ -16,7 +20,7 @@
 }
 
 .m-footer {
-    height: 7% !important;
+    height: 8% !important;
   }
 
 .el-tabs__header {

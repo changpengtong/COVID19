@@ -78,8 +78,8 @@
                     if (typeof this.d[i]["Location"]!='undefined' && typeof this.d[i]["aid"]!='undefined' && typeof this.d[i]["ForeName"]!='undefined' && typeof this.d[i]["LastName"]!='undefined' && typeof this.d[i]["Affiliation"]!='undefined' ) {
                         t.push({
                             'name': this.d[i]["ForeName"] + " " + this.d[i]["LastName"],
-                            'institution': this.d[i]["Affiliation"] + " " + this.d[i]["Location"],
-                            'url': "/#/author/" + this.d[i]["aid"]
+                            'institution': this.d[i]["Affiliation"],
+                            'url': "/COVID19/#/author/" + this.d[i]["aid"]
                         })
                     }
                 }

@@ -135,11 +135,11 @@ func InstitutionBarGraphPapersByYear(c chan interface{}, keyword string) {
 }
 
 func InstitutionPapers(c chan interface{}, keyword string) {
-	c <- GenerateSQL("SELECT TRIM(BOTH '['  FROM a.title) as ArticleTitle, a.abstract, a.author as Authors, SUBSTRING(a.publish_time, 1, 4) AS PubYear, a.journal as Journal_Title, a.url, a.tweet FROM COVID19_Paper a JOIN COVID19_Paper2Institution b ON a.cord_uid = b.paper_id WHERE b.institution_id = '" + keyword + "' ORDER BY PubYear DESC LIMIT 1000")
+	c <- GenerateSQL("SELECT TRIM(BOTH '['  FROM c.title) as ArticleTitle, c.abstract, c.author as Authors, SUBSTRING(c.publish_time, 1, 4) AS PubYear, c.journal as Journal_Title, c.url, c.tweet FROM COVID19_Paper c JOIN (SELECT DISTINCT c.paper_id FROM COVID19_Paper2Author c JOIN (SELECT a.id FROM COVID19_Author a WHERE a.institution_id = '" + keyword + "') d ON d.id = c.author_id) e ON c.cord_uid = e.paper_id ORDER BY PubYear DESC LIMIT 1000;")
 }
 
 func InstitutionAuthors(c chan interface{}, keyword string) {
-	c <- GenerateSQL("SELECT SUBSTRING_INDEX(d.author_name, ' ', 2) AS ForeName, SUBSTRING_INDEX(d.author_name, ' ', -2) AS LastName, e.institution AS Affiliation, d.author_name as FullName, e.location AS Location, d.id AS aid FROM COVID19_Paper a JOIN COVID19_Paper2Institution b ON a.cord_uid = b.paper_id JOIN COVID19_Paper2Author c ON a.cord_uid = c.paper_id JOIN COVID19_Author d ON c.author_id = d.id JOIN COVID19_Institution e ON d.institution_id = e.id WHERE b.institution_id = '" + keyword + "' LIMIT 3000")
+	c <- GenerateSQL("SELECT SUBSTRING_INDEX(d.author_name, ' ', 2) AS ForeName, SUBSTRING_INDEX(d.author_name, ' ', -2) AS LastName, e.institution AS Affiliation, d.author_name as FullName, e.location AS Location, d.id AS aid FROM COVID19_Paper a JOIN COVID19_Paper2Institution b ON a.cord_uid = b.paper_id JOIN COVID19_Paper2Author c ON a.cord_uid = c.paper_id JOIN COVID19_Author d ON c.author_id = d.id JOIN COVID19_Institution e ON d.institution_id = e.id WHERE e.id = '" + keyword + "' LIMIT 3000")
 }
 
 func InstitutionDisease(c chan interface{}, keyword string) {

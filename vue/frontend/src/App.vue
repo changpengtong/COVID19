@@ -12,25 +12,18 @@
           <router-view class="view" />
         </div>
       </el-main>
-      <el-footer class='m-footer'>
-        <vfooter class='footer'></vfooter>
-      </el-footer>
     </el-container>
-    <back-top></back-top>
   </div>
 </template>
-
 <script>
   import TopNav from './components/common/TopNav'
-  import Footer from './components/common/Footer'
  import './assets/css/override-element-ui.css'
-import backtop from "./components/common/BackTop"
+// import backtop from "./components/common/BackTop"
   export default {
     name: 'App',
     components: {
       "top-nav": TopNav,
-      "Vfooter": Footer,
-      "back-top": backtop
+      // "back-top": backtop
     },
   }
 
@@ -54,16 +47,19 @@ import backtop from "./components/common/BackTop"
   }
 
   .content {
+    height: 100%;
     min-height: 100%;
+    margin: 0;
   }
 
   .view {
+    height: 100%;
     min-height: 100%;
   }
 
   .override-el-main.el-main {
     padding: 0px;
-    height: 80%;
+    height: 85%;
   }
 
   .override-el-header.el-header {

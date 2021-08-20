@@ -79,3 +79,9 @@ export default {
   },
 };
 </script>
+<style scoped>
+  .radios {
+    padding-left: 20%;
+    padding-right: 9%;
+  }
+</style>
