@@ -22,6 +22,11 @@ func InitRouter() *gin.Engine {
 			"message": "sss",
 		})
 	})
+
+	router.GET("/hello", func(c *gin.Context) {
+		c.JSON(200, "hello world")
+	})
+
 	router.GET("/displayAuthorList/:id", func(c *gin.Context) {
 		name := c.Param("id")
 		fmt.Println(name)
